@@ -1,3 +1,7 @@
 src.html
 *.part
 build.py
+build_podstrony.py
+dane_katalog.py
+podstrony.css
+__pycache__/

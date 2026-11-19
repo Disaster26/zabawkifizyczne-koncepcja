@@ -49,7 +49,7 @@
   var lb=document.getElementById('lb'),lim=lb.querySelector('img'),lp=lb.querySelector('p'),grp=[],ix=0,last=null;
   function pokaz(){var b=grp[ix];lim.src=b.getAttribute('data-lb');lim.alt=b.getAttribute('aria-label')||'';lp.textContent=(b.getAttribute('data-t')||'')+(grp.length>1?'  ('+(ix+1)+'/'+grp.length+')':'')}
   document.querySelectorAll('[data-lb]').forEach(function(b){b.addEventListener('click',function(){
-    var box=b.closest('[data-tor], .siatka, .kolba');grp=box?[].slice.call(box.querySelectorAll('[data-lb]')):[b];ix=grp.indexOf(b);last=b;pokaz();lb.classList.add('otw');lb.querySelector('.x').focus()})});
+    var box=b.closest('[data-tor], .siatka, .kolba, [data-grupa], .lista');grp=box?[].slice.call(box.querySelectorAll('[data-lb]')):[b];ix=grp.indexOf(b);last=b;pokaz();lb.classList.add('otw');lb.querySelector('.x').focus()})});
   function zam(){lb.classList.remove('otw');lim.removeAttribute('src');if(last)last.focus()}
   lb.querySelector('.x').addEventListener('click',zam);
   lb.querySelector('.p').addEventListener('click',function(){ix=(ix-1+grp.length)%grp.length;pokaz()});
