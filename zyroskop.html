@@ -77,6 +77,8 @@ p{margin:0}
 .nav a:hover::after,.nav a.on::after{transform:none}
 .nav li:last-child{margin-left:auto}
 .nav li:last-child a{color:var(--b)}
+@media (min-width:1101px) and (max-width:1439px){.nav ul{gap:16px}.nav a{font-size:.88rem}}
+@media (min-width:1101px) and (max-width:1280px){.nav .n-dost{display:none}}
 @media (max-width:1100px){
   .nav{position:absolute;left:0;right:0;top:100%;height:auto;background:#fff;border-top:1px solid var(--line);box-shadow:0 18px 30px rgba(20,33,63,.14);transform:translateY(-8px);opacity:0;visibility:hidden;transition:.2s;z-index:49;max-height:calc(100svh - var(--hh) - var(--tb));overflow:auto}
   .top.open .nav{transform:none;opacity:1;visibility:visible}
@@ -537,6 +539,68 @@ p{margin:0}
 .ksiega-baner .mini span{display:block;color:#fff;font-size:11px;margin:0;line-height:1.15}
 .str .foto img{position:absolute;inset:0;margin:auto;max-width:86%;max-height:96%}
 .stan{display:block}.stan::before{content:"";display:inline-block;margin-right:10px;vertical-align:1px}
+
+/* ===== wideo: fasady YouTube ===== */
+.film{margin:0;min-width:0}
+.yt{display:block;position:relative;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:14px;overflow:hidden;background:var(--bn);cursor:pointer;color:#fff}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.yt:hover img{transform:scale(1.03)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,33,63,0) 55%,rgba(20,33,63,.35))}
+.graj{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--b);display:grid;place-items:center;z-index:1;box-shadow:0 6px 18px rgba(20,33,63,.35);transition:transform .2s,background .2s}
+.graj::after{content:"";position:absolute;right:-3px;top:-3px;width:16px;height:16px;border-radius:50%;background:var(--y)}
+.graj svg{width:28px;height:28px;fill:#fff;margin-left:3px}
+.yt:hover .graj,.yt:focus-visible .graj{transform:scale(1.08);background:var(--bd)}
+.yt:focus-visible{outline:3px solid var(--y);outline-offset:3px}
+.film iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#000}
+.film figcaption{padding:14px 2px 0}
+.film h3{font-size:1.08rem;line-height:1.3}
+.film p{color:var(--mut);font-size:.94rem;margin-top:4px}
+.tor.v{grid-auto-columns:calc((100% - 3*var(--gap))/4)}
+@media (max-width:1500px){.tor.v{grid-auto-columns:calc((100% - 2*var(--gap))/3)}}
+@media (max-width:1100px){.tor.v{grid-auto-columns:calc((100% - var(--gap))/2)}}
+@media (max-width:760px){.tor.v{grid-auto-columns:84%}}
+.wid-top{align-items:end}
+.wid-skok{display:flex;flex-wrap:wrap;gap:10px}
+.wid-skok .chip{display:inline-flex;align-items:center;border-color:#fff;background:#fff;color:var(--ink);text-decoration:none}
+.wid-skok .chip:hover{background:var(--y)}
+.wid-sek{padding:clamp(44px,5vw,90px) 0}
+.wid-sek .glowa p{color:var(--mut);margin-top:8px;max-width:60ch}
+
+/* ===== karta produktu: zakladki ===== */
+.zk{background:#fff;border-radius:18px;padding:0 clamp(18px,3vw,48px) clamp(24px,3vw,44px)}
+.zk-pasek{display:flex;gap:clamp(4px,1.6vw,30px);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*clamp(18px,3vw,48px)) clamp(22px,2.4vw,36px);padding:0 clamp(18px,3vw,48px)}
+.zk-pasek::-webkit-scrollbar{display:none}
+.zk-pasek button{flex:none;position:relative;background:none;border:0;padding:clamp(16px,1.6vw,24px) 6px;font:700 clamp(16px,1.05vw,19px) Brico,Arial,sans-serif;color:var(--mut);cursor:pointer;white-space:nowrap}
+.zk-pasek button:hover{color:var(--b)}
+.zk-pasek button[aria-selected="true"]{color:var(--b)}
+.zk-pasek button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;border-radius:4px 4px 0 0;background:var(--y)}
+.zk-pasek button:focus-visible{outline:3px solid var(--y);outline-offset:-3px;border-radius:6px}
+.zk-pan:focus-visible{outline:none}
+.zk-tekst{max-width:72ch;font-size:clamp(16px,1.02vw,18px)}
+.zk-tekst p+p{margin-top:14px}
+.zk-lead{color:var(--mut);margin-bottom:20px;max-width:70ch}
+.zk .kroki li{background:var(--g)}
+.zk-zycie{margin-top:20px;max-width:80ch}
+.zk-zycie b{color:var(--b)}
+.zk .pobierz{margin-top:24px}
+.zk-fiz{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
+@media (max-width:960px){.zk-fiz{grid-template-columns:1fr}}
+.zk-poj{background:var(--g);border-radius:14px;padding:20px 22px;position:relative}
+.zk-poj::after{content:"";position:absolute;right:16px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--y)}
+.zk-poj h3{color:var(--b);margin-bottom:10px}
+.zk-poj ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.zk-poj li{background:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.92rem}
+.zk-poj p{color:var(--mut);font-size:.9rem;margin-top:14px}
+.zk-filmy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:960px){.zk-filmy{grid-template-columns:1fr}}
+.zk .param{max-width:760px}
+.zk-przypis{margin-top:14px}
+@media (max-width:640px){
+.zk-pasek{flex-wrap:wrap;overflow:visible;gap:8px;border-bottom:0;padding-top:18px;padding-bottom:4px;margin-bottom:18px}
+.zk-pasek button{padding:9px 14px;border:2px solid var(--line);border-radius:21px;font-size:15px;background:#fff}
+.zk-pasek button[aria-selected="true"]{background:var(--b);border-color:var(--b);color:#fff}
+.zk-pasek button[aria-selected="true"]::after{left:auto;right:-3px;top:-3px;bottom:auto;width:12px;height:12px;border-radius:50%}
+}
 </style>
 </head>
 <body>
@@ -562,7 +626,7 @@ p{margin:0}
   <nav class="nav" id="nav" aria-label="Kategorie">
     <ul>
       <li class="mszuk"><form class="szuk" role="search" onsubmit="return false" style="width:100%"><input type="search" id="mszuk-in" placeholder="Szukaj w sklepie..." aria-label="Szukaj w sklepie"><button type="submit" aria-label="Szukaj"><svg width="20" height="20" aria-hidden="true"><use href="#lupa"/></svg></button></form></li>
-      <li><a href="zabawki-fizyczne.html" class="on" aria-current="page">Fizyka i eksperymenty</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="index.html#kategorie">Wszystkie kategorie</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kieszonkowe">Na kieszonkowe</a></li><li><a href="index.html#doswiadczenie">Dla nauczycieli</a></li><li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="zabawki-fizyczne.html" class="on" aria-current="page">Fizyka i eksperymenty</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="index.html#kategorie">Wszystkie kategorie</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kieszonkowe">Na kieszonkowe</a></li><li><a href="index.html#doswiadczenie">Dla nauczycieli</a></li><li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
   </nav>
 </header>
@@ -590,14 +654,12 @@ p{margin:0}
     <p class="przypis">* W demo wiek i zawartość zestawu są przykładowe - w sklepie uzupełnimy je z kart producentów.</p>
   </div>
 </div>
-<section class="sek szary" aria-label="Opis i parametry"><div class="wrap opis-g">
-  <div><h2>Opis</h2><p>Wystarczy nawinąć sznurek na oś, mocno pociągnąć i postawić żyroskop na podstawce. Wirująca tarcza trzyma kierunek, więc żyroskop nie przewraca się tak, jak przewróciłby się nieruchomy.</p><p>To jedna z najlepszych zabawek do pokazania, czym jest moment pędu i precesja. Dzieci zwykle najpierw się dziwią, a potem same zaczynają sprawdzać: na palcu, na sznurku, na krawędzi kubka.</p></div>
-  <div><h2>Parametry</h2><table class="param"><tbody><tr><th>Dział fizyki</th><td>Mechanika - dynamika bryły sztywnej</td></tr><tr><th>Zjawisko</th><td>moment pędu, precesja</td></tr><tr><th>Wiek</th><td>8+ *</td></tr><tr><th>W zestawie</th><td>żyroskop, sznurek, podstawka *</td></tr><tr><th>Marka</th><td>Tedco (na opakowaniu)</td></tr><tr><th>Dostępność</th><td>w magazynie: 53 szt.</td></tr></tbody></table></div>
-</div></section>
-<section class="sek" aria-labelledby="h-dw"><div class="wrap">
-  <div class="glowa"><div><h2 id="h-dw">Doświadczenie w czterech krokach</h2><p>Tak wygląda ta zabawka w katalogu-książce. Wystarczy stoper, kartka i ciekawość.</p></div></div>
-  <ol class="kroki"><li><h3>Pytanie badawcze</h3><p>Dlaczego wirujący żyroskop nie przewraca się, gdy postawimy go na czubku palca?</p></li><li><h3>Hipoteza</h3><p>Im szybciej wiruje tarcza, tym dłużej żyroskop utrzyma się w pionie i tym mocniej opiera się przechylaniu.</p></li><li><h3>Doświadczenie</h3><p>Rozkręć żyroskop słabym pociągnięciem sznurka i zmierz stoperem, jak długo stoi na podstawce. Powtórz trzy razy, potem trzy razy z mocnym pociągnięciem. Na koniec delikatnie popchnij ramkę palcem i obserwuj, w którą stronę ucieka.</p></li><li><h3>Wnioski</h3><p>Wirująca tarcza ma moment pędu, który zachowuje kierunek. Ciężar nie przewraca żyroskopu od razu: zamiast upaść, żyroskop powoli obraca się wokół podpory. To precesja. Gdy tarcza zwalnia przez tarcie, precesja przyspiesza i żyroskop w końcu upada.</p></li></ol>
-  <div class="pobierz"><a class="btn nieb" href="#katalog" data-tryb="katalog"><svg width="20" height="20" aria-hidden="true"><use href="#ksiega"/></svg>Otwórz katalog na tej stronie</a><a class="btn" href="katalog-zabawki-fizyczne.pdf" download><svg width="20" height="20" aria-hidden="true"><use href="#pobierz"/></svg>Pobierz katalog PDF</a></div>
+<section class="sek szary zk-sek" aria-label="Opis produktu"><div class="wrap">
+  <div class="zk" data-zakladki><div class="zk-pasek" role="tablist" aria-label="Informacje o produkcie"><button type="button" role="tab" id="zt-opis" aria-controls="zp-opis" aria-selected="true">Opis</button><button type="button" role="tab" id="zt-lpn" aria-controls="zp-lpn" aria-selected="false" tabindex="-1">Projekt naukowy LPN</button><button type="button" role="tab" id="zt-fizyka" aria-controls="zp-fizyka" aria-selected="false" tabindex="-1">Fizyka</button><button type="button" role="tab" id="zt-param" aria-controls="zp-param" aria-selected="false" tabindex="-1">Parametry</button></div><div class="zk-pan" role="tabpanel" id="zp-opis" aria-labelledby="zt-opis" tabindex="0"><div class="zk-tekst"><p>Wystarczy nawinąć sznurek na oś, mocno pociągnąć i postawić żyroskop na podstawce. Wirująca tarcza trzyma kierunek, więc żyroskop nie przewraca się tak, jak przewróciłby się nieruchomy.</p><p>To jedna z najlepszych zabawek do pokazania, czym jest moment pędu i precesja. Dzieci zwykle najpierw się dziwią, a potem same zaczynają sprawdzać: na palcu, na sznurku, na krawędzi kubka.</p></div></div><div class="zk-pan" role="tabpanel" id="zp-lpn" aria-labelledby="zt-lpn" tabindex="0" hidden><p class="zk-lead">Lekcyjny Projekt Naukowy w czterech krokach. Wystarczy stoper, kartka i ciekawość: do zrobienia w domu albo na lekcji.</p>
+<ol class="kroki"><li><h3>Pytanie badawcze</h3><p>Dlaczego wirujący żyroskop nie przewraca się, gdy postawimy go na czubku palca?</p></li><li><h3>Hipoteza</h3><p>Im szybciej wiruje tarcza, tym dłużej żyroskop utrzyma się w pionie i tym mocniej opiera się przechylaniu.</p></li><li><h3>Doświadczenie</h3><p>Rozkręć żyroskop słabym pociągnięciem sznurka i zmierz stoperem, jak długo stoi na podstawce. Powtórz trzy razy, potem trzy razy z mocnym pociągnięciem. Na koniec delikatnie popchnij ramkę palcem i obserwuj, w którą stronę ucieka.</p></li><li><h3>Wnioski</h3><p>Wirująca tarcza ma moment pędu, który zachowuje kierunek. Ciężar nie przewraca żyroskopu od razu: zamiast upaść, żyroskop powoli obraca się wokół podpory. To precesja. Gdy tarcza zwalnia przez tarcie, precesja przyspiesza i żyroskop w końcu upada.</p></li></ol>
+<p class="zk-zycie"><b>Gdzie to spotkasz?</b> Tę samą zasadę wykorzystują żyrokompasy na statkach i w samolotach, a jadący rower łatwiej utrzymać w pionie także dzięki wirującym kołom.</p>
+<div class="pobierz"><a class="btn nieb" href="#katalog" data-tryb="katalog"><svg width="20" height="20" aria-hidden="true"><use href="#ksiega"/></svg>Otwórz katalog na tej stronie</a><a class="btn" href="katalog-zabawki-fizyczne.pdf" download><svg width="20" height="20" aria-hidden="true"><use href="#pobierz"/></svg>Pobierz katalog PDF</a></div></div><div class="zk-pan" role="tabpanel" id="zp-fizyka" aria-labelledby="zt-fizyka" tabindex="0" hidden><div class="zk-fiz"><div class="zk-tekst"><p>Tarcza żyroskopu ma masę skupioną daleko od osi. Gdy szybko wiruje, ma duży moment pędu L = I·ω, czyli iloczyn momentu bezwładności i prędkości kątowej. Moment pędu jest skierowany wzdłuż osi obrotu i dopóki nic go nie zaburza, zachowuje swój kierunek.</p><p>Żyroskop podparty z jednej strony próbuje przechylić jego własny ciężar. Ten moment siły nie przewraca osi w dół, tylko obraca ją w poziomie, więc żyroskop zaczyna powoli krążyć wokół podpory. To precesja. Im szybciej wiruje tarcza, tym wolniejsza precesja, dlatego zwalniający żyroskop krąży coraz szybciej, aż w końcu upada.</p></div><div class="zk-poj"><h3>Pojęcia</h3><ul><li>moment pędu</li><li>moment bezwładności</li><li>moment siły</li><li>precesja</li><li>tarcie</li></ul><p>Mechanika &middot; Dynamika bryły sztywnej</p></div></div></div><div class="zk-pan" role="tabpanel" id="zp-param" aria-labelledby="zt-param" tabindex="0" hidden><table class="param"><tbody><tr><th>Dział fizyki</th><td>Mechanika - dynamika bryły sztywnej</td></tr><tr><th>Zjawisko</th><td>moment pędu, precesja</td></tr><tr><th>Wiek</th><td>8+ *</td></tr><tr><th>W zestawie</th><td>żyroskop, sznurek, podstawka *</td></tr><tr><th>Marka</th><td>Tedco (na opakowaniu)</td></tr><tr><th>Dostępność</th><td>w magazynie: 53 szt.</td></tr></tbody></table></div></div>
+  <p class="przypis zk-przypis">* Zakładki uzupełnia się w panelu sklepu przy każdym produkcie, jak zwykły opis. Pusta zakładka nie pokazuje się klientom.</p>
 </div></section>
 <section class="sek szary" aria-labelledby="h-pow"><div class="wrap">
   <div class="glowa"><div><h2 id="h-pow">Inne zabawki fizyczne</h2></div><div class="strz" data-nav="tor-pow"><button type="button" aria-label="Poprzednie"><svg aria-hidden="true"><use href="#lewo"/></svg></button><button type="button" aria-label="Następne"><svg aria-hidden="true"><use href="#prawo"/></svg></button></div></div>
@@ -663,7 +725,7 @@ p{margin:0}
       </div>
       <div><h3>Kategorie</h3><ul><li><a href="zabawki-fizyczne.html">Fizyka i eksperymenty</a></li><li><a href="index.html#kategorie">Odkrywanie</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kategorie">Gniotki i masy plastyczne</a></li><li><a href="index.html#kieszonkowe">Na kieszonkowe</a></li></ul></div>
       <div><h3>Zakupy</h3><ul><li><a href="index.html#dostawa">Wysyłka</a></li><li><a href="index.html#dostawa">Zwroty towarów</a></li><li><a href="index.html#dostawa">Regulamin</a></li><li><a href="index.html#dostawa">Polityka prywatności</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
-      <div><h3>Dla nauczycieli</h3><ul><li><a href="index.html#doswiadczenie">Metoda naukowa</a></li><li><a href="index.html#doswiadczenie">Eksperymenty</a></li><li><a href="index.html#doswiadczenie">Metoda projektów</a></li><li><a href="index.html#doswiadczenie">Blog</a></li></ul></div>
+      <div><h3>Dla nauczycieli</h3><ul><li><a href="index.html#doswiadczenie">Metoda naukowa</a></li><li><a href="index.html#doswiadczenie">Eksperymenty</a></li><li><a href="index.html#doswiadczenie">Metoda projektów</a></li><li><a href="index.html#doswiadczenie">Blog</a></li><li><a href="wideo.html">Wideo</a></li></ul></div>
     </div>
     <div class="st-d">
       <p>© 2026 Zabawki Fizyczne. Sprzedawca: Zabawki Progresywne „Beata i Adam Rzeźnik” Adam Rzeźnik, NIP 794-162-86-16.</p>

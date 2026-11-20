@@ -115,3 +115,30 @@
 
   if(ws&&wk){tryb(location.hash==='#katalog'?'katalog':'sklep',location.hash==='#katalog');addEventListener('hashchange',function(){tryb(location.hash==='#katalog'?'katalog':'sklep',true)})}
 })();
+
+/* ---------- zakladki karty produktu + fasady YouTube ---------- */
+(function(){
+  document.querySelectorAll('[data-zakladki]').forEach(function(z){
+    var tabs=[].slice.call(z.querySelectorAll('[role=tab]'));
+    function wybierz(t,fokus){
+      tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on?'true':'false');b.tabIndex=on?0:-1;document.getElementById(b.getAttribute('aria-controls')).hidden=!on});
+      if(fokus)t.focus();
+      t.scrollIntoView({block:'nearest',inline:'nearest'});
+    }
+    tabs.forEach(function(b,i){
+      b.addEventListener('click',function(){wybierz(b)});
+      b.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(e.key==='Home')n=tabs[0];if(e.key==='End')n=tabs[tabs.length-1];if(n){e.preventDefault();wybierz(n,true)}});
+    });
+  });
+  var gra=null;
+  function przywroc(){if(gra){gra.f.replaceChild(gra.b,gra.i);gra=null}}
+  document.querySelectorAll('[data-yt]').forEach(function(b){b.addEventListener('click',function(){
+    przywroc();
+    var f=b.parentNode,i=document.createElement('iframe');
+    i.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0&playsinline=1';
+    i.title=(b.getAttribute('aria-label')||'').replace('Odtwórz film: ','');
+    i.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    i.allowFullscreen=true;i.referrerPolicy='strict-origin-when-cross-origin';
+    f.replaceChild(i,b);gra={f:f,b:b,i:i};
+  })});
+})();
