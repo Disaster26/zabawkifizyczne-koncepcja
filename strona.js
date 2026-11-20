@@ -142,3 +142,12 @@
     f.replaceChild(i,b);gra={f:f,b:b,i:i};
   })});
 })();
+
+/* ---------- publikacje: przyciski PDF w demo ---------- */
+(function(){
+  var toast=document.getElementById('toast'),tt;
+  document.querySelectorAll('[data-pdf-demo]').forEach(function(b){b.addEventListener('click',function(){
+    toast.textContent='To podgląd: w nowym sklepie otworzy się tu Pana plik PDF.';
+    toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2600);
+  })});
+})();
