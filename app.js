@@ -12,7 +12,7 @@
   var links=[].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
-    ['start','fizyka','kategorie','ponadczasowe','kieszonkowe','doswiadczenie','dostawa','kontakt'].forEach(function(id){var t=document.getElementById(id);if(t)io.observe(t)});
+    ['start','dzialy','fizyka','kategorie','ponadczasowe','kieszonkowe','doswiadczenie','dostawa','kontakt'].forEach(function(id){var t=document.getElementById(id);if(t)io.observe(t)});
   }
 
   // leniwe ladowanie zdjec
@@ -36,6 +36,17 @@
       function st(){bs[0].disabled=tor.scrollLeft<4;bs[1].disabled=tor.scrollLeft+tor.clientWidth>=tor.scrollWidth-4}
       tor.addEventListener('scroll',st,{passive:true});addEventListener('resize',st);st();
     }
+  });
+
+  // kropki pod pasem banerow
+  document.querySelectorAll('[data-kropki]').forEach(function(kr){
+    var tor=document.getElementById(kr.getAttribute('data-kropki'));if(!tor)return;
+    var el=[].slice.call(tor.children);
+    el.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Baner '+(i+1)+' z '+el.length);
+      b.addEventListener('click',function(){tor.scrollTo({left:s.offsetLeft-tor.firstElementChild.offsetLeft,behavior:'smooth'})});kr.appendChild(b)});
+    var bs=kr.querySelectorAll('button');
+    function akt(){var x=tor.scrollLeft,best=0,d=1e9;el.forEach(function(s,i){var dd=Math.abs(s.offsetLeft-tor.firstElementChild.offsetLeft-x);if(dd<d){d=dd;best=i}});bs.forEach(function(b,i){b.setAttribute('aria-current',i===best?'true':'false')})}
+    tor.addEventListener('scroll',function(){requestAnimationFrame(akt)},{passive:true});akt();
   });
 
   // koszyk - tylko wyglad
