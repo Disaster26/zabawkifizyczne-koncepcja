@@ -1,7 +1,8 @@
 (function(){
+  var EN=document.documentElement.lang==='en';
   var top=document.getElementById('top'),bg=document.getElementById('burger');
-  function zamknij(){top.classList.remove('open');bg.setAttribute('aria-expanded','false');bg.setAttribute('aria-label','Otwórz menu')}
-  function otworz(){top.classList.add('open');bg.setAttribute('aria-expanded','true');bg.setAttribute('aria-label','Zamknij menu')}
+  function zamknij(){top.classList.remove('open');bg.setAttribute('aria-expanded','false');bg.setAttribute('aria-label',EN?'Open menu':'Otwórz menu')}
+  function otworz(){top.classList.add('open');bg.setAttribute('aria-expanded','true');bg.setAttribute('aria-label',EN?'Close menu':'Zamknij menu')}
   bg.addEventListener('click',function(){top.classList.contains('open')?zamknij():otworz()});
   document.getElementById('mszuk').addEventListener('click',function(){otworz();setTimeout(function(){document.getElementById('mszuk-in').focus()},120)});
   document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',zamknij)});
@@ -52,7 +53,7 @@
   // koszyk - tylko wyglad
   var toast=document.getElementById('toast'),tt;
   document.querySelectorAll('[data-kosz]').forEach(function(b){b.addEventListener('click',function(){
-    toast.textContent='To podgląd wyglądu - koszyk i zamówienia zadziałają w nowym sklepie.';
+    toast.textContent=EN?'This is a design preview - the cart and orders will work in the new shop.':'To podgląd wyglądu - koszyk i zamówienia zadziałają w nowym sklepie.';
     toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2600);
   })});
 
