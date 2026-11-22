@@ -162,6 +162,16 @@ p{margin:0}
 .tor>*{scroll-snap-align:start;min-width:0}
 .tor img{-webkit-user-drag:none;user-select:none}
 
+/* mysl przewodnia klienta (22.11) */
+.pyt{padding-top:0}
+.pyt-g{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,5vw,110px);align-items:end;border-top:1px solid var(--line);padding-top:clamp(40px,5vw,84px)}
+.pyt-c{margin:0;position:relative;padding-left:clamp(22px,2.2vw,40px);border-left:6px solid var(--y)}
+.pyt-c blockquote{margin:0}
+.pyt-c p{margin:0;font-family:Brico,"Brico fb",Arial,sans-serif;font-weight:700;font-size:clamp(28px,2.7vw,54px);line-height:1.1;letter-spacing:-.015em;color:var(--ink);max-width:22ch}
+.pyt-c figcaption{margin-top:16px;color:var(--mut);font-size:clamp(15px,.95vw,18px)}
+.pyt-t{margin:0;font-size:clamp(19px,1.35vw,26px);line-height:1.4;color:var(--mut);max-width:30ch}
+.pyt-t strong{display:block;color:var(--b);font-weight:800;margin-top:6px}
+@media (max-width:900px){.pyt-g{grid-template-columns:1fr;align-items:start}}
 /* banery dzialow (od klienta, 4076x1064 - wyswietlane ponizej natywnej rozdzielczosci) */
 .tor.banery{grid-auto-columns:calc((100% - var(--gap))/2)}
 @media (max-width:1100px){.tor.banery{grid-auto-columns:100%}}
@@ -379,8 +389,8 @@ p{margin:0}
 
 <section class="sek" id="dzialy" aria-labelledby="h-dz">
   <div class="wrap">
-    <div class="glowa"><div><h2 id="h-dz">Działy fizyki</h2><p>Mechanika, termodynamika, optyka i drewniane zabawki fizyczne - każdy dział ma w sklepie własną kategorię.</p></div><div class="strz" data-nav="tor-b"><button type="button" aria-label="Poprzedni baner"><svg aria-hidden="true"><use href="#lewo"/></svg></button><button type="button" aria-label="Następny baner"><svg aria-hidden="true"><use href="#prawo"/></svg></button></div></div>
-    <div class="tor banery" id="tor-b" data-tor><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Mechanika"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-mechanika-1280.webp" data-srcset="img/baner-mechanika-640.webp 640w, img/baner-mechanika-960.webp 960w, img/baner-mechanika-1280.webp 1280w, img/baner-mechanika-1760.webp 1760w, img/baner-mechanika-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Mechanika - baner działu"></a><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Termodynamika"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-termodynamika-1280.webp" data-srcset="img/baner-termodynamika-640.webp 640w, img/baner-termodynamika-960.webp 960w, img/baner-termodynamika-1280.webp 1280w, img/baner-termodynamika-1760.webp 1760w, img/baner-termodynamika-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Termodynamika - baner działu"></a><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Optyka"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-optyka-1280.webp" data-srcset="img/baner-optyka-640.webp 640w, img/baner-optyka-960.webp 960w, img/baner-optyka-1280.webp 1280w, img/baner-optyka-1760.webp 1760w, img/baner-optyka-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Optyka - baner działu"></a><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Drewniane zabawki fizyczne"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-drewniane-1280.webp" data-srcset="img/baner-drewniane-640.webp 640w, img/baner-drewniane-960.webp 960w, img/baner-drewniane-1280.webp 1280w, img/baner-drewniane-1760.webp 1760w, img/baner-drewniane-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Drewniane zabawki fizyczne - baner działu"></a></div>
+    <div class="glowa"><div><h2 id="h-dz">Działy fizyki</h2><p>Mechanika, termodynamika, optyka, elektryczność i magnetyzm oraz drewniane zabawki fizyczne - każdy dział ma w sklepie własną kategorię.</p></div><div class="strz" data-nav="tor-b"><button type="button" aria-label="Poprzedni baner"><svg aria-hidden="true"><use href="#lewo"/></svg></button><button type="button" aria-label="Następny baner"><svg aria-hidden="true"><use href="#prawo"/></svg></button></div></div>
+    <div class="tor banery" id="tor-b" data-tor><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Mechanika"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-mechanika-1280.webp" data-srcset="img/baner-mechanika-640.webp 640w, img/baner-mechanika-960.webp 960w, img/baner-mechanika-1280.webp 1280w, img/baner-mechanika-1760.webp 1760w, img/baner-mechanika-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Mechanika - baner działu"></a><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Termodynamika"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-termodynamika-1280.webp" data-srcset="img/baner-termodynamika-640.webp 640w, img/baner-termodynamika-960.webp 960w, img/baner-termodynamika-1280.webp 1280w, img/baner-termodynamika-1760.webp 1760w, img/baner-termodynamika-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Termodynamika - baner działu"></a><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Optyka"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-optyka-1280.webp" data-srcset="img/baner-optyka-640.webp 640w, img/baner-optyka-960.webp 960w, img/baner-optyka-1280.webp 1280w, img/baner-optyka-1760.webp 1760w, img/baner-optyka-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Optyka - baner działu"></a><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Elektryczność i magnetyzm"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-elektrycznosc-1280.webp" data-srcset="img/baner-elektrycznosc-640.webp 640w, img/baner-elektrycznosc-960.webp 960w, img/baner-elektrycznosc-1280.webp 1280w, img/baner-elektrycznosc-1760.webp 1760w, img/baner-elektrycznosc-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Elektryczność i magnetyzm - baner działu"></a><a class="baner" href="zabawki-fizyczne.html" aria-label="Dział: Drewniane zabawki fizyczne"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/baner-drewniane-1280.webp" data-srcset="img/baner-drewniane-640.webp 640w, img/baner-drewniane-960.webp 960w, img/baner-drewniane-1280.webp 1280w, img/baner-drewniane-1760.webp 1760w, img/baner-drewniane-2400.webp 2400w" sizes="(min-width:1101px) min(46vw, 880px), (min-width:761px) 92vw, 88vw" width="1280" height="334" class="lz" alt="Drewniane zabawki fizyczne - baner działu"></a></div>
     <div class="kropki" data-kropki="tor-b"></div>
   </div>
 </section>
@@ -400,6 +410,12 @@ p{margin:0}
   </div>
 </section>
 
+<section class="sek pyt" aria-label="Myśl przewodnia">
+  <div class="wrap pyt-g">
+    <figure class="pyt-c"><blockquote><p>Kluczem do wszelkiej mądrości jest częste i pilne pytanie.</p></blockquote><figcaption>Mistrz Abelard, XII w.</figcaption></figure>
+    <p class="pyt-t">Nauka nie zaczyna się od odpowiedzi.<strong>Nauka zaczyna się od pytania.</strong></p>
+  </div>
+</section>
 <section class="sek dosw" id="doswiadczenie" aria-labelledby="h-dosw">
   <div class="wrap dosw-g">
     <div>
