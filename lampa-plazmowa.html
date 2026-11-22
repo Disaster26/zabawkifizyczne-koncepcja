@@ -80,6 +80,7 @@ p{margin:0}
 .nav a:hover::after,.nav a.on::after{transform:none}
 .nav li:last-child{margin-left:auto}
 .nav li:last-child a{color:var(--b)}
+@media (min-width:1101px){.nav .n-wk{margin-left:auto}.nav .n-wk+li{margin-left:0}}
 @media (min-width:1101px) and (max-width:1680px){.nav ul{gap:16px}.nav a{font-size:.88rem}}
 @media (min-width:1101px) and (max-width:1280px){.nav .n-dost{display:none}}
 @media (max-width:1100px){
@@ -673,7 +674,7 @@ p{margin:0}
   <nav class="nav" id="nav" aria-label="Kategorie">
     <ul>
       <li class="mszuk"><form class="szuk" role="search" onsubmit="return false" style="width:100%"><input type="search" id="mszuk-in" placeholder="Szukaj w sklepie..." aria-label="Szukaj w sklepie"><button type="submit" aria-label="Szukaj"><svg width="20" height="20" aria-hidden="true"><use href="#lupa"/></svg></button></form></li>
-      <li><a href="zabawki-fizyczne.html" class="on" aria-current="page">Fizyka i eksperymenty</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje</a></li><li><a href="index.html#kategorie">Wszystkie kategorie</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kieszonkowe">Doświadczenia za grosze</a></li><li><a href="index.html#doswiadczenie">Dla nauczycieli</a></li><li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="zabawki-fizyczne.html" class="on" aria-current="page">Fizyka i eksperymenty</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kieszonkowe">Doświadczenia za grosze</a></li><li><a href="index.html#doswiadczenie">Dla nauczycieli</a></li><li class="n-wk"><a href="index.html#kategorie">Wszystkie kategorie</a></li><li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
   </nav>
 </header>
