@@ -5,3 +5,4 @@ build_podstrony.py
 dane_katalog.py
 podstrony.css
 __pycache__/
+build_pomysl.py
