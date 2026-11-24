@@ -66,24 +66,29 @@
     var mag=[].slice.call(el.querySelectorAll('.ks-mag .str')),N=mag.length,sc=el.querySelector('.ks-scena'),L=el.querySelector('.slot.l'),R=el.querySelector('.slot.r');
     var licz=el.querySelector('.ks-licz'),bp=el.querySelector('[data-ks="-1"]'),bn=el.querySelector('[data-ks="1"]'),spis=[].slice.call(el.querySelectorAll('.ks-spis button'));
     var p=parseInt(el.getAttribute('data-start'),10)||0,anim=false;
-    function kl(i){var c=mag[i].cloneNode(true);c.classList.add('on');return c}
-    function wstaw(slot,i){slot.innerHTML='';if(i>=0&&i<N)slot.appendChild(kl(i))}
-    function lewa(i){return i-(i%2)}
+    // data-okladka: okladka sama po prawej, dalej rozkladowki (1,2), (3,4)...
+    var off=el.hasAttribute('data-okladka')?1:0;
+    function kl(i){var c=mag[i].cloneNode(true);c.classList.add('on');var im=c.querySelector('img');if(im)im.loading='eager';return c}
+    function wstaw(slot,i){slot.innerHTML='';var ok=i>=0&&i<N;if(ok)slot.appendChild(kl(i));slot.classList.toggle('pusty',!ok)}
+    function lewa(i){var j=i+off;return j-(j%2)-off}
+    // wczytanie kolejnych stron w tle, zeby przewracanie nie czekalo na obrazki
+    function zapas(a){[a+2,a+3,a-1,a-2].forEach(function(i){if(i<0||i>=N)return;var im=mag[i].querySelector('img');if(im&&!im._z){im._z=1;var n=new Image();n.sizes=im.sizes;n.srcset=im.getAttribute('srcset')||'';n.src=im.getAttribute('src')}})}
     function opis(){
-      if(desk.matches){var a=lewa(p);licz.textContent='Strony '+(a+1)+'-'+Math.min(N,a+2)+' z '+N;bp.disabled=a<=0;bn.disabled=a+2>=N}
+      if(desk.matches){var a=lewa(p),o1=Math.max(a,0)+1,o2=Math.min(N,a+2);licz.textContent=(o1===o2?'Strona '+o1:'Strony '+o1+'-'+o2)+' z '+N;bp.disabled=a<=-off;bn.disabled=a+2>=N}
       else{licz.textContent='Strona '+(p+1)+' z '+N;bp.disabled=p<=0;bn.disabled=p>=N-1}
-      var a2=lewa(p);spis.forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-idz')===a2)});
+      var a2=desk.matches?lewa(p):p;spis.forEach(function(b){var d=+b.getAttribute('data-idz');b.classList.toggle('on',(desk.matches?lewa(d):d)===a2)});
     }
-    function rysuj(){if(desk.matches){var a=lewa(p);wstaw(L,a);wstaw(R,a+1)}else{wstaw(L,p);R.innerHTML=''}opis()}
+    function rysuj(){var a;if(desk.matches){a=lewa(p);wstaw(L,a);wstaw(R,a+1)}else{a=p;wstaw(L,p);R.innerHTML=''}sc.classList.toggle('jedna',desk.matches&&(a<0||a+1>=N));opis();if(off)zapas(a)}
     function idz(n){
       if(anim)return;
       if(desk.matches){
-        var a=lewa(p),b=lewa(n);if(b===a||b<0||b>=N)return;
+        var a=lewa(p),b=lewa(n);if(b===a||b<-off||b>=N)return;
         if(!ruch){p=b;rysuj();return}
         anim=true;var nx=b>a,fl=document.createElement('div');fl.className='flip '+(nx?'nx':'pv');
         var fr=document.createElement('div');fr.className='fc fr';var bk=document.createElement('div');bk.className='fc bk';
         if(nx){fr.appendChild(kl(a+1));bk.appendChild(kl(b));wstaw(R,b+1)}
         else{fr.appendChild(kl(a));if(b+1<N)bk.appendChild(kl(b+1));wstaw(L,b)}
+        sc.classList.remove('jedna');
         fl.appendChild(fr);fl.appendChild(bk);sc.appendChild(fl);
         fl.getBoundingClientRect();
         requestAnimationFrame(function(){fl.style.transform='rotateY('+(nx?-180:180)+'deg)'});
