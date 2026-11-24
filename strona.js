@@ -47,7 +47,7 @@
       f.addEventListener('mousemove',function(e){
         if(!matchMedia('(hover:hover)').matches)return;
         var s=900/im.getBoundingClientRect().width*(im.style.transform?1:1);
-        var w=im.offsetWidth;s=900/w;if(s<1.08)return;
+        var w=im.offsetWidth;s=Math.min(900,im.naturalWidth||0)/w;if(s<1.08)return;
         var r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*100,y=(e.clientY-r.top)/r.height*100;
         f.classList.add('lupa');im.style.transformOrigin=x+'% '+y+'%';im.style.transform='scale('+s.toFixed(3)+')';
       });
