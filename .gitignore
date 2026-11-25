@@ -7,3 +7,6 @@ podstrony.css
 __pycache__/
 build_pomysl.py
 build_blog.py
+_karty.html
+build_karty.py
+*.bak_*
