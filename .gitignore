@@ -6,3 +6,4 @@ dane_katalog.py
 podstrony.css
 __pycache__/
 build_pomysl.py
+build_blog.py

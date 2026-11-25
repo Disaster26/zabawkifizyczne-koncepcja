@@ -691,6 +691,26 @@ p{margin:0}
 .pz-scena.scisk .nk-but{transform:scaleX(.93)}
 .pz-scena.scisk .nk-nur{transform:translateY(230px);transition-duration:5s}
 .pz-scena.scisk .nk-woda{transform:scaleY(1.7)}
+.nk-kecz,.nk-prob{display:none}
+.pz-scena[data-nurek=keczup] .nk-zak,.pz-scena[data-nurek=probowka] .nk-zak{display:none}
+.pz-scena[data-nurek=keczup] .nk-kecz,.pz-scena[data-nurek=probowka] .nk-prob{display:inline}
+.pz-scena .nk-sasz,.pz-scena .nk-pech{transform-box:fill-box;transform-origin:50% 50%;transition:transform .8s ease}
+.pz-scena.scisk .nk-sasz{transform:scale(.94,.88)}
+.pz-scena.scisk .nk-pech{transform:scale(.45)}
+.nk-wyb{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.nk-wyb button{height:40px;padding:0 14px;border-radius:20px;border:2px solid var(--b);background:#fff;color:var(--b);font:700 .9rem/1 Manrope,Arial,sans-serif;cursor:pointer}
+.nk-wyb button[aria-pressed=true]{background:var(--b);color:#fff}
+@media (max-width:560px){.nk-wyb{justify-content:center}}
+.nk-war{margin-top:28px}
+.nk-war>h3{color:var(--b);margin-bottom:14px}
+.nk-war-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,28px)}
+.nk-war-g article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:clamp(16px,2vw,26px)}
+.nk-war-g h4{font:700 1.08rem/1.25 Brico,Arial,sans-serif;color:var(--ink);margin:0 0 10px}
+.nk-war-g h5{font:700 .95rem/1.3 Manrope,Arial,sans-serif;color:var(--b);margin:14px 0 6px}
+.nk-war-g ul,.nk-war-g ol{margin:0;padding-left:20px}
+.nk-war-g li+li{margin-top:5px}
+.nk-war-g p{margin:12px 0 0;color:var(--mut)}
+@media (max-width:900px){.nk-war-g{grid-template-columns:1fr}}
 .pz-ster h2{font-size:clamp(22px,1.6vw,30px);color:var(--b)}
 .pz-ster p{color:var(--mut);margin-top:10px;max-width:34ch}
 .pz-ster .btn{margin-top:22px}
@@ -804,7 +824,7 @@ p{margin:0}
       </div>
       <div><h3>Kategorie</h3><ul><li><a href="zabawki-fizyczne.html"><svg class="ik-k" aria-hidden="true"><use href="#kolba"/></svg>Fizyka i eksperymenty</a></li><li><a href="index.html#kategorie">Odkrywanie</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kategorie">Gniotki i masy plastyczne</a></li><li><a href="index.html#kieszonkowe">Doświadczenia za grosze</a></li></ul></div>
       <div><h3>Zakupy</h3><ul><li><a href="index.html#dostawa">Wysyłka</a></li><li><a href="index.html#dostawa">Zwroty towarów</a></li><li><a href="index.html#dostawa">Regulamin</a></li><li><a href="index.html#dostawa">Polityka prywatności</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
-      <div><h3>Dla nauczycieli</h3><ul><li><a href="index.html#doswiadczenie">Metoda naukowa</a></li><li><a href="index.html#doswiadczenie">Eksperymenty</a></li><li><a href="index.html#doswiadczenie">Metoda projektów</a></li><li><a href="index.html#doswiadczenie">Blog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje PDF</a></li><li><a href="pomysl-i-zrob.html">Pomyśl i zrób</a></li></ul></div>
+      <div><h3>Dla nauczycieli</h3><ul><li><a href="index.html#doswiadczenie">Metoda naukowa</a></li><li><a href="index.html#doswiadczenie">Eksperymenty</a></li><li><a href="index.html#doswiadczenie">Metoda projektów</a></li><li><a href="blog.html">Blog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje PDF</a></li><li><a href="pomysl-i-zrob.html">Pomyśl i zrób</a></li></ul></div>
     </div>
     <div class="st-d">
       <p>© 2026 Zabawki Fizyczne. Sprzedawca: Zabawki Progresywne „Beata i Adam Rzeźnik” Adam Rzeźnik, NIP 794-162-86-16.</p>
@@ -827,11 +847,15 @@ p{margin:0}
 (function(){
   var s=document.getElementById('pz-scena');if(!s)return;
   var b=document.getElementById('pz-scisk'),st=document.getElementById('pz-stan'),r=s.querySelector('.nurek-svg');
-  function ustaw(on){s.classList.toggle('scisk',on);b.setAttribute('aria-pressed',on?'true':'false');
+  var TXT={zakraplacz:'Woda wchodzi do zakraplacza, pęcherzyk powietrza się zmniejsza i nurek tonie.',keczup:'Woda ściska pęcherzyk powietrza w saszetce, saszetka zajmuje mniej miejsca i tonie.',probowka:'Woda wchodzi do probówki, powietrze zajmuje mniej miejsca i probówka tonie.'};
+  function ustaw(on,cicho){s.classList.toggle('scisk',on);b.setAttribute('aria-pressed',on?'true':'false');
     b.lastChild.textContent=on?'Puść butelkę':'Ściśnij butelkę';
-    st.textContent=on?'Woda wchodzi do zakraplacza, pęcherzyk powietrza się zmniejsza i nurek tonie.':'Pęcherzyk powietrza znów się rozpręża i nurek wypływa.'}
+    st.textContent=cicho?'':(on?TXT[s.dataset.nurek||'zakraplacz']:'Powietrze znów się rozpręża i nurek wypływa.')}
   b.addEventListener('click',function(){ustaw(!s.classList.contains('scisk'))});
   r.addEventListener('click',function(){ustaw(!s.classList.contains('scisk'))});
+  [].forEach.call(s.querySelectorAll('.nk-wyb button'),function(x,i,all){x.addEventListener('click',function(){
+    [].forEach.call(all,function(y){y.setAttribute('aria-pressed',y===x?'true':'false')});
+    s.dataset.nurek=x.getAttribute('data-n');ustaw(false,true)})});
 })();
 (function(){
   var s=document.getElementById('kt-scena');if(!s)return;
