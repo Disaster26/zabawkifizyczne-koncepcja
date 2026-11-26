@@ -654,6 +654,20 @@ p{margin:0}
 .pub h3 a{text-decoration:none}.pub h3 a:hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
 @media (max-width:480px){.okl-img{width:88px}}
 
+/* karty pracy: okladka A4 i lista kart */
+.okl-img.a4{border-radius:3px 8px 8px 3px}
+.kp-h{font-size:1.15rem;margin:clamp(26px,3vw,40px) 0 12px}
+.kp-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:8px 22px}
+.kp-lista li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.kp-nr{flex:none;font-weight:700;color:var(--b);font-size:.86rem;min-width:40px}
+.kp-lista li>a:not(.kp-pdf){flex:1;color:var(--ink);text-decoration:none;font-weight:600;line-height:1.3}
+.kp-lista li>a:not(.kp-pdf):hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
+.kp-pdf{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:36px;border-radius:18px;border:2px solid var(--b);color:var(--b);font-weight:700;font-size:.82rem;text-decoration:none}
+.kp-pdf:hover{background:var(--b);color:#fff}
+
+/* menu z Blogiem */
+@media (min-width:1101px) and (max-width:1220px){.nav ul{gap:5px}.nav a{font-size:.75rem}}
+
 /* blog */
 .bl-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:clamp(16px,2vw,30px)}
 .bl-karta{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit}
@@ -673,6 +687,13 @@ p{margin:0}
 .bl-wpis .bl-tekst p{font-size:clamp(16px,1.05vw,18px);line-height:1.65;margin:0 0 1em;max-width:62ch}
 .bl-filmy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
 .bl-udost{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+/* karta pracy we wpisie */
+.bl-karta-str{display:grid;grid-template-columns:repeat(2,minmax(0,640px));justify-content:center;gap:clamp(16px,2vw,30px)}
+.bl-karta-str figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 10px 26px rgba(20,33,63,.08)}
+.bl-karta-str img{display:block;width:100%;height:auto}
+.bl-karta-str figcaption{padding:10px 14px;font-size:.88rem;color:var(--mut);border-top:1px solid var(--line)}
+.bl-wpis.bl-k .bl-obraz img{box-shadow:0 10px 26px rgba(20,33,63,.12)}
+@media (max-width:760px){.bl-karta-str{grid-template-columns:minmax(0,640px)}}
 @media (max-width:960px){.bl-wpis{grid-template-columns:1fr}.bl-wpis .bl-obraz{position:static}.bl-filmy{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.bl-filmy{grid-template-columns:1fr}.bl-wpis .bl-obraz img{max-height:420px}}
 </style>
@@ -701,18 +722,18 @@ p{margin:0}
   <nav class="nav" id="nav" aria-label="Kategorie">
     <ul>
       <li class="mszuk"><form class="szuk" role="search" onsubmit="return false" style="width:100%"><input type="search" id="mszuk-in" placeholder="Szukaj w sklepie..." aria-label="Szukaj w sklepie"><button type="submit" aria-label="Szukaj"><svg width="20" height="20" aria-hidden="true"><use href="#lupa"/></svg></button></form></li>
-      <li><a href="zabawki-fizyczne.html"><svg class="ik-k" aria-hidden="true"><use href="#kolba"/></svg>Fizyka i eksperymenty</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje</a></li><li><a href="pomysl-i-zrob.html">Pomyśl i zrób</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kieszonkowe">Doświadczenia za grosze</a></li><li><a href="index.html#doswiadczenie">Dla nauczycieli</a></li><li class="n-wk"><a href="index.html#kategorie">Wszystkie kategorie</a></li><li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="zabawki-fizyczne.html"><svg class="ik-k" aria-hidden="true"><use href="#kolba"/></svg>Fizyka i eksperymenty</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje</a></li><li><a href="pomysl-i-zrob.html">Pomyśl i zrób</a></li><li><a href="blog.html" class="on" aria-current="page">Blog</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kieszonkowe">Doświadczenia za grosze</a></li><li><a href="index.html#doswiadczenie">Dla nauczycieli</a></li><li class="n-wk"><a href="index.html#kategorie">Wszystkie kategorie</a></li><li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
   </nav>
 </header>
 <main>
 <section class="kat-top" aria-labelledby="h1"><div class="wrap">
 <nav class="okr" aria-label="Jesteś tutaj"><ol><li><a href="index.html">Sklep</a></li><li><span aria-current="page">Blog</span></li></ol></nav>
-<div class="kat-top-g wid-top"><div><h1 id="h1">Blog</h1><p class="lead">Wpisy naukowe Rafała Jakubowskiego: pytania badawcze, doświadczenia z filmami i pomysły na lekcje z metodą naukową.</p></div>
-<nav class="wid-skok" aria-label="Kategorie bloga"><a class="chip" href="blog.html">Wpisy naukowe<i>1</i></a></nav></div>
+<div class="kat-top-g wid-top"><div><h1 id="h1">Blog</h1><p class="lead">Wpisy naukowe Rafała Jakubowskiego: pytania badawcze, doświadczenia z filmami, karty pracy i pomysły na lekcje z metodą naukową.</p></div>
+<nav class="wid-skok" aria-label="Kategorie bloga"><a class="chip" href="blog.html">Karty pracy<i>1</i></a><a class="chip" href="blog.html">Wpisy naukowe<i>1</i></a></nav></div>
 </div></section>
 <section class="sek" style="padding-top:clamp(28px,3vw,50px)" aria-label="Wpisy"><div class="wrap">
-<div class="bl-lista"><a class="bl-karta" href="blog-ktore-jajko-stoczy-sie-szybciej.html"><span class="bl-okl"><img src="img/blog/jajka-900.webp" width="770" height="900" alt="Pytanie badawcze: dwa jajka na górze dwóch pochylni opartych o stół" loading="lazy"></span><span class="bl-t"><span class="bl-meta">23 grudnia 2020 &middot; Wpisy naukowe</span><h2>Które jajko stoczy się szybciej i dalej? Surowe czy ugotowane?</h2><p>Wyścig dwóch jajek z pochylni: surowego i ugotowanego na twardo. Pytanie badawcze dla przedszkolaków i uczniów, trzy filmy z wyścigów i doświadczenie do powtórzenia w domu.</p><span class="pz-zob">Czytaj wpis</span></span></a><div class="bl-wolne"><b>Miejsce na kolejny wpis</b><span>Wpisy dodaje się w panelu sklepu: tytuł, treść, zdjęcia, filmy z YouTube i kategoria. Pod każdym wpisem jest przycisk udostępnienia na Facebooku.</span></div></div>
+<div class="bl-lista"><a class="bl-karta" href="blog-karta-pracy-p06-ktore-jajko.html"><span class="bl-okl"><img src="img/karty-ks/s13-640.webp" width="640" height="906" alt="Karta pracy P.06, strona 1: Które jajko stoczy się szybciej i dalej?" loading="lazy"></span><span class="bl-t"><span class="bl-meta">26 listopada 2026 &middot; Karty pracy</span><h2>Karta pracy P.06: Które jajko stoczy się szybciej i dalej? Surowe czy ugotowane?</h2><p>Karta pracy ucznia do wyścigu jajek z pochylni: sytuacja problemowa, pytanie badawcze, hipoteza, doświadczenie, wnioski i ocena. Dwie strony A4 do druku.</p><span class="pz-zob">Czytaj wpis</span></span></a><a class="bl-karta" href="blog-ktore-jajko-stoczy-sie-szybciej.html"><span class="bl-okl"><img src="img/blog/jajka-900.webp" width="770" height="900" alt="Pytanie badawcze: dwa jajka na górze dwóch pochylni opartych o stół" loading="lazy"></span><span class="bl-t"><span class="bl-meta">23 grudnia 2020 &middot; Wpisy naukowe</span><h2>Które jajko stoczy się szybciej i dalej? Surowe czy ugotowane?</h2><p>Wyścig dwóch jajek z pochylni: surowego i ugotowanego na twardo. Pytanie badawcze dla przedszkolaków i uczniów, trzy filmy z wyścigów i doświadczenie do powtórzenia w domu.</p><span class="pz-zob">Czytaj wpis</span></span></a><div class="bl-wolne"><b>Miejsce na kolejny wpis</b><span>Wpisy dodaje się w panelu sklepu: tytuł, treść, zdjęcia, filmy z YouTube i kategoria. Pod każdym wpisem jest przycisk udostępnienia na Facebooku.</span></div></div>
 </div></section>
 </main>
 <footer class="stopka">
