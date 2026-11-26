@@ -10,3 +10,4 @@ build_blog.py
 _karty.html
 build_karty.py
 *.bak_*
+build_karty_ksiazka.py
