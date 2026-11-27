@@ -654,12 +654,28 @@ p{margin:0}
 .pub h3 a{text-decoration:none}.pub h3 a:hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
 @media (max-width:480px){.okl-img{width:88px}}
 
+/* karty pracy: okladka A4 i lista kart */
+.okl-img.a4{border-radius:3px 8px 8px 3px}
+.kp-h{font-size:1.15rem;margin:clamp(26px,3vw,40px) 0 12px}
+.kp-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:8px 22px}
+.kp-lista li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.kp-nr{flex:none;font-weight:700;color:var(--b);font-size:.86rem;min-width:40px}
+.kp-lista li>a:not(.kp-pdf){flex:1;color:var(--ink);text-decoration:none;font-weight:600;line-height:1.3}
+.kp-lista li>a:not(.kp-pdf):hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
+.kp-pdf{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:36px;border-radius:18px;border:2px solid var(--b);color:var(--b);font-weight:700;font-size:.82rem;text-decoration:none}
+.kp-pdf:hover{background:var(--b);color:#fff}
+
+/* menu z Blogiem */
+@media (min-width:1101px) and (max-width:1220px){.nav ul{gap:5px}.nav a{font-size:.75rem}}
+
 /* pomysl i zrob */
 .pz-kroki{display:flex;flex-wrap:wrap;gap:8px}
 .pz-kroki span{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:19px;background:#fff;color:var(--ink);font-weight:700;font-size:.9rem}
 .pz-kroki span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--y)}
 .pz-top-p{color:#dbe3f3;font-size:.95rem;margin-bottom:12px}
-.pz-karty{margin-top:18px}.pz-karty .btn{white-space:normal;text-align:center}
+.pz-karty{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px}
+.pz-karty .btn.nieb{background:#fff;color:var(--b);border-color:#fff}
+.pz-karty .btn.nieb:hover{background:var(--y);border-color:var(--y);color:var(--bn)}.pz-karty .btn{white-space:normal;text-align:center}
 .lista.pz-lista{grid-template-columns:repeat(5,minmax(0,1fr))}
 .pz-lista .pz-wolne{grid-column:span 2}
 @media (max-width:1500px){.lista.pz-lista{grid-template-columns:repeat(4,minmax(0,1fr))}.pz-lista .pz-wolne{grid-column:span 2}}
@@ -763,9 +779,6 @@ p{margin:0}
 .zk-dwa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
 @media (max-width:900px){.zk-dwa{grid-template-columns:1fr}}
 .zk-dwa h3{color:var(--b);margin-bottom:14px}
-
-/* menu z Blogiem */
-@media (min-width:1101px) and (max-width:1220px){.nav ul{gap:5px}.nav a{font-size:.75rem}}
 </style>
 </head>
 <body>

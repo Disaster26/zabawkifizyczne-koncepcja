@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Jakim ruchem porusza się obciążony kulką plasteliny balon? | Pomyśl i zrób | Zabawki Fizyczne</title>
-<meta name="description" content="Jakim ruchem porusza się obciążony kulką plasteliny balon?">
+<meta name="description" content="Balon wypełniony powietrzem, z małym kawałkiem plasteliny, puszczamy z wysokości około 1,5-2 m i nagrywamy telefonem w zwolnionym tempie. Czy spada tak jak piłka?">
 <meta name="theme-color" content="#254286">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -654,12 +654,28 @@ p{margin:0}
 .pub h3 a{text-decoration:none}.pub h3 a:hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
 @media (max-width:480px){.okl-img{width:88px}}
 
+/* karty pracy: okladka A4 i lista kart */
+.okl-img.a4{border-radius:3px 8px 8px 3px}
+.kp-h{font-size:1.15rem;margin:clamp(26px,3vw,40px) 0 12px}
+.kp-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:8px 22px}
+.kp-lista li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.kp-nr{flex:none;font-weight:700;color:var(--b);font-size:.86rem;min-width:40px}
+.kp-lista li>a:not(.kp-pdf){flex:1;color:var(--ink);text-decoration:none;font-weight:600;line-height:1.3}
+.kp-lista li>a:not(.kp-pdf):hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
+.kp-pdf{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:36px;border-radius:18px;border:2px solid var(--b);color:var(--b);font-weight:700;font-size:.82rem;text-decoration:none}
+.kp-pdf:hover{background:var(--b);color:#fff}
+
+/* menu z Blogiem */
+@media (min-width:1101px) and (max-width:1220px){.nav ul{gap:5px}.nav a{font-size:.75rem}}
+
 /* pomysl i zrob */
 .pz-kroki{display:flex;flex-wrap:wrap;gap:8px}
 .pz-kroki span{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:19px;background:#fff;color:var(--ink);font-weight:700;font-size:.9rem}
 .pz-kroki span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--y)}
 .pz-top-p{color:#dbe3f3;font-size:.95rem;margin-bottom:12px}
-.pz-karty{margin-top:18px}.pz-karty .btn{white-space:normal;text-align:center}
+.pz-karty{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px}
+.pz-karty .btn.nieb{background:#fff;color:var(--b);border-color:#fff}
+.pz-karty .btn.nieb:hover{background:var(--y);border-color:var(--y);color:var(--bn)}.pz-karty .btn{white-space:normal;text-align:center}
 .lista.pz-lista{grid-template-columns:repeat(5,minmax(0,1fr))}
 .pz-lista .pz-wolne{grid-column:span 2}
 @media (max-width:1500px){.lista.pz-lista{grid-template-columns:repeat(4,minmax(0,1fr))}.pz-lista .pz-wolne{grid-column:span 2}}
@@ -763,9 +779,6 @@ p{margin:0}
 .zk-dwa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
 @media (max-width:900px){.zk-dwa{grid-template-columns:1fr}}
 .zk-dwa h3{color:var(--b);margin-bottom:14px}
-
-/* menu z Blogiem */
-@media (min-width:1101px) and (max-width:1220px){.nav ul{gap:5px}.nav a{font-size:.75rem}}
 </style>
 </head>
 <body>
@@ -806,14 +819,18 @@ p{margin:0}
     <a class="dz" href="pomysl-i-zrob.html">Pomyśl i zrób &middot; Fizyka</a>
     <h1>Jakim ruchem porusza się obciążony kulką plasteliny balon?</h1>
     
-    
+    <p class="lead">Balon wypełniony powietrzem, z małym kawałkiem plasteliny, puszczamy z wysokości około 1,5-2 m i nagrywamy telefonem w zwolnionym tempie. Czy spada tak jak piłka?</p><div class="pz-mat"><h2>Materiały</h2><ol><li>Balon</li><li>Plastelina do obciążenia balonu</li><li>Telefon komórkowy z kamerą z funkcją zwolnionego tempa, np. 120 klatek/s</li></ol></div>
     <div class="pz-kroki"><span>pytanie badawcze</span><span>hipoteza</span><span>doświadczenie</span><span>wnioski</span></div>
-    <div class="pobierz"><a class="btn nieb" href="karty/jakim-ruchem-porusza-sie-obciazony-balon.pdf" target="_blank" rel="noopener">Karta pracy PDF</a><a class="btn nieb" href="pomysl-i-zrob.html">Wszystkie doświadczenia</a></div>
+    <div class="pobierz"><a class="btn" href="#zk-dosw">Przebieg doświadczenia</a><a class="btn nieb" href="karty/jakim-ruchem-porusza-sie-obciazony-balon.pdf" target="_blank" rel="noopener">Karta pracy PDF</a><a class="btn nieb" href="pomysl-i-zrob.html">Wszystkie doświadczenia</a></div>
     <p class="pz-bez">Doświadczenie bez ceny i koszyka.</p>
-    <p class="przypis">* Doświadczenie i rysunki autora.</p>
+    
   </div>
 </div>
-<div style="height:clamp(30px,4vw,70px)"></div>
+<section class="sek szary zk-sek" id="zk-dosw" aria-label="Opis doświadczenia"><div class="wrap">
+  <div class="zk" data-zakladki><div class="zk-pasek" role="tablist" aria-label="Informacje o doświadczeniu"><button type="button" role="tab" id="zt-opis" aria-controls="zp-opis" aria-selected="true">Opis</button><button type="button" role="tab" id="zt-fiz" aria-controls="zp-fiz" aria-selected="false" tabindex="-1">Co się dzieje i dlaczego</button><button type="button" role="tab" id="zt-lpn" aria-controls="zp-lpn" aria-selected="false" tabindex="-1">Projekt naukowy LPN</button></div><div class="zk-pan" role="tabpanel" id="zp-opis" aria-labelledby="zt-opis" tabindex="0"><div class="zk-dwa"><div><h3>Przebieg</h3><ol class="pz-przebieg"><li>Do nadmuchanego i zawiązanego balonu przyklejamy w miejscu zawiązania mały kawałek plasteliny.</li><li>Puszczamy swobodnie balon z niewielkiej wysokości, około 1,5-2 m, i rejestrujemy ruch za pomocą telefonu. Dodatkowo możemy mierzyć czas spadku. Unikamy przeciągu.</li><li>Odtwarzamy film „klatka po klatce” na YouTube i sprawdzamy, jakie odległości pokonał balon w jednakowych odstępach czasu.</li><li>Tworzymy raport LPN lub ULPN.</li></ol></div><div class="zk-poj"><h3>Bezpieczeństwo</h3><ul><li>Balon puszczamy z wysokości, na którą sięgamy, stojąc na podłodze. Na krzesło wchodzimy tylko pod opieką dorosłego.</li><li>Kawałki pękniętego balonu od razu wyrzucamy, bo małe dzieci mogą się nimi zadławić.</li></ul></div></div></div><div class="zk-pan" role="tabpanel" id="zp-fiz" aria-labelledby="zt-fiz" tabindex="0" hidden><div class="pz-wyj"><p>Na spadający balon działają dwie siły: ciężar balonu z plasteliną, skierowany w dół, i opór powietrza, skierowany w górę. Opór rośnie, gdy balon spada coraz szybciej.</p><p>Balon jest lekki, a ma dużą powierzchnię, dlatego już po krótkiej chwili opór powietrza równoważy jego ciężar. Od tej chwili balon nie przyspiesza i spada ze stałą prędkością, czyli ruchem jednostajnym.</p><p>Piłka, szklanka czy kamień są ciężkie w porównaniu z oporem powietrza, więc na krótkiej drodze przyspieszają przez cały czas spadania.</p><p>Plastelina sprawia, że balon spada pionowo i nie kołysze się na boki, dzięki czemu łatwiej zmierzyć drogę na filmie.</p></div></div><div class="zk-pan" role="tabpanel" id="zp-lpn" aria-labelledby="zt-lpn" tabindex="0" hidden><p class="zk-lead">Lekcyjny Projekt Naukowy w czterech krokach. Wyniki uczniowie zapisują w raporcie LPN lub ULPN.</p>
+<ol class="kroki"><li><h3>Pytanie badawcze</h3><p>Jakim ruchem porusza się w pomieszczeniu balon wypełniony powietrzem?</p></li><li><h3>Hipoteza</h3><p>Wszystkie ciała spadające na Ziemię poruszają się ruchem przyspieszonym, np. piłka, szklanka, kamień, więc spadający balon też będzie poruszał się ruchem przyspieszonym.</p></li><li><h3>Doświadczenie</h3><p>Puszczamy balon (obciążony odrobiną plasteliny) z niewielkiej wysokości, około 1,5-2 m.</p></li><li><h3>Wnioski</h3><p>Balon tylko przez krótką chwilę po puszczeniu przyspiesza, a potem porusza się ruchem prawie jednostajnym: w równych odstępach czasu pokonuje prawie jednakowe odległości. Hipoteza się nie potwierdziła, bo na lekki balon o dużej powierzchni działa duży opór powietrza.</p></li></ol></div></div>
+  <p class="przypis zk-przypis">* Doświadczenie, karta LPN i rysunki autora, książeczka „Doświadczenia i eksperymenty za grosze”. W sklepie kolejne doświadczenia dodaje się w panelu jak produkt, bez ceny i koszyka.</p>
+</div></section>
 </main>
 <footer class="stopka">
   <div class="wrap">
