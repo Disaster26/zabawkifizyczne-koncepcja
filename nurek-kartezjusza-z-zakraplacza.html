@@ -779,6 +779,26 @@ p{margin:0}
 .zk-dwa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
 @media (max-width:900px){.zk-dwa{grid-template-columns:1fr}}
 .zk-dwa h3{color:var(--b);margin-bottom:14px}
+.pz-e-sek{padding-top:clamp(30px,4vw,70px)}
+.pz-e{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,4vw,80px);align-items:center}
+.pz-e.szeroki{grid-template-columns:minmax(0,1fr);gap:clamp(18px,2vw,30px)}
+.pz-e-et{display:inline-block;background:var(--y);color:var(--bn);font:700 .82rem/1 Brico,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.pz-e-txt h2{margin:14px 0 12px;color:var(--b)}
+.pz-e-txt p{color:var(--mut);max-width:62ch;margin:0}
+.pz-e-txt ol{margin:16px 0 0;padding-left:22px;max-width:70ch}
+.pz-e-txt li+li{margin-top:6px}
+.pz-e-txt .btn{margin-top:22px}
+.pz-e.szeroki .pz-e-txt{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:6px clamp(20px,3vw,50px);align-items:end}
+.pz-e.szeroki .pz-e-txt>span,.pz-e.szeroki .pz-e-txt>h2{grid-column:1/-1}.pz-e.szeroki .pz-e-txt>span{justify-self:start}
+.pz-e.szeroki .pz-e-txt h2{margin-bottom:4px}
+.pz-e.szeroki .pz-e-txt ol{margin:0}
+.pz-e.szeroki .pz-e-txt .btn{margin:0}
+.pz-e-ram{position:relative;background:var(--g);border-radius:16px;padding:clamp(12px,1.6vw,26px)}
+.pz-e-ram::after{content:"";position:absolute;right:-6px;top:-6px;width:16px;height:16px;border-radius:50%;background:var(--y)}
+.pz-e-ram iframe{display:block;width:100%;border:0;border-radius:12px;background:#fff}
+@media (max-width:1100px){.pz-e.szeroki .pz-e-txt{grid-template-columns:minmax(0,1fr)}.pz-e.szeroki .pz-e-txt .btn{justify-self:start;margin-top:12px}}
+@media (max-width:860px){.pz-e{grid-template-columns:minmax(0,1fr)}.pz-e:not(.szeroki) .pz-e-ram{width:min(100%,420px);justify-self:center}}
+@media (max-width:560px){.pz-e-txt .btn{width:100%}.pz-e.szeroki .pz-e-ram{padding:8px}}
 </style>
 </head>
 <body>
@@ -835,10 +855,16 @@ p{margin:0}
     <p class="lead">Butelka z wodą i szklany zakraplacz wystarczą, żeby zbudować nurka. Ściśnij butelkę, a nurek zanurkuje. Puść, a wypłynie.</p>
     <div class="pz-mat"><h2>Materiały</h2><ol><li>Szklany zakraplacz do oczu</li><li>Butelka plastikowa PET z zakrętką</li><li>Woda do wypełnienia butelki</li></ol></div>
     <div class="pz-kroki"><span>pytanie badawcze</span><span>hipoteza</span><span>doświadczenie</span><span>wnioski</span></div>
-    <div class="pobierz"><a class="btn" href="#zk-dosw">Przebieg doświadczenia</a><a class="btn nieb" href="karty/nurek-kartezjusza-z-zakraplacza.pdf" target="_blank" rel="noopener">Karta pracy PDF</a><a class="btn nieb" href="pomysl-i-zrob.html">Wszystkie doświadczenia</a></div>
+    <div class="pobierz"><a class="btn" href="#zk-dosw">Przebieg doświadczenia</a><a class="btn nieb" href="#e-dosw">e-doświadczenie z keczupem</a><a class="btn nieb" href="karty/nurek-kartezjusza-z-zakraplacza.pdf" target="_blank" rel="noopener">Karta pracy PDF</a><a class="btn nieb" href="pomysl-i-zrob.html">Wszystkie doświadczenia</a></div>
     <p class="pz-bez">Przedszkole i edukacja wczesnoszkolna. Doświadczenie bez ceny i koszyka, do zrobienia z rzeczy z domu.</p>
   </div>
 </div>
+<section class="sek pz-e-sek" id="e-dosw" aria-labelledby="h-e"><div class="wrap pz-e">
+  <div class="pz-e-txt"><span class="pz-e-et">e-doświadczenie</span><h2 id="h-e">Nurek z saszetki keczupu</h2><p>Butelka z wodą, a w niej saszetka keczupu. Ściśnij butelkę, a saszetka opadnie na dno. Puść, a wypłynie do góry.</p><ol><li>Na komputerze wciśnij butelkę myszką i przytrzymaj. Po puszczeniu nurek wypływa.</li><li>Na telefonie i tablecie dotknij butelki, żeby ją ścisnąć, i dotknij jeszcze raz, żeby ją puścić.</li><li>Zobacz, jak zmienia się kolor saszetki, gdy woda ściska pęcherzyk powietrza.</li></ol>
+  <a class="btn nieb" href="e/nurek-keczup/index.html" target="_blank" rel="noopener">Otwórz na całym ekranie</a></div>
+  <div class="pz-e-ram"><iframe data-src="e/nurek-keczup/index.html" title="e-doświadczenie: Nurek z saszetki keczupu" style="height:640px"></iframe>
+  <noscript><p><a href="e/nurek-keczup/index.html">Otwórz e-doświadczenie</a></p></noscript></div>
+</div></section>
 <section class="sek szary zk-sek" id="zk-dosw" aria-label="Opis doświadczenia"><div class="wrap">
   <div class="zk" data-zakladki><div class="zk-pasek" role="tablist" aria-label="Informacje o doświadczeniu"><button type="button" role="tab" id="zt-opis" aria-controls="zp-opis" aria-selected="true">Opis</button><button type="button" role="tab" id="zt-lpn" aria-controls="zp-lpn" aria-selected="false" tabindex="-1">Projekt naukowy LPN</button></div><div class="zk-pan" role="tabpanel" id="zp-opis" aria-labelledby="zt-opis" tabindex="0"><div class="zk-dwa"><div><h3>Przebieg</h3><ol class="pz-przebieg"><li>Napełniamy butelkę wodą prawie do pełna.</li><li>Wkładamy zakraplacz w części wypełniony wodą do butelki i zakręcamy zakrętkę.</li><li>Ściskamy butelkę na środku i obserwujemy zachowanie zakraplacza-nurka.</li><li>Tworzymy raport LPN lub ULPN.</li></ol></div><div class="zk-poj"><h3>Materiały</h3><ul><li>Szklany zakraplacz do oczu</li><li>Butelka plastikowa PET z zakrętką</li><li>Woda do wypełnienia butelki</li></ul><p>Fizyka &middot; Przedszkole i edukacja wczesnoszkolna</p></div></div><div class="nk-war"><h3>Inne nurki: z saszetki keczupu i z probówki</h3><div class="nk-war-g"><article><h4>Nurek z saszetki keczupu</h4><h5>Materiały</h5><ul><li>Saszetka keczupu (może być też musztarda albo sos sojowy) z wyczuwalnym pęcherzykiem powietrza</li><li>Butelka plastikowa PET 1,5 l z zakrętką</li><li>Szklanka z wodą do sprawdzenia saszetki</li><li>Woda</li></ul><h5>Przebieg</h5><ol><li>Wkładamy saszetkę do szklanki z wodą. Dobra saszetka ledwo pływa, prawie cała pod powierzchnią. Jeśli tonie, bierzemy inną. Jeśli pływa wysoko, doczepiamy do niej spinacz.</li><li>Napełniamy butelkę wodą do pełna, wkładamy saszetkę i mocno zakręcamy.</li><li>Ściskamy butelkę: saszetka opada na dno. Puszczamy: wypływa. Delikatnym ściskaniem można ją zatrzymać w połowie wysokości.</li></ol><p>W saszetce jest pęcherzyk powietrza. Ściskanie butelki zwiększa ciśnienie wody, które według prawa Pascala działa na saszetkę ze wszystkich stron. Pęcherzyk się zmniejsza, saszetka zajmuje mniej miejsca, siła wyporu maleje i saszetka tonie.</p></article><article><h4>Nurek z probówki</h4><h5>Materiały</h5><ul><li>Mała probówka plastikowa albo szklana fiolka</li><li>Butelka plastikowa PET 1,5 l z zakrętką</li><li>Woda</li><li>Dla chętnych: kawałek plasteliny lub drucika jako obciążenie</li></ul><h5>Przebieg</h5><ol><li>Napełniamy probówkę wodą w mniej więcej dwóch trzecich, zatykamy palcem i odwracamy otworem w dół.</li><li>Wkładamy ją do miski z wodą i sprawdzamy, czy pływa pionowo, tuż pod powierzchnią. Jeśli wypływa za wysoko, dolewamy do niej trochę wody, jeśli tonie, trochę wylewamy.</li><li>Przenosimy probówkę do butelki napełnionej wodą do pełna, zakręcamy i ściskamy butelkę.</li></ol><p>Probówka jest przezroczysta, dlatego dobrze widać, co dzieje się w środku: przy ściskaniu woda wchodzi do probówki, a powietrze zajmuje coraz mniej miejsca. Nurek staje się cięższy od wody, którą wypiera, i tonie zgodnie z prawem Archimedesa.</p></article></div></div></div><div class="zk-pan" role="tabpanel" id="zp-lpn" aria-labelledby="zt-lpn" tabindex="0" hidden><p class="zk-lead">Lekcyjny Projekt Naukowy w czterech krokach. Wyniki uczniowie zapisują w raporcie LPN lub ULPN.</p>
 <ol class="kroki"><li><h3>Pytanie badawcze</h3><p>Jak z zakraplacza zrobić nurka Kartezjusza?</p></li><li><h3>Hipoteza</h3><p>Należy wykorzystać pęcherzyk powietrza umieszczony w zakraplaczu.</p></li><li><h3>Doświadczenie</h3><p>Ściskamy butelkę z zakraplaczem w środku.</p></li><li><h3>Wnioski</h3><p>Zakraplacz unosi się i tonie zgodnie z prawem Archimedesa i Pascala.</p></li></ol></div></div>
@@ -894,6 +920,18 @@ p{margin:0}
   b.addEventListener('click',function(){clearTimeout(t);s.classList.remove('spad');void s.offsetWidth;s.classList.add('spad');
     b.lastChild.textContent='Puść jeszcze raz';st.textContent='Kartka pionowa spada pierwsza...';
     t=setTimeout(function(){st.textContent='Kartka pionowa przecina powietrze krawędzią i spada szybko. Płaska napiera na powietrze całą powierzchnią, więc kołysze się i spada później.'},3300)});
+})();
+(function(){
+  /* e-doswiadczenie w ramce: wczytanie dopiero po zaladowaniu strony, gdy ramka zbliza sie do ekranu */
+  var fr=[].slice.call(document.querySelectorAll('.pz-e-ram iframe[data-src]'));if(!fr.length)return;
+  function wczytaj(f){if(!f.src)f.src=f.getAttribute('data-src')}
+  window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d.h!=='number')return;
+    fr.forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.max(200,d.h)+'px'})});
+  function start(){if(!('IntersectionObserver' in window)){fr.forEach(wczytaj);return}
+    var io=new IntersectionObserver(function(w){w.forEach(function(x){if(x.isIntersecting){wczytaj(x.target);io.unobserve(x.target)}})},{rootMargin:'300px 0px'});
+    fr.forEach(function(f){io.observe(f)})}
+  if(document.readyState==='complete')setTimeout(start,300);else window.addEventListener('load',function(){setTimeout(start,300)});
+  if(location.hash==='#e-dosw')fr.forEach(wczytaj);
 })();
 </script>
 </body>

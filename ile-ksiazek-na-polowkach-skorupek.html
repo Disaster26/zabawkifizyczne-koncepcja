@@ -779,6 +779,26 @@ p{margin:0}
 .zk-dwa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
 @media (max-width:900px){.zk-dwa{grid-template-columns:1fr}}
 .zk-dwa h3{color:var(--b);margin-bottom:14px}
+.pz-e-sek{padding-top:clamp(30px,4vw,70px)}
+.pz-e{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,4vw,80px);align-items:center}
+.pz-e.szeroki{grid-template-columns:minmax(0,1fr);gap:clamp(18px,2vw,30px)}
+.pz-e-et{display:inline-block;background:var(--y);color:var(--bn);font:700 .82rem/1 Brico,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.pz-e-txt h2{margin:14px 0 12px;color:var(--b)}
+.pz-e-txt p{color:var(--mut);max-width:62ch;margin:0}
+.pz-e-txt ol{margin:16px 0 0;padding-left:22px;max-width:70ch}
+.pz-e-txt li+li{margin-top:6px}
+.pz-e-txt .btn{margin-top:22px}
+.pz-e.szeroki .pz-e-txt{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:6px clamp(20px,3vw,50px);align-items:end}
+.pz-e.szeroki .pz-e-txt>span,.pz-e.szeroki .pz-e-txt>h2{grid-column:1/-1}.pz-e.szeroki .pz-e-txt>span{justify-self:start}
+.pz-e.szeroki .pz-e-txt h2{margin-bottom:4px}
+.pz-e.szeroki .pz-e-txt ol{margin:0}
+.pz-e.szeroki .pz-e-txt .btn{margin:0}
+.pz-e-ram{position:relative;background:var(--g);border-radius:16px;padding:clamp(12px,1.6vw,26px)}
+.pz-e-ram::after{content:"";position:absolute;right:-6px;top:-6px;width:16px;height:16px;border-radius:50%;background:var(--y)}
+.pz-e-ram iframe{display:block;width:100%;border:0;border-radius:12px;background:#fff}
+@media (max-width:1100px){.pz-e.szeroki .pz-e-txt{grid-template-columns:minmax(0,1fr)}.pz-e.szeroki .pz-e-txt .btn{justify-self:start;margin-top:12px}}
+@media (max-width:860px){.pz-e{grid-template-columns:minmax(0,1fr)}.pz-e:not(.szeroki) .pz-e-ram{width:min(100%,420px);justify-self:center}}
+@media (max-width:560px){.pz-e-txt .btn{width:100%}.pz-e.szeroki .pz-e-ram{padding:8px}}
 </style>
 </head>
 <body>
@@ -826,6 +846,7 @@ p{margin:0}
     
   </div>
 </div>
+
 <section class="sek szary zk-sek" id="zk-dosw" aria-label="Opis doświadczenia"><div class="wrap">
   <div class="zk" data-zakladki><div class="zk-pasek" role="tablist" aria-label="Informacje o doświadczeniu"><button type="button" role="tab" id="zt-opis" aria-controls="zp-opis" aria-selected="true">Opis</button><button type="button" role="tab" id="zt-fiz" aria-controls="zp-fiz" aria-selected="false" tabindex="-1">Co się dzieje i dlaczego</button><button type="button" role="tab" id="zt-lpn" aria-controls="zp-lpn" aria-selected="false" tabindex="-1">Projekt naukowy LPN</button></div><div class="zk-pan" role="tabpanel" id="zp-opis" aria-labelledby="zt-opis" tabindex="0"><div class="zk-dwa"><div><h3>Przebieg</h3><ol class="pz-przebieg"><li>Na środku jajka owijamy pasek taśmy klejącej. Dorosły robi delikatnie mały otwór i nożyczkami przecina skorupkę dookoła wzdłuż taśmy. Zawartość wylewamy do miski.</li><li>Połówki płuczemy wodą i zostawiamy do wyschnięcia. Odklejamy taśmę. Brzegi powinny być równe, bez wyszczerbień.</li><li>Na stole układamy 4 połówki wypukłą stroną do góry, w rogach prostokąta mniejszego niż książka.</li><li>Na skorupkach bardzo ostrożnie kładziemy pierwszą książkę, równo, bez upuszczania.</li><li>Dokładamy kolejne książki po jednej, za każdym razem delikatnie i na środek stosu. Liczymy, przy której książce skorupki pękną.</li><li>Zapisujemy wynik i powtarzamy z nowymi skorupkami. Tworzymy raport LPN lub ULPN.</li></ol></div><div class="zk-poj"><h3>Bezpieczeństwo</h3><ul><li>Skorupki przecina dorosły. Ostre brzegi pękniętych skorupek mogą skaleczyć, zbieramy je ostrożnie.</li><li>Książki kładziemy delikatnie, nie z wysokości. Stos nie powinien być tak wysoki, żeby mógł się przewrócić na dziecko.</li><li>Po pracy z surowymi jajkami myjemy ręce. Zawartość jajek można wykorzystać w kuchni po usmażeniu lub upieczeniu.</li></ul></div></div></div><div class="zk-pan" role="tabpanel" id="zp-fiz" aria-labelledby="zt-fiz" tabindex="0" hidden><div class="pz-wyj"><p>Połówka skorupki to kopuła. Nacisk z góry rozchodzi się po całej kopule do jej brzegu, który opiera się na stole. Żadne miejsce skorupki nie dźwiga wszystkiego samo.</p><p>Cztery kopuły dzielą ciężar książek między siebie, dlatego razem mogą utrzymać zaskakująco duży stos.</p><p>Skorupka pęka najczęściej tam, gdzie brzeg jest nierówny albo książka leży krzywo. Wtedy nacisk skupia się w jednym miejscu.</p><p>Liczba książek zależy od ich wagi, od jajek i od tego, jak równo są przycięte brzegi. Dlatego warto powtórzyć próbę kilka razy i porównać wyniki.</p></div></div><div class="zk-pan" role="tabpanel" id="zp-lpn" aria-labelledby="zt-lpn" tabindex="0" hidden><p class="zk-lead">Lekcyjny Projekt Naukowy w czterech krokach. Wyniki uczniowie zapisują w raporcie LPN lub ULPN.</p>
 <ol class="kroki"><li><h3>Pytanie badawcze</h3><p>Ile książek można położyć na czterech połówkach skorupek jajek?</p></li><li><h3>Hipoteza</h3><p>Skorupki utrzymają więcej książek, niż się wydaje, bo mają kształt kopuły.</p></li><li><h3>Doświadczenie</h3><p>Na czterech połówkach skorupek ułożonych wypukłą stroną do góry kładziemy po kolei książki i liczymy, przy której skorupki pękną.</p></li><li><h3>Wnioski</h3><p>Połówki skorupek utrzymują stos książek, bo kopuła rozkłada nacisk na cały swój brzeg, a cztery skorupki dzielą ciężar między siebie. Pękają, gdy nacisk skupia się w jednym miejscu.</p></li></ol></div></div>
@@ -880,6 +901,18 @@ p{margin:0}
   b.addEventListener('click',function(){clearTimeout(t);s.classList.remove('spad');void s.offsetWidth;s.classList.add('spad');
     b.lastChild.textContent='Puść jeszcze raz';st.textContent='Kartka pionowa spada pierwsza...';
     t=setTimeout(function(){st.textContent='Kartka pionowa przecina powietrze krawędzią i spada szybko. Płaska napiera na powietrze całą powierzchnią, więc kołysze się i spada później.'},3300)});
+})();
+(function(){
+  /* e-doswiadczenie w ramce: wczytanie dopiero po zaladowaniu strony, gdy ramka zbliza sie do ekranu */
+  var fr=[].slice.call(document.querySelectorAll('.pz-e-ram iframe[data-src]'));if(!fr.length)return;
+  function wczytaj(f){if(!f.src)f.src=f.getAttribute('data-src')}
+  window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d.h!=='number')return;
+    fr.forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.max(200,d.h)+'px'})});
+  function start(){if(!('IntersectionObserver' in window)){fr.forEach(wczytaj);return}
+    var io=new IntersectionObserver(function(w){w.forEach(function(x){if(x.isIntersecting){wczytaj(x.target);io.unobserve(x.target)}})},{rootMargin:'300px 0px'});
+    fr.forEach(function(f){io.observe(f)})}
+  if(document.readyState==='complete')setTimeout(start,300);else window.addEventListener('load',function(){setTimeout(start,300)});
+  if(location.hash==='#e-dosw')fr.forEach(wczytaj);
 })();
 </script>
 </body>

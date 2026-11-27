@@ -779,6 +779,26 @@ p{margin:0}
 .zk-dwa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
 @media (max-width:900px){.zk-dwa{grid-template-columns:1fr}}
 .zk-dwa h3{color:var(--b);margin-bottom:14px}
+.pz-e-sek{padding-top:clamp(30px,4vw,70px)}
+.pz-e{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,4vw,80px);align-items:center}
+.pz-e.szeroki{grid-template-columns:minmax(0,1fr);gap:clamp(18px,2vw,30px)}
+.pz-e-et{display:inline-block;background:var(--y);color:var(--bn);font:700 .82rem/1 Brico,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.pz-e-txt h2{margin:14px 0 12px;color:var(--b)}
+.pz-e-txt p{color:var(--mut);max-width:62ch;margin:0}
+.pz-e-txt ol{margin:16px 0 0;padding-left:22px;max-width:70ch}
+.pz-e-txt li+li{margin-top:6px}
+.pz-e-txt .btn{margin-top:22px}
+.pz-e.szeroki .pz-e-txt{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:6px clamp(20px,3vw,50px);align-items:end}
+.pz-e.szeroki .pz-e-txt>span,.pz-e.szeroki .pz-e-txt>h2{grid-column:1/-1}.pz-e.szeroki .pz-e-txt>span{justify-self:start}
+.pz-e.szeroki .pz-e-txt h2{margin-bottom:4px}
+.pz-e.szeroki .pz-e-txt ol{margin:0}
+.pz-e.szeroki .pz-e-txt .btn{margin:0}
+.pz-e-ram{position:relative;background:var(--g);border-radius:16px;padding:clamp(12px,1.6vw,26px)}
+.pz-e-ram::after{content:"";position:absolute;right:-6px;top:-6px;width:16px;height:16px;border-radius:50%;background:var(--y)}
+.pz-e-ram iframe{display:block;width:100%;border:0;border-radius:12px;background:#fff}
+@media (max-width:1100px){.pz-e.szeroki .pz-e-txt{grid-template-columns:minmax(0,1fr)}.pz-e.szeroki .pz-e-txt .btn{justify-self:start;margin-top:12px}}
+@media (max-width:860px){.pz-e{grid-template-columns:minmax(0,1fr)}.pz-e:not(.szeroki) .pz-e-ram{width:min(100%,420px);justify-self:center}}
+@media (max-width:560px){.pz-e-txt .btn{width:100%}.pz-e.szeroki .pz-e-ram{padding:8px}}
 </style>
 </head>
 <body>
@@ -821,11 +841,17 @@ p{margin:0}
     
     <p class="lead">Kawałek sera, waga kuchenna i menzurka z wodą wystarczą, żeby policzyć gęstość, czyli to, ile masy mieści się w każdym centymetrze sześciennym.</p><div class="pz-mat"><h2>Materiały</h2><ol><li>Ser (kawałek w jednym bloku)</li><li>Waga kuchenna</li><li>Cylinder miarowy lub menzurka kuchenna z wodą</li><li>Dla chętnych: ziemniak lub masło do porównania</li><li>Kartka i ołówek do obliczeń</li></ol></div>
     <div class="pz-kroki"><span>pytanie badawcze</span><span>hipoteza</span><span>doświadczenie</span><span>wnioski</span></div>
-    <div class="pobierz"><a class="btn" href="#zk-dosw">Przebieg doświadczenia</a><a class="btn nieb" href="karty/jak-wyznaczyc-gestosc.pdf" target="_blank" rel="noopener">Karta pracy PDF</a><a class="btn nieb" href="pomysl-i-zrob.html">Wszystkie doświadczenia</a></div>
+    <div class="pobierz"><a class="btn" href="#zk-dosw">Przebieg doświadczenia</a><a class="btn nieb" href="#e-dosw">e-doświadczenie</a><a class="btn nieb" href="karty/jak-wyznaczyc-gestosc.pdf" target="_blank" rel="noopener">Karta pracy PDF</a><a class="btn nieb" href="pomysl-i-zrob.html">Wszystkie doświadczenia</a></div>
     <p class="pz-bez">Doświadczenie bez ceny i koszyka.</p>
     
   </div>
 </div>
+<section class="sek pz-e-sek" id="e-dosw" aria-labelledby="h-e"><div class="wrap pz-e szeroki">
+  <div class="pz-e-txt"><span class="pz-e-et">e-doświadczenie</span><h2 id="h-e">Wyznacz gęstość sera, masła i ziemniaka</h2><p>Wirtualna waga i menzurka z wodą. Zważ produkt, zmierz jego objętość, odrzuć błędne pomiary i oblicz gęstość ze wzoru d = m : V.</p>
+  <a class="btn nieb" href="e/gestosc/index.html" target="_blank" rel="noopener">Otwórz na całym ekranie</a></div>
+  <div class="pz-e-ram"><iframe data-src="e/gestosc/index.html" title="e-doświadczenie: Wyznacz gęstość sera, masła i ziemniaka" style="height:980px"></iframe>
+  <noscript><p><a href="e/gestosc/index.html">Otwórz e-doświadczenie</a></p></noscript></div>
+</div></section>
 <section class="sek szary zk-sek" id="zk-dosw" aria-label="Opis doświadczenia"><div class="wrap">
   <div class="zk" data-zakladki><div class="zk-pasek" role="tablist" aria-label="Informacje o doświadczeniu"><button type="button" role="tab" id="zt-opis" aria-controls="zp-opis" aria-selected="true">Opis</button><button type="button" role="tab" id="zt-fiz" aria-controls="zp-fiz" aria-selected="false" tabindex="-1">Co się dzieje i dlaczego</button><button type="button" role="tab" id="zt-lpn" aria-controls="zp-lpn" aria-selected="false" tabindex="-1">Projekt naukowy LPN</button></div><div class="zk-pan" role="tabpanel" id="zp-opis" aria-labelledby="zt-opis" tabindex="0"><div class="zk-dwa"><div><h3>Przebieg</h3><ol class="pz-przebieg"><li>Wyznaczamy masę sera na wadze albo odczytujemy ją z opakowania. Zapisujemy wynik w gramach.</li><li>Wlewamy wodę do menzurki i odczytujemy, ile jej jest. Wkładamy ser tak, żeby cały był pod wodą (jeśli wypływa, dociskamy go cienką wykałaczką), i odczytujemy, o ile zwiększyła się objętość wody. To jest objętość sera.</li><li>Podstawiamy nasze dane do wzoru d = m / V (masa podzielona przez objętość) i obliczamy gęstość.</li><li>Dla chętnych: tak samo mierzymy kawałek ziemniaka albo masła i porównujemy wyniki.</li><li>Tworzymy raport LPN lub ULPN.</li></ol></div><div class="zk-poj"><h3>Bezpieczeństwo</h3><ul><li>Jeśli ser trzeba pokroić, kroi go dorosły.</li><li>Ser wkładamy do czystej wody i czystej menzurki. Po doświadczeniu myjemy ręce i naczynia.</li></ul></div></div></div><div class="zk-pan" role="tabpanel" id="zp-fiz" aria-labelledby="zt-fiz" tabindex="0" hidden><div class="pz-wyj"><p>Gęstość mówi, jak ciasno upakowana jest materia: ile gramów waży każdy centymetr sześcienny danej rzeczy. Obliczamy ją ze wzoru d = m / V, gdzie m to masa, a V to objętość.</p><p>Masę łatwo zmierzyć na wadze. Trudniej z objętością, bo kawałek sera nie ma kształtu prostego klocka. Dlatego wkładamy go do wody: ser wypycha tyle wody, ile sam zajmuje miejsca, i poziom wody w menzurce podnosi się dokładnie o objętość sera.</p><p>Na menzurce kuchennej podziałka jest w mililitrach. Jeden mililitr to tyle samo co jeden centymetr sześcienny, więc gęstość wyjdzie w gramach na centymetr sześcienny.</p><p>Woda ma gęstość około 1 grama na centymetr sześcienny. Rzeczy o większej gęstości toną w wodzie, a o mniejszej pływają. Porównajcie swój wynik z tym, czy ser w menzurce tonął, czy wypływał.</p></div></div><div class="zk-pan" role="tabpanel" id="zp-lpn" aria-labelledby="zt-lpn" tabindex="0" hidden><p class="zk-lead">Lekcyjny Projekt Naukowy w czterech krokach. Wyniki uczniowie zapisują w raporcie LPN lub ULPN.</p>
 <ol class="kroki"><li><h3>Pytanie badawcze</h3><p>Jak wyznaczyć gęstość sera?</p></li><li><h3>Hipoteza</h3><p>Należy najpierw znać jego masę i objętość.</p></li><li><h3>Doświadczenie</h3><p>Wyznaczamy masę i objętość sera, a następnie dzielimy masę przez objętość.</p></li><li><h3>Wnioski</h3><p>Korzystając ze wzoru d = m / V i podstawiając wyznaczone dane, uzyskujemy gęstość sera.</p></li></ol></div></div>
@@ -880,6 +906,18 @@ p{margin:0}
   b.addEventListener('click',function(){clearTimeout(t);s.classList.remove('spad');void s.offsetWidth;s.classList.add('spad');
     b.lastChild.textContent='Puść jeszcze raz';st.textContent='Kartka pionowa spada pierwsza...';
     t=setTimeout(function(){st.textContent='Kartka pionowa przecina powietrze krawędzią i spada szybko. Płaska napiera na powietrze całą powierzchnią, więc kołysze się i spada później.'},3300)});
+})();
+(function(){
+  /* e-doswiadczenie w ramce: wczytanie dopiero po zaladowaniu strony, gdy ramka zbliza sie do ekranu */
+  var fr=[].slice.call(document.querySelectorAll('.pz-e-ram iframe[data-src]'));if(!fr.length)return;
+  function wczytaj(f){if(!f.src)f.src=f.getAttribute('data-src')}
+  window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d.h!=='number')return;
+    fr.forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.max(200,d.h)+'px'})});
+  function start(){if(!('IntersectionObserver' in window)){fr.forEach(wczytaj);return}
+    var io=new IntersectionObserver(function(w){w.forEach(function(x){if(x.isIntersecting){wczytaj(x.target);io.unobserve(x.target)}})},{rootMargin:'300px 0px'});
+    fr.forEach(function(f){io.observe(f)})}
+  if(document.readyState==='complete')setTimeout(start,300);else window.addEventListener('load',function(){setTimeout(start,300)});
+  if(location.hash==='#e-dosw')fr.forEach(wczytaj);
 })();
 </script>
 </body>

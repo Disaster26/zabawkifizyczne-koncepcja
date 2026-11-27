@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="author" content="Piotr Dziendzielski">
+<title>E-doświadczenie: Nurek Kartezjusza</title>
+<style>
+@font-face{font-family:Brico;src:url(../../fonts/brico-pl.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:Manrope;src:url(../../fonts/manrope-pl.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{--b:#2f4f97;--bd:#254286;--bn:#1a2d5c;--y:#ffc72c;--ink:#14213f;--mut:#4d5873;--g:#eef2f8;--line:#d6dce8}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font:500 16px/1.5 Manrope,Arial,sans-serif;-webkit-text-size-adjust:100%}
+button{font:700 1rem/1 Brico,Arial,sans-serif;-webkit-tap-highlight-color:transparent}
+
+body{overflow:hidden}
+#stage{position:relative;width:206px;height:630px;margin:0 auto}
+#butelka{position:absolute;top:20px;left:0;width:206px;height:601px;background:url("images/butelka_cala_original.webp") no-repeat 0 0/206px 601px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+#nurek{position:absolute;top:90px;left:68px;width:71px;height:134px;background:url("images/ketchup_jasny_original.webp") no-repeat 0 0/71px 134px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+</style>
+<link rel="preload" as="image" href="images/butelka_scisk_original.webp">
+<link rel="preload" as="image" href="images/ketchup_ciemny_original.webp">
+<script src="../jquery-3.7.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+
+var myTime;
+	
+	if((screen.width>screen.height) && (screen.width>1279))
+	{
+	    $("#butelka").mousedown(function(){
+	    	clearTimeout(myTime);
+        	$("#nurek").stop();
+			$("#butelka").css({'background-image':'url("images/butelka_scisk_original.webp")'});
+			$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	        $("#nurek").animate({top:'480px'},5000);
+	        myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},5000);
+	    });
+	    $("#butelka").mouseup(function(){
+	    	clearTimeout(myTime);
+	        $("#nurek").stop();
+			$("#butelka").css({'background-image':'url("images/butelka_cala_original.webp")'});
+			$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	        $("#nurek").animate({top:'90px'},4000);
+	        myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},4000);
+	    });
+
+	    $("#nurek").mousedown(function(){
+	    	clearTimeout(myTime);
+        	$("#nurek").stop();
+			$("#butelka").css({'background-image':'url("images/butelka_scisk_original.webp")'});
+			$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	        $("#nurek").animate({top:'480px'},5000);
+	        myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},5000);
+	    });
+	    $("#nurek").mouseup(function(){
+	    	clearTimeout(myTime);
+	        $("#nurek").stop();
+			$("#butelka").css({'background-image':'url("images/butelka_cala_original.webp")'});
+			$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	        $("#nurek").animate({top:'90px'},4000);
+	        myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},4000);
+	    });
+	}
+	else
+	{
+	var doGory=true;
+		$("#butelka").click(function(){
+			if(doGory)
+			{
+	    		clearTimeout(myTime);
+        		$("#nurek").stop();
+				$("#butelka").css({'background-image':'url("images/butelka_scisk_original.webp")'});
+				$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	        	$("#nurek").animate({top:'480px'},5000);
+	        	myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},5000);
+	        	doGory = false;
+	        }
+	        else
+	        {
+	        	clearTimeout(myTime);
+	       		$("#nurek").stop();
+				$("#butelka").css({'background-image':'url("images/butelka_cala_original.webp")'});
+				$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	       		$("#nurek").animate({top:'90px'},4000);
+	       		myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},4000);
+	       		doGory = true;
+	        }
+	    });
+	    $("#nurek").click(function(){
+	    	if(doGory)
+	    	{
+		   		clearTimeout(myTime);
+        		$("#nurek").stop();
+				$("#butelka").css({'background-image':'url("images/butelka_scisk_original.webp")'});
+				$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	       		$("#nurek").animate({top:'480px'},5000);
+	       		myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},5000);
+		       	doGory = false;
+	    	}
+	    	else
+	    	{
+	       		clearTimeout(myTime);
+	       		$("#nurek").stop();
+				$("#butelka").css({'background-image':'url("images/butelka_cala_original.webp")'});
+				$("#nurek").css({'background-image':'url("images/ketchup_ciemny_original.webp")'});
+	       		$("#nurek").animate({top:'90px'},4000);
+	       		myTime = setTimeout(function(){$("#nurek").css({'background-image':'url("images/ketchup_jasny_original.webp")'});},4000);
+	       		doGory = true;
+	    	}
+	    });
+	}
+});
+
+</script>
+</head>
+<body>
+<div id="stage" role="img" aria-label="Butelka z wodą i nurkiem z saszetki keczupu">
+<div id="butelka"></div>
+<div id="nurek"></div>
+</div>
+<script>
+(function(){if(window.parent===window)return;var o=0;function w(){var h=Math.ceil(document.body.getBoundingClientRect().height);if(h!==o){o=h;parent.postMessage({edosw:location.pathname,h:h},"*")}}
+window.addEventListener("load",w);window.addEventListener("resize",w);if(window.ResizeObserver)new ResizeObserver(w).observe(document.body);setInterval(w,1500)})();
+</script>
+</body>
+</html>

@@ -779,6 +779,26 @@ p{margin:0}
 .zk-dwa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
 @media (max-width:900px){.zk-dwa{grid-template-columns:1fr}}
 .zk-dwa h3{color:var(--b);margin-bottom:14px}
+.pz-e-sek{padding-top:clamp(30px,4vw,70px)}
+.pz-e{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,4vw,80px);align-items:center}
+.pz-e.szeroki{grid-template-columns:minmax(0,1fr);gap:clamp(18px,2vw,30px)}
+.pz-e-et{display:inline-block;background:var(--y);color:var(--bn);font:700 .82rem/1 Brico,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.pz-e-txt h2{margin:14px 0 12px;color:var(--b)}
+.pz-e-txt p{color:var(--mut);max-width:62ch;margin:0}
+.pz-e-txt ol{margin:16px 0 0;padding-left:22px;max-width:70ch}
+.pz-e-txt li+li{margin-top:6px}
+.pz-e-txt .btn{margin-top:22px}
+.pz-e.szeroki .pz-e-txt{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:6px clamp(20px,3vw,50px);align-items:end}
+.pz-e.szeroki .pz-e-txt>span,.pz-e.szeroki .pz-e-txt>h2{grid-column:1/-1}.pz-e.szeroki .pz-e-txt>span{justify-self:start}
+.pz-e.szeroki .pz-e-txt h2{margin-bottom:4px}
+.pz-e.szeroki .pz-e-txt ol{margin:0}
+.pz-e.szeroki .pz-e-txt .btn{margin:0}
+.pz-e-ram{position:relative;background:var(--g);border-radius:16px;padding:clamp(12px,1.6vw,26px)}
+.pz-e-ram::after{content:"";position:absolute;right:-6px;top:-6px;width:16px;height:16px;border-radius:50%;background:var(--y)}
+.pz-e-ram iframe{display:block;width:100%;border:0;border-radius:12px;background:#fff}
+@media (max-width:1100px){.pz-e.szeroki .pz-e-txt{grid-template-columns:minmax(0,1fr)}.pz-e.szeroki .pz-e-txt .btn{justify-self:start;margin-top:12px}}
+@media (max-width:860px){.pz-e{grid-template-columns:minmax(0,1fr)}.pz-e:not(.szeroki) .pz-e-ram{width:min(100%,420px);justify-self:center}}
+@media (max-width:560px){.pz-e-txt .btn{width:100%}.pz-e.szeroki .pz-e-ram{padding:8px}}
 </style>
 </head>
 <body>
@@ -826,6 +846,7 @@ p{margin:0}
     
   </div>
 </div>
+
 <section class="sek szary zk-sek" id="zk-dosw" aria-label="Opis doświadczenia"><div class="wrap">
   <div class="zk" data-zakladki><div class="zk-pasek" role="tablist" aria-label="Informacje o doświadczeniu"><button type="button" role="tab" id="zt-opis" aria-controls="zp-opis" aria-selected="true">Opis</button><button type="button" role="tab" id="zt-fiz" aria-controls="zp-fiz" aria-selected="false" tabindex="-1">Co się dzieje i dlaczego</button><button type="button" role="tab" id="zt-lpn" aria-controls="zp-lpn" aria-selected="false" tabindex="-1">Projekt naukowy LPN</button></div><div class="zk-pan" role="tabpanel" id="zp-opis" aria-labelledby="zt-opis" tabindex="0"><div class="zk-dwa"><div><h3>Przebieg</h3><ol class="pz-przebieg"><li>Przygotowujemy papierki wskaźnikowe: tniemy bibułę w paski, kroplomierzem nanosimy na nie małe ilości wywaru z czerwonej kapusty i czekamy, aż wyschną.</li><li>Napełniamy każdą ze zlewek: wodą destylowaną, colą i octem.</li><li>Kolejno przygotowanym papierkiem wskaźnikowym badamy, jaki odczyn mają woda destylowana, cola i ocet. Na kawałki pasków nanosimy krople każdej cieczy.</li><li>Porównujemy kolory papierków ze skalą barw dla czerwonej kapusty.</li><li>Tworzymy raport LPN lub ULPN.</li></ol></div><div class="zk-poj"><h3>Bezpieczeństwo</h3><ul><li>Niczego z doświadczenia nie pijemy. Kubeczki po doświadczeniu myjemy.</li><li>Wywar z czerwonej kapusty przygotowuje dorosły.</li></ul></div></div></div><div class="zk-pan" role="tabpanel" id="zp-fiz" aria-labelledby="zt-fiz" tabindex="0" hidden><div class="pz-wyj"><p>Skala pH, czyli skala odczynu roztworu, to skala wartości liczbowych od 0 do 14 odpowiadających stężeniu jonów wodorowych. Liczby 1-6 oznaczają odczyn kwasowy, 7 odczyn obojętny, a 8-14 odczyn zasadowy.</p><p>Odczyn roztworu określa, czy w roztworze znajduje się nadmiar jonów wodorowych H+ (odczyn kwaśny), nadmiar jonów wodorotlenowych OH- (odczyn zasadowy), czy też są one w równowadze (odczyn obojętny).</p><p>Papierki wskaźnikowe można wykonać samemu z wywaru z czerwonej kapusty albo z zaparzonej herbaty, np. leśnej lub „niebieskiej”, czy z buraczków instant. Wywar z czerwonej kapusty w roztworach kwasowych barwi się na czerwono lub różowo, w obojętnych jest fioletowy, a w zasadowych zielononiebieski.</p><p>Cola zawiera kwas, a jej kwaśność jest ukryta pod słodkim smakiem dużej ilości cukru. Dlatego papierek w coli zmienia kolor podobnie jak w occie.</p></div></div><div class="zk-pan" role="tabpanel" id="zp-lpn" aria-labelledby="zt-lpn" tabindex="0" hidden><p class="zk-lead">Lekcyjny Projekt Naukowy w czterech krokach. Wyniki uczniowie zapisują w raporcie LPN lub ULPN.</p>
 <ol class="kroki"><li><h3>Pytanie badawcze</h3><p>Czy cola jest kwaśna (czy ma odczyn kwasowy)?</p></li><li><h3>Hipoteza</h3><p>Wydaje się, iż cola podobnie jak woda ma odczyn obojętny, czyli pH coli jest zbliżone do pH wody destylowanej.</p></li><li><h3>Doświadczenie</h3><p>Sprawdzamy doświadczalnie, jakie pH ma woda destylowana i cola. Dla porównania mierzymy też pH substancji kwaśnej (np. octu, soku z cytryny).</p></li><li><h3>Wnioski</h3><p>Odczyn roztworu może być kwasowy, obojętny lub zasadowy. Cola jest roztworem, którego odczyn jest kwasowy, choć cola jest słodka. Hipoteza się nie potwierdziła.</p></li></ol></div></div>
@@ -880,6 +901,18 @@ p{margin:0}
   b.addEventListener('click',function(){clearTimeout(t);s.classList.remove('spad');void s.offsetWidth;s.classList.add('spad');
     b.lastChild.textContent='Puść jeszcze raz';st.textContent='Kartka pionowa spada pierwsza...';
     t=setTimeout(function(){st.textContent='Kartka pionowa przecina powietrze krawędzią i spada szybko. Płaska napiera na powietrze całą powierzchnią, więc kołysze się i spada później.'},3300)});
+})();
+(function(){
+  /* e-doswiadczenie w ramce: wczytanie dopiero po zaladowaniu strony, gdy ramka zbliza sie do ekranu */
+  var fr=[].slice.call(document.querySelectorAll('.pz-e-ram iframe[data-src]'));if(!fr.length)return;
+  function wczytaj(f){if(!f.src)f.src=f.getAttribute('data-src')}
+  window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d.h!=='number')return;
+    fr.forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.max(200,d.h)+'px'})});
+  function start(){if(!('IntersectionObserver' in window)){fr.forEach(wczytaj);return}
+    var io=new IntersectionObserver(function(w){w.forEach(function(x){if(x.isIntersecting){wczytaj(x.target);io.unobserve(x.target)}})},{rootMargin:'300px 0px'});
+    fr.forEach(function(f){io.observe(f)})}
+  if(document.readyState==='complete')setTimeout(start,300);else window.addEventListener('load',function(){setTimeout(start,300)});
+  if(location.hash==='#e-dosw')fr.forEach(wczytaj);
 })();
 </script>
 </body>

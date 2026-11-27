@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>E-doświadczenie: Jak wyznaczyć gęstość?</title>
+<style>
+@font-face{font-family:Brico;src:url(../../fonts/brico-pl.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:Manrope;src:url(../../fonts/manrope-pl.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{--b:#2f4f97;--bd:#254286;--bn:#1a2d5c;--y:#ffc72c;--ink:#14213f;--mut:#4d5873;--g:#eef2f8;--line:#d6dce8}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font:500 16px/1.5 Manrope,Arial,sans-serif;-webkit-text-size-adjust:100%}
+button{font:700 1rem/1 Brico,Arial,sans-serif;-webkit-tap-highlight-color:transparent}
+
+body{padding:clamp(12px,2vw,22px)}
+.wst{margin:0 0 10px;color:var(--mut);font-size:15px}
+.skala{position:relative;width:100%;max-width:656px;overflow:hidden}
+@media (min-width:1000px){.gora{display:grid;grid-template-columns:656px minmax(0,1fr);gap:40px;align-items:center}.bok .wst{max-width:52ch}}
+#stage{position:absolute;left:0;top:0;width:656px;height:380px;transform-origin:0 0}
+#cont{position:relative;display:block;height:400px;margin-top:-140px}
+#waga,#miarka{position:absolute;top:0;height:400px;border:0;margin:0}
+#waga{left:20px;width:240px;background:url("images/waga_0.webp") no-repeat 0 150px}
+#miarka{left:300px;width:316px;background:url("images/miarka.webp") no-repeat 0 150px}
+#waga.cel,#miarka.cel{outline:3px dashed var(--y);outline-offset:-6px;border-radius:14px}
+.polka{display:flex;gap:28px;padding:0 20px;margin-top:12px}
+div.produkt{position:relative;display:inline-block;width:100px;height:100px;margin:0;border:2px dashed var(--line);border-radius:14px;background:var(--g)}
+div.produkt.cel{border-color:var(--y);background:#fff8df}
+div.produkt img{display:block;width:100px;height:100px}
+#stage img{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;cursor:grab}
+#stage img.wyb{filter:drop-shadow(0 0 0 var(--y)) drop-shadow(0 0 6px var(--y))}
+.duch{position:fixed;z-index:9;width:76px;height:76px;pointer-events:none;opacity:.9;transform:translate(-50%,-60%)}
+.ster{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin:14px 0 4px}
+button#res{min-height:48px;padding:0 26px;border:0;border-radius:8px;background:var(--b);color:#fff;cursor:pointer}
+p.wzor{margin:0;font-size:15px;color:var(--mut)}
+p.wzor b{font:700 18px/1.2 Brico,Arial,sans-serif;color:var(--ink)}
+.podp{min-height:1.4em;margin:6px 0 0;font-weight:700;font-size:14px;color:var(--bd)}
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;min-width:980px;width:100%;font-size:14px}
+td{border:1px solid var(--line);padding:6px 6px;text-align:center;height:34px;min-width:92px}
+thead td{background:var(--g);font-weight:700;color:var(--bd)}
+thead tr:first-child td{font:700 15px/1.2 Brico,Arial,sans-serif;color:var(--ink)}
+tbody td:first-child,tfoot td:first-child{position:sticky;left:0;background:#fff;font-weight:700;min-width:118px;width:190px;text-align:left;z-index:1}
+thead td:first-child{position:sticky;left:0;z-index:2}
+tbody td:nth-child(3n+2),tbody td:nth-child(3n+3){cursor:pointer}
+tfoot td{background:#fafbfd;font-size:13px}
+tfoot tr:last-child td{font:700 15px/1.2 Brico,Arial,sans-serif;color:var(--bd)}
+tfoot button{display:block;margin:6px auto 0;min-height:36px;padding:0 16px;border:0;border-radius:8px;background:var(--y);color:var(--bn);cursor:pointer}
+</style>
+<script src="../jquery-3.7.1.min.js"></script>
+<script>
+	var i=0;
+
+	var temp01 = 0;
+	var temp02 = 0;
+	
+	var tab = new Array(6);
+
+	for( var t1 = 0; t1 < 6; t1++ ) {
+		tab[t1] = new Array(7);
+	}
+
+	tablica();
+
+	function tablica() {
+		for( var t1 = 0; t1 < 6; t1++ ) {
+			for( var t2 = 0; t2 < 7; t2++ ) {
+				tab[t1][t2] = 0;
+			}
+		}
+
+		for( t1 = 0; t1 < 6; t1++ ) {
+			temp01 = Math.trunc( Math.random()*6.99 );
+			while( temp01 == temp02 ) {
+				temp01 = Math.trunc( Math.random()*6.99 );
+			}
+			temp02 = Math.trunc( Math.random()*6.99 );
+			while( temp01 == temp02 ) {
+				temp02 = Math.trunc( Math.random()*6.99 );
+			}
+			tab[t1][temp01] = Math.random()*20 + 102;
+			tab[t1][temp02] = Math.random()*20 - 120;
+		}
+	}
+
+	$(document).ready(function(){
+    	$( "img#ser" ).mousedown(function(){
+    		$( "img#ser" ).css({width: "100px", height: "100px", left: "70px", top: "141px"});
+			if( $( "img#ser" ).attr( "src" ) === "images/miarka_ser.webp" ) {
+				$( "img#ser" ).css({left: "108px", top: "209px"});
+			}
+			if( $( "img#ser" ).attr( "src" ) === "images/waga_ser.webp" ) {
+				document.getElementById( "waga" ).style.backgroundImage = "url('images/waga_0.webp')"; 
+			}
+	        $( "img#ser" ).attr( "src", "images/ser.webp" );
+    	});
+    	$( "img#maslo" ).mousedown(function(){
+	       	$( "img#maslo" ).css({width: "100px", height: "100px", left: "70px", top: "141px"});
+	       	if( $( "img#maslo" ).attr( "src" ) === "images/miarka_maslo.webp" ) {
+	       		$( "img#maslo" ).css({left: "108px", top: "217px"});
+	       	}
+	       	if( $( "img#maslo" ).attr( "src" ) === "images/waga_maslo.webp" ) {
+	   			$( "img#maslo" ).css({top: "132px"});
+	   			document.getElementById( "waga" ).style.backgroundImage = "url('images/waga_0.webp')"; 
+	   		}
+	       	$( "img#maslo" ).attr( "src", "images/maslo.webp" );
+    	});
+	   	$( "img#skala" ).mousedown(function(){
+	   		$( "img#skala" ).css({width: "100px", height: "100px", left: "70px", top: "141px"});
+	   		if( $( "img#skala" ).attr( "src" ) === "images/miarka_skala.webp" ) {
+	   			$( "img#skala" ).css({left: "108px", top: "294px"});
+	   		}
+	   		if( $( "img#skala" ).attr( "src" ) === "images/waga_skala.webp" ) {
+	   			$( "img#skala" ).css({top: "134px"});
+	   			document.getElementById( "waga" ).style.backgroundImage = "url('images/waga_0.webp')"; 
+	   		}
+	        $( "img#skala" ).attr( "src", "images/skala.webp" );
+    	});
+
+
+    	$( "tbody td:nth-child(3n + 2),tbody td:nth-child(3n + 3)" ).click(function(){
+    		if( $( this ).css( "background-color" ) == "rgba(0, 0, 0, 0)" || $( this ).css( "background-color" ) == "transparent" ) {
+    			if( ( $( this ).text().split( " ", 1 ) > 344 && $( this ).text().split( " ", 1 ) < 386 ) || ( $( this ).text().split( " ", 1 ) > 133 && $( this ).text().split( " ", 1 ) < 233 ) ) {
+    				$( this ).css({"background-color":"rgba(255, 0, 0, 0.55)","color":"green"});
+    			}
+    			else {
+    				$( this ).css({"background-color":"rgba(0, 255, 0, 0.55)","color":"red"});
+    			}
+    		}
+    		else {
+    			$( this ).css({"background-color":"rgba(0, 0, 0, 0)","color":"black"});
+    		}
+    	});
+
+
+    	$( document ).on( "click", "button", function(){
+    		if( $( this ).attr( "id" ) === "res" ) { return; }
+    		var identity = $( this ).attr("id").split( "_", 2 );
+    		
+    		var sum = 0;
+	    	var licznik = 0;
+	    	var tmp;
+	    	var kolor = 0;
+
+	    	for( var i = 1; i < 8; i++ ) {
+	    		if( $( "tbody tr:nth-child(" + i + ") td:nth-child(" + identity[1] + ")" ).css( "background-color" ) == "rgba(0, 255, 0, 0.55)" ) {
+	    			kolor++;
+	    		}
+	    	}
+
+	    	if( kolor === 2 )
+	    	{
+	    		if( $( this ).attr( "id" ) != "res" )
+    			{
+	    			$( this ).remove();
+    			}
+	   		
+	   			for( var i = 1; i < 8; i++ ) {
+	    			if( $( "tbody tr:nth-child(" + i + ") td:nth-child(" + identity[1] + ")" ).css( "background-color" ) == "rgba(0, 0, 0, 0)" || $( "tbody tr:nth-child(" + i + ") td:nth-child(" + identity[1] + ")" ).css( "background-color" ) == "transparent" || $( "tbody tr:nth-child(" + i + ") td:nth-child(" + identity[1] + ")" ).css( "background-color" ) == "rgba(255, 0, 0, 0.55)" ) {
+	    				tmp = $( "tbody tr:nth-child(" + i + ") td:nth-child(" + identity[1] + ")" ).text().split( " ", 2 );
+	    				sum += Number( tmp[0] );
+	    				licznik++;
+	    			}
+	    		}
+	    		$( "tfoot tr:nth-child(1) td:nth-child(" + identity[1] + ")" ).text( ( sum / licznik ).toFixed( 2 ) + " " + String( tmp[1] ) );
+	    		for( var i = 2; i < 10; i++ ) {
+	    			volume( i );
+	    		}
+	    	}
+    	});
+
+    	$( "button" ).click(function(){
+    		for( var j = 1; j < 8; j++ ) {
+    			for( var i = 2; i < 11; i++ ) {
+    				$( "tbody tr:nth-child(" + j + ") td:nth-child(" + i + ")" ).text( "" );
+    				$( "tbody tr:nth-child(" + j + ") td:nth-child(" + i + ")" ).css({"background-color":"rgba(0, 0, 0, 0)","color":"black"});;
+    			}
+    		}
+    		for( var i = 2; i < 11; i++ ) {
+    			$( "tfoot tr:nth-child(1) td:nth-child(" + i + ")" ).text( "" );
+   			}
+   			for( var i = 2; i < 5; i++ ) {
+    			$( "tfoot tr:nth-child(2) td:nth-child(" + i + ")" ).text( "" );
+   			}
+   			tablica();
+    	});
+	});
+
+    function volume( dat ) {
+    	if( Number( dat % 3 ) === 0 ) {
+    		var tmp1 = $( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).text().split( " ", 1 );
+    		var tmp2 = $( "tfoot tr:nth-child(1) td:nth-child(" + ( Number( dat ) - 1 ) + ")" ).text().split( " ", 1 );
+    		if( $( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).text() !== "" && $( "tfoot tr:nth-child(1) td:nth-child(" + ( Number( dat ) - 1 ) + ")" ).text() !== "" && !isNaN( tmp1[0] ) && !isNaN( tmp2[0] ) ) {
+    			$( "tfoot tr:nth-child(2) td:nth-child(" + ( Math.floor( ( Number( dat ) + 1 ) / 3 ) + 1 ) + ")" ).text( Math.trunc( ( $( "tfoot tr:nth-child(1) td:nth-child(" + ( Number( dat ) - 1 ) +")" ).text().split( " ", 1 ) / $( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).text().split( " ", 1 ) ) * 100000 ) / 100 + "kg/m³" );
+    		}
+    	}
+    	if( Number( dat % 3 ) === 2 ) {
+    		var tmp1 = $( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).text().split( " ", 1 );
+    		var tmp2 = $( "tfoot tr:nth-child(1) td:nth-child(" + ( Number( dat ) + 1 ) + ")" ).text().split( " ", 1 );
+    		if( $( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).text() !== "" && $( "tfoot tr:nth-child(1) td:nth-child(" + ( Number( dat ) + 1 ) + ")" ).text() !== "" && !isNaN( tmp1[0] ) && !isNaN( tmp2[0] ) ) {
+    			$( "tfoot tr:nth-child(2) td:nth-child(" + ( Math.floor( ( Number( dat ) + 1 ) / 3 ) + 1 ) + ")" ).text( Math.trunc( ( $( "tfoot tr:nth-child(1) td:nth-child(" + dat +")" ).text().split( " ", 1 ) / $( "tfoot tr:nth-child(1) td:nth-child(" + ( Number( dat ) + 1 ) + ")" ).text().split( " ", 1 ) ) * 100000 ) / 100 + "kg/m³" );
+    		}
+    	}
+    }
+
+	function drag( ev ) {
+		ev.dataTransfer.setData( "text", ev.target.id );
+	}
+
+	function dragover( ev, el ) {
+		ev.preventDefault();
+		//var arr = [miarka,waga,1,2,3];
+		if( $( "div#miarka" ).is( ":empty" ) ) {
+    		document.getElementById( "miarka" ).setAttribute( "ondrop", "drop(event,this)" );
+    	}
+    	else {
+   			document.getElementById( "miarka" ).setAttribute( "ondrop", "event.preventDefault()" );
+   		}
+   		if( $( "div#waga" ).is( ":empty" ) ) {
+    		document.getElementById( "waga" ).setAttribute( "ondrop", "drop(event,this)" );
+    	}
+    	else {
+   			document.getElementById( "waga" ).setAttribute( "ondrop", "event.preventDefault()" );
+   		}
+   		if( el && el.id !== "" ) {
+   			if( !$( el.id ).is( ":empty" ) ) {
+   				document.getElementById( el.id ).setAttribute( "ondrop", "drop(event,this)" );
+   			}
+   		}
+
+   		//if( !$( el.id ).is( ":empty" ) ) {
+    	//	document.getElementById( el.id ).setAttribute( "ondrop", "drop(event,this)" );
+    	//}
+	}
+
+	function dragleave( ev, el ) {
+		//if( !$( el.id ).is( ":empty" ) ) {
+    	//	document.getElementById( el.id ).setAttribute( "ondrop", "drop(event,this)" );
+    	//}
+	}
+
+	function drop( ev, el ) {
+    	ev.preventDefault();
+    	var data = ev.dataTransfer.getData( "text" );
+    	ev.target.appendChild( document.getElementById( data ) );
+    	if ( ev.target.id !== '' ){
+    		if ( ev.target.id === "waga" ){
+    			element( data, 1 );
+    			$( "img#" + data ).attr( "src", "images/waga_" + data + ".webp" );
+				$( "img#" + data ).css({position:'relative', left:'0px', top:'150px', transform:'rotate(0deg)', width: "240px"});
+				switch( data ) {
+					case "ser":
+						document.getElementById( "waga" ).style.backgroundImage = "url('images/waga_1.webp')"; 
+						break;
+					case "maslo":
+						document.getElementById( "waga" ).style.backgroundImage = "url('images/waga_2.webp')"; 
+						break;
+					case "skala":
+						document.getElementById( "waga" ).style.backgroundImage = "url('images/waga_3.webp')"; 
+						break;
+				}
+    		}
+    		else if ( ev.target.id === "miarka" ){
+    			element( data, 2 );
+    			$( "img#" + data ).attr( "src", "images/miarka_" + data + ".webp" );
+				$( "img#" + data ).css({position:'relative', left:'0px', top:'150px', transform:'rotate(0deg)', width: "316px", height: "250px"});
+    		}
+   			if ( $( ev.target ).attr( "class" ) === "produkt" ){
+   				$( "img#" + data ).css({position:'static', transform:'rotate(0deg)'});
+   				document.getElementById( el.id ).setAttribute( "ondrop", "event.preventDefault()" );
+    		}
+    	}
+	}
+
+	function element( dat, pom ) {
+		var i = 1;
+		var j = 0;
+		var value = 0;
+		switch ( dat ) {
+    		case "ser":
+    			j = 1 + pom;
+    			while( $( "tbody tr:nth-child(" + i + ") td:nth-child(" + j + ")" ).text() !== "" && i < 8 ){
+					i++;
+				}
+    			if( pom === 1 ) {
+    				value = Math.round( Math.random()*25 ) + Math.round( 355 + tab[0][i-1] ) + " gram";
+
+    			}
+    			else if( pom === 2 ) {
+    				value = Math.round( Math.random()*25 ) + Math.round( 360 + tab[1][i-1] ) + " cm³";
+    			}
+    			break;
+    		case "maslo":
+    			j = 4 + pom;
+    			while( $( "tbody tr:nth-child(" + i + ") td:nth-child(" + j + ")" ).text() !== "" && i < 8 ){
+					i++;
+				}
+    			if( pom === 1 ) {
+    				value = Math.round( Math.random()*25 ) + Math.round( 195 + tab[2][i-1] ) + " gram";
+    			}
+    			else if( pom === 2 ) {
+    				value = Math.round( Math.random()*25 ) + Math.round( 207 + tab[3][i-1] ) + " cm³";
+    			}
+   				break;
+    		case "skala":
+    			j = 7 + pom;
+    			while( $( "tbody tr:nth-child(" + i + ") td:nth-child(" + j + ")" ).text() !== "" && i < 8 ){
+					i++;
+				}
+    			if( pom === 1 ) {
+    				value = Math.round( Math.random()*25 ) + Math.round( 170 + tab[4][i-1] ) + " gram";
+    			}
+    			else if( pom === 2 ) {
+    				value = Math.round( Math.random()*25 ) + Math.round( 133 + tab[5][i-1] ) + " cm³";
+    			}
+    			break;
+   		}
+		
+		input( j, i, value );
+	    
+	    function input( dat, num, val ) {
+	    	if( $( "tbody tr:nth-child(" + num + ") td:nth-child(" + dat + ")" ).length ){
+	    		$( "tbody tr:nth-child(" + num + ") td:nth-child(" + dat + ")" ).text( val );
+	    	}
+	    	if( dat % 3 === 0 ){
+	    		if( $( "tbody tr:nth-child(" + num + ") td:nth-child(" + dat + ")" ).text() !== "" && $( "tbody tr:nth-child(" + num + ") td:nth-child(" + ( Number( dat ) - 1 ) + ")" ).text() !== "" ) {
+	    			$( "tbody tr:nth-child(" + num + ") td:nth-child(" + ( Number( dat ) + 1 ) + ")" ).text( Math.trunc( ( $( "tbody tr:nth-child(" + num + ") td:nth-child(" + ( Number( dat ) - 1 ) + ")" ).text().split( " ", 1 ) / $( "tbody tr:nth-child(" + num + ") td:nth-child(" + dat + ")" ).text().split( " ", 1 ) ) * 100000 ) / 100 + "kg/m³" );
+	    		}
+	    	}
+	    	if( dat % 3 === 2 ){
+	    		if( $( "tbody tr:nth-child(" + num + ") td:nth-child(" + dat + ")" ).text() !== "" && $( "tbody tr:nth-child(" + num + ") td:nth-child(" + ( Number( dat ) + 1 ) + ")" ).text() !== "" ) {
+	    			$( "tbody tr:nth-child(" + num + ") td:nth-child(" + ( Number( dat ) + 2 ) + ")" ).text( Math.trunc( ( $( "tbody tr:nth-child(" + num + ") td:nth-child(" + dat + ")" ).text().split( " ", 1 ) / $( "tbody tr:nth-child(" + num + ") td:nth-child(" + ( Number( dat ) + 1 ) + ")" ).text().split( " ", 1 ) ) * 100000 ) / 100 + "kg/m³" );
+	    		}
+	    	}
+    	}
+
+    	full( j );
+		
+		function full( dat ) {
+    		if( $( "tbody tr:nth-child(7) td:nth-child(" + dat + ")" ).text() !== "" && $( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).text() === "" ){
+	    		$( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).text( "Zaznacz pomiary do odrzucenia i kliknij 'oblicz'." );
+	    		var btn = document.createElement( "button" );
+	    		btn.setAttribute("id","btn_" + dat);
+	    		var t = document.createTextNode( "Oblicz" );
+	    		btn.appendChild( t );
+	    		$( "tfoot tr:nth-child(1) td:nth-child(" + dat + ")" ).append( btn );
+    		}
+    	}
+
+    	volume( j );
+    }
+</script>
+</head>
+<body>
+<p class="wst">Przenieś ser, masło albo ziemniak na wagę lub do menzurki z wodą: myszką przeciągnij, na telefonie przeciągnij palcem albo dotknij produktu, a potem wagi lub menzurki. Każdy produkt zważ i zmierz 7 razy, za każdym razem odkładając go na półkę.</p>
+<div class="gora"><div class="skala"><div id="stage">
+<div id="cont">
+	<div id="waga" ondragover="dragover(event)" ondrop="drop(event,this)"></div>
+	<div id="miarka" ondragover="dragover(event)" ondrop="drop(event,this)"></div>
+</div>
+<div class="polka">
+<div class="produkt" id="d1" ondragover="dragover(event,this)" ondragleave="dragleave(event,this)" ondrop="drop(event,this)"><img src="images/ser.webp" width="100" height="100" id="ser" alt="Ser" draggable="true" ondragstart="drag(event)"></div>
+<div class="produkt" id="d2" ondragover="dragover(event,this)" ondragleave="dragleave(event,this)" ondrop="drop(event,this)"><img src="images/maslo.webp" width="100" height="100" id="maslo" alt="Masło" draggable="true" ondragstart="drag(event)"></div>
+<div class="produkt" id="d3" ondragover="dragover(event,this)" ondragleave="dragleave(event,this)" ondrop="drop(event,this)"><img src="images/skala.webp" width="100" height="100" id="skala" alt="Ziemniak" draggable="true" ondragstart="drag(event)"></div>
+</div>
+</div></div>
+<div class="bok"><p class="podp" id="podp" aria-live="polite"></p>
+<div class="ster"><button id="res" type="button">Reset</button><p class="wzor"><b>d = m : V</b><br>m - masa, V - objętość</p></div>
+<p class="wst" style="margin-top:12px">W każdej kolumnie dwa pomiary są błędne. Kliknij je w tabeli (zielone pole = trafnie odrzucony pomiar), a potem przycisk Oblicz pod kolumną.</p></div></div>
+<div class="tab">
+<table>
+	<thead>
+		<tr>
+			<td rowspan="2"></td>
+			<td colspan="3">Ser</td>
+			<td colspan="3">Masło</td>
+			<td colspan="3">Ziemniak</td>
+		</tr>
+		<tr>
+			<td>Masa</td>
+			<td>Objętość</td>
+			<td>Gęstość</td>
+			<td>Masa</td>
+			<td>Objętość</td>
+			<td>Gęstość</td>
+			<td>Masa</td>
+			<td>Objętość</td>
+			<td>Gęstość</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Pomiar 1</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Pomiar 2</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Pomiar 3</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Pomiar 4</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Pomiar 5</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Pomiar 6</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Pomiar 7</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>Wynik pomiarów (masa średnia, objętość średnia):</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Gęstość:</td>
+			<td colspan="3"></td>
+			<td colspan="3"></td>
+			<td colspan="3"></td>
+		</tr>
+	</tfoot>
+</table>
+</div>
+<script>
+/* dotyk (telefon, tablet): przeciaganie palcem albo dotknij produkt, potem wage lub menzurke */
+(function(){
+  var st=document.getElementById("stage"),pod=document.getElementById("podp"),wyb=null,ak=null;
+  function cel(el){return el&&el.closest?el.closest("#waga,#miarka,.produkt"):null}
+  function wolny(t){return t&&!t.querySelector("img")}
+  function zaznacz(t){[].forEach.call(st.querySelectorAll(".cel"),function(x){if(x!==t)x.classList.remove("cel")});if(t)t.classList.add("cel")}
+  function poloz(img,t){if(!wolny(t)||t===img.parentNode)return false;$(img).trigger("mousedown");
+    var ev={preventDefault:function(){},dataTransfer:{getData:function(){return img.id}},target:t};drop(ev,t);return true}
+  function odznacz(){if(wyb)wyb.classList.remove("wyb");wyb=null;pod.textContent=""}
+  st.addEventListener("touchstart",function(e){if(e.target.tagName==="IMG")e.preventDefault()},{passive:false});
+  st.addEventListener("pointerdown",function(e){if(e.pointerType==="mouse"||e.target.tagName!=="IMG")return;
+    e.preventDefault();ak={img:e.target,x:e.clientX,y:e.clientY,ruch:false,duch:null};try{e.target.setPointerCapture(e.pointerId)}catch(_){}});
+  st.addEventListener("pointermove",function(e){if(!ak)return;
+    if(!ak.ruch&&Math.abs(e.clientX-ak.x)+Math.abs(e.clientY-ak.y)>8){ak.ruch=true;odznacz();
+      ak.duch=document.createElement("img");ak.duch.src=ak.img.getAttribute("src").replace(/(waga|miarka)_/,"");ak.duch.className="duch";document.body.appendChild(ak.duch)}
+    if(ak.ruch){ak.duch.style.left=e.clientX+"px";ak.duch.style.top=e.clientY+"px";var t=cel(document.elementFromPoint(e.clientX,e.clientY));zaznacz(wolny(t)?t:null)}});
+  function koniec(e){if(!ak)return;var a=ak;ak=null;zaznacz(null);
+    if(a.ruch){a.duch.remove();poloz(a.img,cel(document.elementFromPoint(e.clientX,e.clientY)))}
+    else if(wyb===a.img){odznacz()}
+    else{odznacz();wyb=a.img;wyb.classList.add("wyb");pod.textContent="Teraz dotknij wagi, menzurki albo pustego miejsca na półce."}}
+  st.addEventListener("pointerup",koniec);
+  st.addEventListener("pointercancel",function(){if(ak&&ak.duch)ak.duch.remove();ak=null;zaznacz(null)});
+  st.addEventListener("click",function(e){if(!wyb||e.target.tagName==="IMG")return;var t=cel(e.target);if(t&&poloz(wyb,t))odznacz()});
+})();
+/* skalowanie sceny do szerokosci ekranu */
+(function(){var sk=document.querySelector(".skala"),st=document.getElementById("stage");
+  function f(){var k=Math.min(1,sk.clientWidth/656);st.style.transform="scale("+k+")";sk.style.height=Math.ceil(380*k)+"px"}
+  window.addEventListener("resize",f);f()})();
+</script>
+<script>
+(function(){if(window.parent===window)return;var o=0;function w(){var h=Math.ceil(document.body.getBoundingClientRect().height);if(h!==o){o=h;parent.postMessage({edosw:location.pathname,h:h},"*")}}
+window.addEventListener("load",w);window.addEventListener("resize",w);if(window.ResizeObserver)new ResizeObserver(w).observe(document.body);setInterval(w,1500)})();
+</script>
+</body>
+</html>
