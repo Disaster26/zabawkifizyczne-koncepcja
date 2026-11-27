@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Jak zrobić nieważkość w klasie? Z butelką i miską | Pomyśl i zrób | Zabawki Fizyczne</title>
+<meta name="description" content="Jak zrobić nieważkość w klasie? Z butelką i miską">
+<meta name="theme-color" content="#254286">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="fonts/brico-rdzen.woff2" crossorigin>
+<style>
+@font-face{font-family:Brico;src:url(fonts/brico-rdzen.woff2) format("woff2");font-weight:400 700;font-stretch:78% 100%;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC}
+@font-face{font-family:Brico;src:url(fonts/brico-pl.woff2) format("woff2");font-weight:400 700;font-stretch:78% 100%;font-display:swap;unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+@font-face{font-family:Manrope;src:url(fonts/manrope-rdzen.woff2) format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0020-007E,U+00A0,U+00A9,U+00AB,U+00B0,U+00B2,U+00B7,U+00BB,U+00D3,U+00D7,U+00F3,U+2013-2014,U+2018-2019,U+201C-201E,U+2022,U+2026,U+20AC}
+@font-face{font-family:Manrope;src:url(fonts/manrope-pl.woff2) format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+@font-face{font-family:"Manrope fb";src:local("Arial");size-adjust:103%;ascent-override:96%;descent-override:27%}
+@font-face{font-family:"Brico fb";src:local("Arial");size-adjust:98%;ascent-override:92%;descent-override:24%}
+:root{--kon:#1d4283;--b:#2f4f97;--bd:#254286;--bn:#1a2d5c;--y:#ffc72c;--y2:#f2b200;--ink:#14213f;--mut:#4d5873;--g:#eef2f8;--line:#d6dce8;--tb:30px;--hh:60px;--nav:0px;--w:min(calc(100vw - 32px),1760px);--gap:14px}
+@media (min-width:761px){:root{--tb:34px;--hh:76px;--w:min(92vw,1760px);--gap:clamp(16px,1.3vw,26px)}}
+@media (min-width:1101px){:root{--nav:50px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hh);-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Manrope,"Manrope fb",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(16px,.18vw + 15.3px,19px);line-height:1.6;color:var(--ink);background:#fff;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-family:Brico,"Brico fb",Arial,sans-serif;font-weight:700;line-height:1.04;letter-spacing:-.015em}
+h2{font-size:clamp(30px,3vw,58px);font-stretch:92%}
+h3{font-size:clamp(17px,1.05vw,21px);font-weight:600;line-height:1.25;letter-spacing:-.005em}
+p{margin:0}
+.wrap{width:var(--w);margin:0 auto}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:8px;z-index:99;background:#fff;padding:8px 12px}
+:focus-visible{outline:3px solid var(--y);outline-offset:3px}
+
+/* przycisk: prostokat z babelkiem z favicony na rogu */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;background:var(--y);color:var(--bn);font:700 1.06rem/1 Brico,"Brico fb",Arial,sans-serif;font-stretch:95%;text-decoration:none;border:0;border-radius:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,transform .15s}
+.btn::after{content:"";position:absolute;right:-7px;top:-7px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--y);transition:transform .25s}
+.btn:hover{background:#ffd457}.btn:hover::after{transform:translate(3px,-4px) scale(.85)}
+.btn.nieb{background:var(--b);color:#fff}.btn.nieb::after{box-shadow:0 0 0 3px var(--b)}
+.btn.nieb:hover{background:var(--bd)}
+
+/* pasek darmowej wysylki */
+.tb{height:var(--tb);background:var(--bd);color:#fff;font-size:.86rem}
+.tb .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.tb b{color:var(--y)}
+.tb a{text-decoration:none;font-weight:700;white-space:nowrap}
+.tb .dl{display:none}
+@media (min-width:761px){.tb .dl{display:inline}.tb .mk{display:none}}
+@media (max-width:760px){.tb .wrap{justify-content:center}.tb .tel{display:none}}
+
+/* naglowek */
+.top{position:sticky;top:0;z-index:50;background:#fff;transition:box-shadow .2s}
+.top.sc{box-shadow:0 1px 0 var(--line),0 8px 20px rgba(20,33,63,.07)}
+.top .wrap{height:var(--hh);display:flex;align-items:center;gap:clamp(14px,2vw,40px)}
+/* logo: konik klienta + napis zabawkifizyczne.com.pl kroju Bricolage Grotesque 600 */
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none;color:var(--kon)}
+.logo svg{width:50px;height:50px;flex:none;color:var(--kon)}
+.logo .lt{display:block;font:600 23px/1 Brico,"Brico fb",Arial,sans-serif;letter-spacing:-.02em;white-space:nowrap}
+.logo .lt b,.logo .lt i{font:inherit;font-style:normal}
+@media (max-width:1100px){.logo svg{width:44px;height:44px}.logo .lt{font-size:20px}.logo .lt i{display:block;text-align:right;font-size:.65em;letter-spacing:0;margin-top:3px}}
+.szuk{flex:1;max-width:760px;display:flex;align-items:center;height:50px;border:2px solid var(--b);border-radius:8px;overflow:hidden;background:#fff}
+.szuk input{flex:1;min-width:0;height:100%;border:0;padding:0 16px;font:inherit;font-size:16px;color:var(--ink);background:transparent;outline:none}
+.szuk input::placeholder{color:#6b7591}
+.szuk button{height:100%;padding:0 18px;border:0;background:var(--b);color:#fff;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px}
+.szuk:focus-within{box-shadow:0 0 0 4px rgba(255,199,44,.55)}
+.ik{display:inline-grid;place-items:center;width:46px;height:46px;border:0;background:none;cursor:pointer;color:var(--b);text-decoration:none;position:relative;padding:0;flex:none}
+.ik svg{width:26px;height:26px}
+.kosz{margin-left:auto;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--b);font-weight:700;flex:none;background:none;border:0;cursor:pointer;padding:0}
+.kosz .ik{width:46px}
+.kosz i{position:absolute;right:2px;top:2px;min-width:21px;height:21px;padding:0 5px;border-radius:11px;background:var(--y);color:var(--bn);font:700 .74rem/21px Manrope,Arial,sans-serif;font-style:normal;text-align:center}
+.kosz span{white-space:nowrap}
+.m-szuk,.burger{display:none}
+.nav{height:var(--nav);border-top:1px solid var(--line);background:#fff}
+.nav ul{list-style:none;margin:0 auto;padding:0;height:100%;display:flex;align-items:center;gap:clamp(18px,2.2vw,44px);width:var(--w)}
+.nav a{text-decoration:none;font-weight:700;font-size:.98rem;padding:12px 0;position:relative;white-space:nowrap}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:3px;border-radius:2px;background:var(--y);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav a:hover::after,.nav a.on::after{transform:none}
+.nav li:last-child{margin-left:auto}
+.nav li:last-child a{color:var(--b)}
+@media (min-width:1101px){.nav .n-wk{margin-left:auto}.nav .n-wk+li{margin-left:0}}
+@media (min-width:1101px) and (max-width:1680px){.nav ul{gap:16px}.nav a{font-size:.88rem}}
+@media (min-width:1101px) and (max-width:1440px){.nav .n-dost{display:none}}@media (min-width:1101px) and (max-width:1300px){.nav ul{gap:8px}.nav a{font-size:.8rem}}
+@media (max-width:1100px){
+  .nav{position:absolute;left:0;right:0;top:100%;height:auto;background:#fff;border-top:1px solid var(--line);box-shadow:0 18px 30px rgba(20,33,63,.14);transform:translateY(-8px);opacity:0;visibility:hidden;transition:.2s;z-index:49;max-height:calc(100svh - var(--hh) - var(--tb));overflow:auto}
+  .top.open .nav{transform:none;opacity:1;visibility:visible}
+  .nav ul{flex-direction:column;align-items:stretch;gap:0;padding:6px 0 18px;height:auto}
+  .nav a{display:block;padding:15px 2px;border-bottom:1px solid var(--g);font-size:1.08rem}
+  .nav a::after{display:none}
+  .nav a.on{box-shadow:inset 4px 0 0 var(--y);padding-left:14px}
+  .nav li:last-child{margin:0}
+  .nav .mszuk{display:flex;margin:12px 0 4px}
+  .burger{display:inline-grid;place-items:center;width:46px;height:46px;border:0;border-radius:8px;background:var(--b);cursor:pointer;padding:0;flex:none}
+  .burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:#fff;position:relative;transition:.2s}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+  .top.open .burger span{background:transparent}
+  .top.open .burger span::before{top:0;transform:rotate(45deg)}
+  .top.open .burger span::after{top:0;transform:rotate(-45deg)}
+}
+.nav .mszuk{display:none}
+@media (max-width:1100px){.nav .mszuk{display:flex}}
+@media (max-width:1100px) and (min-width:761px){.top .wrap>.szuk{max-width:none}}
+@media (max-width:760px){
+  .top .wrap{gap:4px}
+  .top .wrap>.szuk{display:none}
+  .logo{gap:8px;margin-right:auto}
+  .logo svg{width:40px;height:40px}
+  .logo .lt{font-size:clamp(16px,4.6vw,19px)}
+  .m-szuk{display:inline-grid}
+  .kosz{margin-left:0}.kosz>span:last-child{display:none}
+  .burger{margin-left:4px}
+}
+@media (max-width:360px){.logo svg{width:38px;height:38px}}
+
+/* sekcje */
+.sek{padding:clamp(60px,7vw,120px) 0}
+.sek.szary{background:var(--g)}
+.glowa{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-bottom:clamp(26px,2.6vw,44px)}
+.glowa p{max-width:60ch;color:var(--mut);margin-top:12px}
+.strz{display:flex;gap:10px}
+.strz button{width:52px;height:52px;border:2px solid var(--b);border-radius:50%;background:#fff;color:var(--b);cursor:pointer;display:grid;place-items:center;transition:.15s}
+.strz button:hover:not(:disabled){background:var(--b);color:#fff}
+.strz button:disabled{opacity:.3;cursor:default}
+.strz svg{width:20px;height:20px}
+@media (max-width:760px){.strz{display:none}}
+.tor{display:grid;grid-auto-flow:column;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 0 8px;cursor:grab}
+.tor::-webkit-scrollbar{display:none}
+.tor.drag{cursor:grabbing;scroll-snap-type:none}
+.tor>*{scroll-snap-align:start;min-width:0}
+.tor img{-webkit-user-drag:none;user-select:none}
+
+/* banery dzialow (od klienta, 4076x1064 - wyswietlane ponizej natywnej rozdzielczosci) */
+.tor.banery{grid-auto-columns:calc((100% - var(--gap))/2)}
+@media (max-width:1100px){.tor.banery{grid-auto-columns:100%}}
+@media (max-width:760px){.tor.banery{grid-auto-columns:88%;margin:0 -16px;padding:4px 16px 8px;scroll-padding:0 16px}}
+.baner{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:border-color .2s,box-shadow .2s}
+.baner:hover{border-color:var(--b);box-shadow:0 10px 26px rgba(20,33,63,.09)}
+.baner img{width:100%;height:auto;aspect-ratio:4076/1064;object-fit:cover}
+.kropki{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.kropki button{width:12px;height:12px;padding:0;border-radius:50%;border:2px solid var(--b);background:#fff;cursor:pointer}
+.kropki button[aria-current="true"]{background:var(--b)}
+@media (min-width:1101px){.kropki{display:none}}
+
+/* doswiadczenia za grosze: znaczek od klienta */
+.z-gr{display:flex;align-items:center;gap:clamp(16px,2vw,32px)}
+.znaczek{flex:none;width:clamp(96px,8.5vw,150px);height:auto}
+@media (max-width:420px){.z-gr{align-items:flex-start}.znaczek{width:84px}}
+
+/* kategorie: produkt na kole z logo */
+.kat{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:1500px){.kat{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:760px){.kat{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:40%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -16px;padding:0 16px 6px;scroll-padding:0 16px}.kat::-webkit-scrollbar{display:none}.kat>*{scroll-snap-align:start}}
+.kat a{display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;gap:14px;padding:clamp(14px,1.2vw,22px) 10px clamp(18px,1.4vw,26px);border-radius:14px;background:var(--g);transition:background .2s}
+.kat a:hover{background:#e2e8f3}
+.kolo{position:relative;display:block;width:100%;aspect-ratio:1;border-radius:50%;background:#fff}
+.kolo::after{content:"";position:absolute;width:13%;height:13%;right:6%;top:4%;border-radius:50%;background:var(--y);transition:transform .3s}
+.kolo img{position:absolute;inset:14%;width:72%;height:72%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s}
+.kat a:hover .kolo img{transform:scale(1.06)}
+.kat a:hover .kolo::after{transform:translate(4px,-6px)}
+.kat b{font:600 clamp(15px,.95vw,18px)/1.2 Brico,"Brico fb",Arial,sans-serif}
+
+/* karty produktow */
+.tor.p{grid-auto-columns:calc((100% - 5*var(--gap))/6)}
+@media (max-width:1500px){.tor.p{grid-auto-columns:calc((100% - 3*var(--gap))/4)}}
+@media (max-width:1100px){.tor.p{grid-auto-columns:calc((100% - 2*var(--gap))/3)}}
+@media (max-width:760px){.tor.p{grid-auto-columns:64%}}
+.prod{margin:0;display:flex;flex-direction:column;background:#fff;border-radius:14px;padding:10px 10px 16px;border:1px solid var(--line);transition:border-color .2s,box-shadow .2s}
+.szary .prod{border-color:#fff}
+.prod:hover{border-color:var(--b);box-shadow:0 10px 26px rgba(20,33,63,.09)}
+.prod .zd{position:relative;display:block;width:100%;aspect-ratio:1;border:0;padding:0;border-radius:10px;background:var(--g);cursor:zoom-in;overflow:hidden}
+.prod .zd::before{content:"";position:absolute;inset:7%;border-radius:50%;background:#fff;transition:transform .35s}
+.prod .zd::after{content:"";position:absolute;width:9%;height:9%;right:9%;top:8%;border-radius:50%;background:var(--y);transition:transform .35s}
+.prod .zd img{position:absolute;inset:12%;width:76%;height:76%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s}
+.prod:hover .zd img{transform:scale(1.05)}
+.prod:hover .zd::after{transform:translate(5px,-7px)}
+.prod figcaption{padding:14px 6px 0;display:flex;flex-direction:column;gap:8px;flex:1}
+.prod h3{font-size:clamp(16px,.98vw,19px)}
+.prod .dol{margin-top:auto;padding-top:6px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.prod .cena{font:700 clamp(20px,1.3vw,25px)/1 Brico,"Brico fb",Arial,sans-serif;color:var(--b);white-space:nowrap}
+.prod .dok{flex:none;display:inline-flex;align-items:center;gap:7px;height:42px;padding:0 14px;border:0;border-radius:8px;background:var(--b);color:#fff;font-weight:700;font-size:.92rem;cursor:pointer;transition:background .15s}
+.prod .dok:hover{background:var(--bd)}
+.prod .dok svg{width:18px;height:18px}
+@media (max-width:420px){.prod .dok span{display:none}.prod .dok{width:44px;justify-content:center;padding:0}}
+.zrodlo{font-size:.84rem;color:var(--mut);margin-top:18px}
+
+/* kieszonkowe: siatka */
+.siatka{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:1500px){.siatka{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.siatka{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.siatka .prod{padding:8px 8px 12px}.siatka .prod .dol{flex-direction:column;align-items:stretch}.siatka .prod .dok{width:100%;justify-content:center}.siatka .prod .dok span{display:inline}}
+
+/* doswiadczenie - mocna sekcja */
+.dosw{background:var(--bd);color:#fff;position:relative;overflow:hidden}
+.dosw-g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(36px,5vw,120px);align-items:center}
+.dosw h2{color:#fff;max-width:14ch}
+.dosw .lead{color:#dbe3f3;margin-top:20px;max-width:56ch;font-size:clamp(17px,1.1vw,21px)}
+.dosw .cyt{margin:26px 0 0;padding:0 0 0 22px;border-left:4px solid var(--y);color:#fff;font-size:clamp(17px,1.1vw,21px);max-width:54ch}
+.dosw .cyt cite{display:block;font-style:normal;color:#aebbd8;font-size:.86rem;margin-top:8px}
+.art{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.art li{border-top:1px solid rgba(255,255,255,.18)}
+.art a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;text-decoration:none;font-weight:700}
+.art a span{display:block;font-weight:400;color:#aebbd8;font-size:.9rem;margin-top:2px}
+.art a i{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--y);position:relative;transition:background .2s}
+.art a i::after{content:"";position:absolute;left:8px;top:9px;width:7px;height:7px;border-right:2px solid #fff;border-top:2px solid #fff;transform:rotate(45deg)}
+.art a:hover i{background:var(--y)}
+.art a:hover i::after{border-color:var(--bn)}
+.kolba{position:relative;width:min(100%,640px);margin:0 auto;aspect-ratio:1}
+.kolba .ok{position:absolute;inset:6% 6% 6% 6%;border-radius:50%;overflow:hidden;border:8px solid #fff;cursor:zoom-in;padding:0;background:#fff}
+.kolba .ok img{width:100%;height:100%;object-fit:cover}
+.kolba .babel{position:absolute}
+.kolba .k1{width:15%;height:15%;right:1%;top:4%}
+.kolba .k2{width:7%;height:7%;right:-2%;top:22%;background:#fff}
+.kolba .k3{width:4%;height:4%;right:5%;top:29%;background:#fff;opacity:.8}
+.kolba .t{position:absolute;left:0;bottom:2%;width:34%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid var(--y);padding:0;cursor:zoom-in;background:#fff}
+.kolba .t img{width:100%;height:100%;object-fit:cover}
+@media (max-width:1000px){.dosw-g{grid-template-columns:1fr}.kolba{width:min(100%,460px)}}
+@media (max-width:560px){.art{grid-template-columns:1fr}}
+
+/* dostawa i platnosci */
+.info{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(30px,5vw,100px);align-items:start}
+.info .lead{color:var(--mut);margin-top:14px;max-width:38ch}
+.fakty{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,3vw,60px);margin:0}
+.fakty div{padding:22px 0;border-top:2px solid var(--b)}
+.fakty dt{font:700 clamp(19px,1.25vw,24px)/1.2 Brico,"Brico fb",Arial,sans-serif;color:var(--b)}
+.fakty dd{margin:8px 0 0;color:var(--mut)}
+.fakty dd b{color:var(--ink)}
+@media (max-width:1000px){.info{grid-template-columns:1fr}}
+@media (max-width:620px){.fakty{grid-template-columns:1fr}}
+
+/* kontakt */
+.kon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,110px);align-items:center}
+.kon .lead{color:var(--mut);margin-top:14px;max-width:48ch}
+.dane{margin:0;padding:0;list-style:none}
+.dane li{padding:18px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:140px minmax(0,1fr);gap:12px;align-items:baseline}
+.dane li:last-child{border-bottom:1px solid var(--line)}
+.dane span{color:var(--mut);font-size:.92rem}
+.dane a,.dane b{font-weight:700;text-decoration:none;font-size:1.12rem;overflow-wrap:anywhere}
+.dane a:hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
+@media (max-width:1000px){.kon{grid-template-columns:1fr}}
+@media (max-width:520px){.dane li{grid-template-columns:1fr;gap:2px}}
+
+/* stopka */
+.stopka{background:var(--bn);color:#c3cde3;padding:clamp(48px,5vw,84px) 0 24px;font-size:.95rem}
+.st-g{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:30px 40px}
+.stopka h3{color:#fff;font-size:1.02rem;margin-bottom:12px}
+.stopka ul{list-style:none;margin:0;padding:0}
+.stopka li{padding:4px 0}
+.stopka a{text-decoration:none}.stopka a:hover{color:#fff;text-decoration:underline}
+.stopka .logo,.stopka .logo svg{color:#fff}
+.stopka address{font-style:normal;margin-top:16px;line-height:1.7}
+.st-d{display:flex;justify-content:space-between;align-items:center;gap:10px 24px;flex-wrap:wrap;margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.86rem;color:#9fb0d2;line-height:1.5}
+.st-d p{font-size:.86rem}
+@media (max-width:900px){.st-g{grid-template-columns:repeat(2,minmax(0,1fr))}.st-g>div:first-child{grid-column:1/-1}}
+
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+
+
+
+/* komunikat i lightbox */
+.toast{position:fixed;left:50%;bottom:20px;z-index:120;transform:translate(-50%,140%);background:var(--bn);color:#fff;padding:14px 20px;border-radius:10px;font-size:.95rem;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:transform .25s,visibility .25s;visibility:hidden;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(12,20,42,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:56px 12px 20px}
+.lb.otw{display:flex}
+.lb img{max-width:min(94vw,1000px);max-height:78vh;width:auto;height:auto;object-fit:contain;background:#fff;border-radius:10px}
+.lb p{color:#e8ecf5;margin-top:14px;text-align:center;font-size:.98rem}
+.lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;width:52px;height:52px;display:grid;place-items:center}
+.lb button svg{width:28px;height:28px}
+.lb .x{top:6px;right:8px}.lb .p{left:6px;top:50%;transform:translateY(-50%)}.lb .n{right:6px;top:50%;transform:translateY(-50%)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== podstrony: kategoria, karta produktu, katalog ===== */
+.okr{font-size:.9rem;color:var(--mut);padding:18px 0 0}
+.okr ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 0}
+.okr li+li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--y);margin:0 10px 2px}
+.okr a{text-decoration:none}.okr a:hover{color:var(--b);text-decoration:underline}
+.okr [aria-current]{color:var(--ink);font-weight:700}
+
+/* kategoria */
+.kat-top{background:var(--bd);color:#fff;position:relative;overflow:hidden}
+.kat-top .okr{color:#b9c6e2}.kat-top .okr [aria-current]{color:#fff}
+.kat-top-g{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px clamp(30px,5vw,100px);align-items:end;padding:clamp(26px,3vw,48px) 0 clamp(34px,4vw,64px)}
+.kat-top h1{font-size:clamp(34px,3.6vw,68px);font-stretch:90%;max-width:18ch}
+.kat-top .lead{color:#dbe3f3;margin-top:16px;max-width:58ch;font-size:clamp(16px,1.05vw,20px)}
+.ksiega-baner{display:flex;gap:18px;align-items:center;background:#fff;color:var(--ink);border-radius:14px;padding:16px 18px;text-decoration:none;position:relative;transition:transform .2s}
+.ksiega-baner:hover{transform:translateY(-3px)}
+.ksiega-baner::after{content:"";position:absolute;right:-6px;top:-6px;width:18px;height:18px;border-radius:50%;background:var(--y)}
+.ksiega-baner .mini{flex:none;width:86px;aspect-ratio:1/1.414;border-radius:3px 8px 8px 3px;background:var(--b);box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 6px 14px rgba(0,0,0,.25);display:grid;place-items:center;color:#fff;font:700 11px/1.15 Brico,Arial,sans-serif;text-align:center;padding:8px}
+.ksiega-baner .mini svg{width:30px;height:30px;margin:0 auto 6px;display:block}
+.ksiega-baner b{display:block;font:700 clamp(18px,1.2vw,22px)/1.2 Brico,"Brico fb",Arial,sans-serif;color:var(--b)}
+.ksiega-baner span{display:block;color:var(--mut);font-size:.92rem;margin-top:4px}
+@media (max-width:900px){.kat-top-g{grid-template-columns:1fr}}
+.filtry{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:clamp(20px,2vw,32px)}
+.filtry .chipy{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:42px;padding:0 16px;border-radius:21px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:.92rem;cursor:pointer;transition:.15s;white-space:nowrap}
+.chip:hover{border-color:var(--b)}
+.chip[aria-pressed="true"]{background:var(--b);border-color:var(--b);color:#fff}
+.chip i{font-style:normal;opacity:.7;font-weight:600;margin-left:4px}
+.sort{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.92rem;color:var(--mut)}
+.sort select{height:42px;border:2px solid var(--line);border-radius:8px;padding:0 10px;font:inherit;color:var(--ink);background:#fff}
+@media (max-width:760px){.filtry .chipy{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none;width:calc(100% + 32px)}.filtry .chipy::-webkit-scrollbar{display:none}.sort{margin-left:0}}
+.lista{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:1500px){.lista{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:1100px){.lista{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.lista{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lista .prod{padding:8px 8px 12px}.lista .prod .dol{flex-direction:column;align-items:stretch}.lista .prod .dok{width:100%;justify-content:center}.lista .prod .dok span{display:inline}}
+.prod[hidden]{display:none}
+.prod a.zd{cursor:pointer}
+.prod .dz{font-size:.8rem;color:var(--mut);font-weight:700}
+.prod h3 a{text-decoration:none}.prod h3 a:hover{color:var(--b)}
+.prod .kt{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--b);text-decoration:none}
+.prod .kt::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--y)}
+.ile{color:var(--mut);font-size:.9rem;margin-top:22px}
+
+/* przelacznik sklep / katalog */
+.tryb{display:inline-flex;padding:5px;border-radius:12px;background:var(--g);gap:4px;margin:18px 0 0}
+.tryb a{display:flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:9px;text-decoration:none;font-weight:700;color:var(--mut);transition:.15s;white-space:nowrap}
+.tryb a:hover{color:var(--b)}
+.tryb a[aria-current="true"]{background:#fff;color:var(--b);box-shadow:0 2px 8px rgba(20,33,63,.1)}
+.tryb svg{width:20px;height:20px}
+@media (max-width:420px){.tryb{display:flex}.tryb a{flex:1;justify-content:center;padding:0 10px}}
+.widok[hidden]{display:none}
+
+/* karta produktu */
+.karta{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(28px,4vw,90px);align-items:start;padding:clamp(20px,2vw,34px) 0 clamp(50px,5vw,90px)}
+@media (max-width:960px){.karta{grid-template-columns:1fr}}
+.gal{display:grid;grid-template-columns:86px minmax(0,1fr);gap:14px;position:sticky;top:calc(var(--hh) + var(--nav) + 16px)}
+.gal.jedno{grid-template-columns:minmax(0,1fr)}
+.miniatury{display:flex;flex-direction:column;gap:10px}
+.miniatury button{width:86px;height:86px;padding:6px;border:2px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;transition:border-color .15s}
+.miniatury button img{width:100%;height:100%;object-fit:contain}
+.miniatury button[aria-current="true"]{border-color:var(--b);box-shadow:0 0 0 2px var(--y)}
+.scena-zd{position:relative;border-radius:16px;background:var(--g);overflow:hidden}
+.zdjecia{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.zdjecia::-webkit-scrollbar{display:none}
+.zdjecia figure{margin:0;scroll-snap-align:start;aspect-ratio:1;position:relative;overflow:hidden;cursor:zoom-in;display:grid;place-items:center}
+.zdjecia figure::before{content:"";position:absolute;inset:6%;border-radius:50%;background:#fff}
+.zdjecia img{position:relative;width:min(90%,900px);height:auto;max-height:90%;object-fit:contain;mix-blend-mode:multiply;transition:transform .12s ease-out;transform-origin:50% 50%}
+.zdjecia figure.lupa img{transition:none}
+.scena-zd .babel{width:22px;height:22px;right:5%;top:5%;z-index:2}
+.zd-lupa{position:absolute;right:14px;bottom:14px;z-index:3;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:20px;background:#fff;border:0;font-weight:700;font-size:.86rem;color:var(--b);cursor:pointer;box-shadow:0 4px 12px rgba(20,33,63,.12)}
+.zd-lupa svg{width:16px;height:16px}
+.kropki{display:none;justify-content:center;gap:8px;margin-top:12px}
+.kropki i{width:9px;height:9px;border-radius:50%;background:var(--line);transition:.2s}
+.kropki i.on{background:var(--b);width:22px;border-radius:5px}
+@media (max-width:760px){.gal{grid-template-columns:1fr;position:static}.miniatury{display:none}.kropki{display:flex}.zd-lupa span{display:none}.zd-lupa{width:40px;padding:0;justify-content:center}}
+.info-p .dz{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem;color:var(--b);text-decoration:none}
+.info-p .dz::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--y)}
+.info-p h1{font-size:clamp(32px,3vw,58px);font-stretch:92%;margin-top:12px;text-wrap:balance}
+.info-p .lead{margin-top:16px;color:var(--mut);font-size:clamp(16.5px,1.05vw,20px);max-width:52ch}
+.cena-p{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:24px}
+.cena-p b{font:700 clamp(34px,2.6vw,48px)/1 Brico,"Brico fb",Arial,sans-serif;color:var(--b)}
+.cena-p span{color:var(--mut);font-size:.92rem}
+.stan{display:flex;align-items:center;gap:10px;margin-top:14px;font-weight:700;color:#1d7a3e;font-size:.95rem}
+.stan::before{content:"";width:10px;height:10px;border-radius:50%;background:#22a04f;box-shadow:0 0 0 4px rgba(34,160,79,.16)}
+.stan span{color:var(--mut);font-weight:400}
+.kup{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.ilosc{display:flex;align-items:center;height:56px;border:2px solid var(--line);border-radius:8px;overflow:hidden}
+.ilosc button{width:46px;height:100%;border:0;background:#fff;font-size:1.3rem;font-weight:700;color:var(--b);cursor:pointer}
+.ilosc button:hover{background:var(--g)}
+.ilosc input{width:44px;height:100%;border:0;text-align:center;font:700 1.05rem Manrope,Arial,sans-serif;color:var(--ink);-moz-appearance:textfield}
+.ilosc input::-webkit-outer-spin-button,.ilosc input::-webkit-inner-spin-button{-webkit-appearance:none}
+.kup .btn{flex:1;min-width:200px}
+.kup .btn svg{width:22px;height:22px}
+.fakty-p{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px}
+.fakty-p div{background:var(--g);border-radius:12px;padding:14px 14px 13px}
+.fakty-p dt{font-size:.8rem;color:var(--mut)}
+.fakty-p dd{margin:3px 0 0;font-weight:700;line-height:1.3}
+@media (max-width:420px){.fakty-p{grid-template-columns:1fr 1fr}.fakty-p div:last-child{grid-column:1/-1}}
+.dokat{display:flex;align-items:center;gap:16px;margin-top:22px;padding:16px 18px;border:2px solid var(--b);border-radius:12px;text-decoration:none;transition:background .15s}
+.dokat:hover{background:var(--g)}
+.dokat .ks{flex:none;width:44px;height:58px;border-radius:2px 6px 6px 2px;background:var(--b);box-shadow:inset 5px 0 0 rgba(0,0,0,.2);position:relative}
+.dokat .ks::after{content:"";position:absolute;right:7px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--y)}
+.dokat b{display:block;color:var(--b);font:700 1.08rem/1.25 Brico,"Brico fb",Arial,sans-serif}
+.dokat span{display:block;color:var(--mut);font-size:.9rem;margin-top:2px}
+.przypis{font-size:.82rem;color:var(--mut);margin-top:14px}
+
+.opis-g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(30px,5vw,100px)}
+@media (max-width:960px){.opis-g{grid-template-columns:1fr}}
+.opis-g h2{font-size:clamp(26px,2.2vw,40px);margin-bottom:18px}
+.opis-g p+p{margin-top:14px}
+.param{width:100%;border-collapse:collapse}
+.param th,.param td{text-align:left;padding:13px 0;border-top:1px solid var(--line);vertical-align:top}
+.param th{width:42%;font-weight:400;color:var(--mut);padding-right:16px}
+.param td{font-weight:700}
+.param tr:last-child th,.param tr:last-child td{border-bottom:1px solid var(--line)}
+.kroki{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);counter-reset:k}
+@media (max-width:1100px){.kroki{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.kroki{grid-template-columns:1fr}}
+.kroki li{background:#fff;border-radius:14px;padding:22px 22px 24px;position:relative}
+.kroki li::before{counter-increment:k;content:counter(k);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--b);color:#fff;font:700 1.1rem Brico,Arial,sans-serif;margin-bottom:14px}
+.kroki li::after{content:"";position:absolute;left:46px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--y)}
+.kroki h3{color:var(--b);margin-bottom:8px}
+.kroki p{color:var(--mut);font-size:.96rem}
+.pobierz{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* ===== katalog - ksiazka ===== */
+.ksiazka-sek{background:var(--g);padding:clamp(26px,3vw,50px) 0 clamp(50px,5vw,90px)}
+.ks-glowa{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 30px;flex-wrap:wrap;margin-bottom:clamp(18px,2vw,30px)}
+.ks-glowa h2{font-size:clamp(26px,2.4vw,44px)}
+.ks-glowa p{color:var(--mut);margin-top:8px;max-width:62ch}
+.ksiazka{--pw:min(calc((var(--w) - 40px)/2),640px,calc((100svh - var(--hh) - var(--nav) - 150px)/1.414));position:relative;margin:0 auto;width:calc(var(--pw)*2);user-select:none}
+.ks-scena{position:relative;display:grid;grid-template-columns:1fr 1fr;perspective:2600px;filter:drop-shadow(0 18px 30px rgba(20,33,63,.18))}
+.ks-scena::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:44px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.09) 45%,rgba(0,0,0,.14) 50%,rgba(0,0,0,.09) 55%,rgba(0,0,0,0));pointer-events:none;z-index:6}
+.slot{position:relative;aspect-ratio:1/1.414;background:#fff;overflow:hidden}
+.slot.l{border-radius:10px 0 0 10px}.slot.r{border-radius:0 10px 10px 0}
+.str{position:absolute;inset:0;container-type:inline-size;display:none}
+.slot .str.on{display:block}
+.flip{position:absolute;top:0;width:50%;height:100%;transform-style:preserve-3d;z-index:8;transition:transform .7s cubic-bezier(.45,.05,.3,1)}
+.flip.nx{left:50%;transform-origin:left center}
+.flip.pv{left:0;transform-origin:right center}
+.flip .fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;overflow:hidden}
+.flip .fc .str{display:block}
+.flip .bk{transform:rotateY(180deg)}
+.flip.nx .fr{border-radius:0 10px 10px 0}.flip.nx .bk{border-radius:10px 0 0 10px}
+.flip.pv .fr{border-radius:10px 0 0 10px}.flip.pv .bk{border-radius:0 10px 10px 0}
+.flip .fc::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(0,0,0,0) 30%)}
+.ks-ster{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:22px}
+.ks-ster button.st{width:54px;height:54px;border-radius:50%;border:2px solid var(--b);background:#fff;color:var(--b);cursor:pointer;display:grid;place-items:center;transition:.15s}
+.ks-ster button.st:hover:not(:disabled){background:var(--b);color:#fff}
+.ks-ster button.st:disabled{opacity:.3;cursor:default}
+.ks-ster button.st svg{width:22px;height:22px}
+.ks-licz{min-width:150px;text-align:center;font-weight:700;color:var(--ink)}
+.ks-spis{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+.ks-spis button{height:38px;padding:0 14px;border-radius:19px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:.86rem;cursor:pointer}
+.ks-spis button:hover{border-color:var(--b)}
+.ks-spis button.on{border-color:var(--b);color:var(--b);box-shadow:inset 0 0 0 1px var(--b)}
+.ks-akcje{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+/* strony ksiazki - wszystko w cqw, zeby strona skalowala sie jak kartka */
+.str{font-size:2.55cqw;line-height:1.5;color:var(--ink)}
+.str .pad{position:absolute;inset:0;padding:8.5cqw 8cqw 13cqw;display:flex;flex-direction:column}
+.str .nr{position:absolute;bottom:4.2cqw;width:6.6cqw;height:6.6cqw;border-radius:50%;background:var(--y);color:var(--bn);display:grid;place-items:center;font:700 2.3cqw/1 Brico,Arial,sans-serif}
+.slot.l .str .nr,.str.lewa .nr{left:6cqw}.slot.r .str .nr,.str.prawa .nr{right:6cqw}
+.str .ptytul{position:absolute;top:4cqw;left:8cqw;right:8cqw;display:flex;justify-content:space-between;font-size:1.9cqw;color:var(--mut);letter-spacing:.02em}
+.str h2,.str h3,.str h4{font-family:Brico,"Brico fb",Arial,sans-serif;margin:0}
+.str .rozdz{font:700 2.2cqw/1.2 Brico,Arial,sans-serif;color:var(--b);display:flex;align-items:center;gap:2cqw}
+.str .rozdz::before{content:"";width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--y)}
+.str .tyt{font-size:6.6cqw;line-height:1.02;font-weight:700;letter-spacing:-.02em;margin-top:2.4cqw;color:var(--ink);font-stretch:90%}
+.str .foto{flex:1;min-height:0;margin:4cqw -2cqw 3cqw;position:relative;display:grid;place-items:center}
+.str .foto::before{content:"";position:absolute;width:86cqw;max-width:100%;aspect-ratio:1;border-radius:50%;background:var(--g)}
+.str .foto img{position:relative;max-width:88%;max-height:100%;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply}
+.str .foto .b1,.str .foto .b2{position:absolute;border-radius:50%;background:var(--y)}
+.str .foto .b1{width:5cqw;height:5cqw;right:6%;top:6%}.str .foto .b2{width:2.6cqw;height:2.6cqw;right:2%;top:17%;background:var(--b)}
+.str .jak{font-size:2.45cqw;color:var(--mut)}
+.str .jak b{color:var(--ink)}
+.str .cena-k{display:flex;align-items:center;justify-content:space-between;gap:3cqw;margin-top:3cqw;padding-top:3cqw;border-top:.3cqw solid var(--line)}
+.str .cena-k b{font:700 4.6cqw/1 Brico,Arial,sans-serif;color:var(--b)}
+.str .cena-k a{font-weight:700;color:#fff;background:var(--b);text-decoration:none;padding:1.8cqw 3.2cqw;border-radius:1.4cqw;font-size:2.3cqw}
+.str .krok{position:relative;padding-left:9cqw;margin-top:3.6cqw}
+.str .krok:first-of-type{margin-top:3cqw}
+.str .krok i{position:absolute;left:0;top:-.4cqw;width:6.4cqw;height:6.4cqw;border-radius:50%;background:var(--b);color:#fff;display:grid;place-items:center;font:700 2.8cqw/1 Brico,Arial,sans-serif;font-style:normal}
+.str .krok h4{font-size:3.1cqw;color:var(--b);line-height:1.2}
+.str .krok p{margin-top:.8cqw;font-size:2.5cqw}
+.str .krok.q p{font:600 3.1cqw/1.3 Brico,Arial,sans-serif;color:var(--ink)}
+.str .zycie{margin-top:auto;background:var(--g);border-radius:2cqw;padding:3cqw 3.4cqw;font-size:2.35cqw;color:var(--mut)}
+.str .zycie b{color:var(--ink)}
+/* okladka */
+.str.okl{background:var(--bd);color:#fff}
+.str.okl .pad{justify-content:space-between}
+.str.okl .znak{width:15cqw;height:15cqw}
+.str.okl .nag{font:600 3cqw/1 Brico,Arial,sans-serif;display:flex;align-items:center;gap:3cqw}
+.str.okl h2{font-size:10.5cqw;line-height:.98;letter-spacing:-.025em;font-stretch:88%}
+.str.okl h2 span{color:var(--y)}
+.str.okl .pod{font-size:3cqw;color:#cfd9ee;margin-top:4cqw;max-width:36ch}
+.str.okl .seq{display:flex;flex-wrap:wrap;gap:1.6cqw;margin-top:6cqw}
+.str.okl .seq span{border:.3cqw solid rgba(255,255,255,.35);border-radius:5cqw;padding:1.2cqw 2.6cqw;font-weight:700;font-size:2.3cqw}
+.str.okl .seq span:nth-child(odd){border-color:var(--y)}
+.str.okl .bb{position:absolute;border-radius:50%;background:var(--y)}
+.str.okl .bb1{width:30cqw;height:30cqw;right:-9cqw;top:22%;opacity:.95}
+.str.okl .bb2{width:10cqw;height:10cqw;right:22cqw;top:16%;background:#fff;opacity:.9}
+.str.okl .bb3{width:5cqw;height:5cqw;right:16cqw;top:10%;background:#fff;opacity:.7}
+.str.okl .stopa{font-size:2.2cqw;color:#aebbd8}
+/* spis tresci */
+.str .spis{list-style:none;margin:5cqw 0 0;padding:0}
+.str .spis li{border-top:.3cqw solid var(--line);padding:2.6cqw 0}
+.str .spis .rz{font:700 2.1cqw/1 Brico,Arial,sans-serif;color:var(--b)}
+.str .spis button{all:unset;cursor:pointer;display:flex;justify-content:space-between;gap:3cqw;width:100%;font:600 3.3cqw/1.25 Brico,Arial,sans-serif;margin-top:1.4cqw}
+.str .spis button:hover{color:var(--b)}
+.str .spis button em{font-style:normal;color:var(--mut);font-weight:400}
+.str .h-tx{font-size:7cqw;line-height:1.02;font-weight:700;letter-spacing:-.02em;font-stretch:90%}
+.str .tx{font-size:2.6cqw;color:var(--mut);margin-top:3cqw}
+.str .lista-k{margin:3cqw 0 0;padding:0;list-style:none;counter-reset:a}
+.str .lista-k li{position:relative;padding-left:8cqw;margin-top:2.6cqw;font-size:2.55cqw}
+.str .lista-k li::before{counter-increment:a;content:counter(a);position:absolute;left:0;top:-.3cqw;width:5.6cqw;height:5.6cqw;border-radius:50%;background:var(--y);color:var(--bn);display:grid;place-items:center;font:700 2.5cqw/1 Brico,Arial,sans-serif}
+.str .lista-k b{color:var(--ink)}
+.str .pliki{margin-top:auto;border-top:.3cqw solid var(--line);padding-top:3cqw;font-size:2.3cqw;color:var(--mut)}
+.str .pliki b{display:block;color:var(--ink);font-size:2.6cqw}
+.str.tyl{background:var(--bn);color:#cfd9ee}
+.str.tyl .pad{justify-content:center;align-items:flex-start}
+.str.tyl b{color:#fff}
+
+/* telefon: pojedyncza strona, wysokosc z tresci */
+@media screen and (max-width:899px){
+  .ksiazka{--pw:var(--w);width:var(--w)}
+  .ks-scena{grid-template-columns:1fr;perspective:none}
+  .ks-scena::after{display:none}
+  .slot.r{display:none}
+  .slot.l{border-radius:10px;aspect-ratio:auto;min-height:calc(var(--w)*1.3)}
+  .slot.l .str.on{position:relative}
+  .slot.l .str .pad{position:relative;min-height:calc(var(--w)*1.3)}
+  .str{font-size:15.5px}
+  .str .pad{padding:44px 22px 70px}
+  .str .ptytul{top:16px;left:22px;right:22px;font-size:11.5px}
+  .str .nr{width:34px;height:34px;bottom:18px;font-size:13px}
+  .slot.l .str .nr{left:auto;right:18px}
+  .str .rozdz{font-size:13px;gap:8px}.str .rozdz::before{width:11px;height:11px}
+  .str .tyt{font-size:31px;margin-top:10px}
+  .str .foto{flex:none;height:min(78vw,340px);margin:18px 0 14px}
+  .str .foto::before{width:auto;height:100%}
+  .str .foto .b1{width:20px;height:20px}.str .foto .b2{width:11px;height:11px}
+  .str .jak{font-size:15px}
+  .str .cena-k{margin-top:16px;padding-top:16px;border-top-width:1px}
+  .str .cena-k b{font-size:26px}
+  .str .cena-k a{font-size:14.5px;padding:12px 16px;border-radius:8px}
+  .str .krok{padding-left:48px;margin-top:20px}.str .krok:first-of-type{margin-top:14px}
+  .str .krok i{width:34px;height:34px;font-size:15px}
+  .str .krok h4{font-size:18px}.str .krok p{font-size:15.5px;margin-top:4px}
+  .str .krok.q p{font-size:18px}
+  .str .zycie{margin-top:22px;font-size:14.5px;padding:14px 16px;border-radius:10px}
+  .str.okl .znak{width:62px;height:62px}
+  .str.okl .nag{font-size:14px;gap:12px}
+  .str.okl h2{font-size:46px;margin-top:40px}
+  .str.okl .pod{font-size:15.5px;margin-top:16px}
+  .str.okl .seq{gap:7px;margin-top:22px}.str.okl .seq span{font-size:12.5px;padding:6px 11px;border-width:1px;border-radius:20px}
+  .str.okl .bb1{width:120px;height:120px;right:-40px}.str.okl .bb2{width:40px;height:40px;right:90px}.str.okl .bb3{width:20px;height:20px;right:66px}
+  .str.okl .stopa{font-size:12.5px;margin-top:40px}
+  .str .spis{margin-top:20px}.str .spis li{padding:12px 0;border-top-width:1px}
+  .str .spis .rz{font-size:12px}.str .spis button{font-size:17px;margin-top:6px}
+  .str .h-tx{font-size:30px}.str .tx{font-size:15.5px;margin-top:12px}
+  .str .lista-k li{padding-left:38px;margin-top:12px;font-size:15.5px}
+  .str .lista-k li::before{width:26px;height:26px;font-size:13px}
+  .str .pliki{margin-top:22px;font-size:14px;padding-top:14px;border-top-width:1px}.str .pliki b{font-size:15.5px}
+  .ks-ster{position:sticky;bottom:10px;z-index:9;background:rgba(255,255,255,.96);border-radius:40px;padding:6px;box-shadow:0 8px 24px rgba(20,33,63,.16);width:max-content;margin:16px auto 0}
+  .ks-ster button.st{width:48px;height:48px}
+  .ks-licz{min-width:110px;font-size:.95rem}
+  .ks-spis{display:none}
+}
+@media (prefers-reduced-motion:reduce){.flip{transition:none}}
+/* strzalki po bokach ksiazki na komputerze */
+@media (min-width:900px){
+  .ksiazka{--pw:min(calc((var(--w) - 180px)/2),660px,calc((100svh - var(--hh) - var(--nav) - 40px)/1.414))}
+  .ks-ster{position:static;margin-top:18px}
+  .ks-ster button.st{position:absolute;top:calc(var(--pw)*.707 - 30px);width:60px;height:60px;box-shadow:0 6px 18px rgba(20,33,63,.12)}
+  .ks-ster button.st[data-ks="-1"]{left:-84px}.ks-ster button.st[data-ks="1"]{right:-84px}
+}
+.kup .btn{white-space:nowrap;padding:0 20px}
+.dokat b{text-wrap:balance}
+@media (max-width:420px){.kup .btn{min-width:0}}
+.ksiega-baner .mini span{display:block;color:#fff;font-size:11px;margin:0;line-height:1.15}
+.str .foto img{position:absolute;inset:0;margin:auto;max-width:86%;max-height:96%}
+.stan{display:block}.stan::before{content:"";display:inline-block;margin-right:10px;vertical-align:1px}
+
+/* ===== wideo: fasady YouTube ===== */
+.film{margin:0;min-width:0}
+.yt{display:block;position:relative;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:14px;overflow:hidden;background:var(--bn);cursor:pointer;color:#fff}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.yt:hover img{transform:scale(1.03)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,33,63,0) 55%,rgba(20,33,63,.35))}
+.graj{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--b);display:grid;place-items:center;z-index:1;box-shadow:0 6px 18px rgba(20,33,63,.35);transition:transform .2s,background .2s}
+.graj::after{content:"";position:absolute;right:-3px;top:-3px;width:16px;height:16px;border-radius:50%;background:var(--y)}
+.graj svg{width:28px;height:28px;fill:#fff;margin-left:3px}
+.yt:hover .graj,.yt:focus-visible .graj{transform:scale(1.08);background:var(--bd)}
+.yt:focus-visible{outline:3px solid var(--y);outline-offset:3px}
+.film iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#000}
+.film figcaption{padding:14px 2px 0}
+.film h3{font-size:1.08rem;line-height:1.3}
+.film p{color:var(--mut);font-size:.94rem;margin-top:4px}
+.tor.v{grid-auto-columns:calc((100% - 3*var(--gap))/4)}
+@media (max-width:1500px){.tor.v{grid-auto-columns:calc((100% - 2*var(--gap))/3)}}
+@media (max-width:1100px){.tor.v{grid-auto-columns:calc((100% - var(--gap))/2)}}
+@media (max-width:760px){.tor.v{grid-auto-columns:84%}}
+.wid-top{align-items:end}
+.wid-skok{display:flex;flex-wrap:wrap;gap:10px}
+.wid-skok .chip{display:inline-flex;align-items:center;border-color:#fff;background:#fff;color:var(--ink);text-decoration:none}
+.wid-skok .chip:hover{background:var(--y)}
+.wid-sek{padding:clamp(44px,5vw,90px) 0}
+.wid-sek .glowa p{color:var(--mut);margin-top:8px;max-width:60ch}
+
+/* ===== karta produktu: zakladki ===== */
+.zk{background:#fff;border-radius:18px;padding:0 clamp(18px,3vw,48px) clamp(24px,3vw,44px)}
+.zk-pasek{display:flex;gap:clamp(4px,1.6vw,30px);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*clamp(18px,3vw,48px)) clamp(22px,2.4vw,36px);padding:0 clamp(18px,3vw,48px)}
+.zk-pasek::-webkit-scrollbar{display:none}
+.zk-pasek button{flex:none;position:relative;background:none;border:0;padding:clamp(16px,1.6vw,24px) 6px;font:700 clamp(16px,1.05vw,19px) Brico,Arial,sans-serif;color:var(--mut);cursor:pointer;white-space:nowrap}
+.zk-pasek button:hover{color:var(--b)}
+.zk-pasek button[aria-selected="true"]{color:var(--b)}
+.zk-pasek button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;border-radius:4px 4px 0 0;background:var(--y)}
+.zk-pasek button:focus-visible{outline:3px solid var(--y);outline-offset:-3px;border-radius:6px}
+.zk-pan:focus-visible{outline:none}
+.zk-tekst{max-width:72ch;font-size:clamp(16px,1.02vw,18px)}
+.zk-tekst p+p{margin-top:14px}
+.zk-lead{color:var(--mut);margin-bottom:20px;max-width:70ch}
+.zk .kroki li{background:var(--g)}
+.zk-zycie{margin-top:20px;max-width:80ch}
+.zk-zycie b{color:var(--b)}
+.zk .pobierz{margin-top:24px}
+.zk-fiz{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
+@media (max-width:960px){.zk-fiz{grid-template-columns:1fr}}
+.zk-poj{background:var(--g);border-radius:14px;padding:20px 22px;position:relative}
+.zk-poj::after{content:"";position:absolute;right:16px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--y)}
+.zk-poj h3{color:var(--b);margin-bottom:10px}
+.zk-poj ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.zk-poj li{background:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.92rem}
+.zk-poj p{color:var(--mut);font-size:.9rem;margin-top:14px}
+.zk-filmy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:960px){.zk-filmy{grid-template-columns:1fr}}
+.zk .param{max-width:760px}
+.zk-przypis{margin-top:14px}
+@media (max-width:640px){
+.zk-pasek{flex-wrap:wrap;overflow:visible;gap:8px;border-bottom:0;padding-top:18px;padding-bottom:4px;margin-bottom:18px}
+.zk-pasek button{padding:9px 14px;border:2px solid var(--line);border-radius:21px;font-size:15px;background:#fff}
+.zk-pasek button[aria-selected="true"]{background:var(--b);border-color:var(--b);color:#fff}
+.zk-pasek button[aria-selected="true"]::after{left:auto;right:-3px;top:-3px;bottom:auto;width:12px;height:12px;border-radius:50%}
+}
+
+/* ===== publikacje PDF ===== */
+.pubs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:960px){.pubs{grid-template-columns:1fr}}
+.pub{display:flex;gap:clamp(16px,1.6vw,26px);background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(14px,1.4vw,22px)}
+.szary .pub{border-color:#fff}
+.okl-pdf{flex:none;align-self:flex-start;position:relative;width:clamp(92px,7vw,124px);aspect-ratio:1/1.414;border-radius:3px 10px 10px 3px;background:var(--b);color:#fff;padding:10px 10px 10px 16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 8px 18px rgba(20,33,63,.16);overflow:hidden}
+.okl-pdf.k-n{background:var(--bn)}
+.okl-pdf.k-y{background:var(--y);color:var(--ink)}
+.okl-pdf svg{width:26px;height:26px}
+.okl-pdf b{font:700 clamp(10px,.72vw,12.5px)/1.2 Brico,Arial,sans-serif;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.okl-pdf i{font-style:normal;font-weight:800;font-size:11px;letter-spacing:.04em;align-self:flex-start;background:#fff;color:var(--b);border-radius:4px;padding:2px 6px}
+.okl-pdf::after{content:"";position:absolute;right:8px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--y)}
+.okl-pdf.k-y::after{background:#fff}
+.pub-t{min-width:0;display:flex;flex-direction:column}
+.pub-m{color:var(--b);font-weight:700;font-size:.86rem}
+.pub h3{font-size:clamp(17px,1.1vw,20px);line-height:1.3;margin-top:6px}
+.pub p{color:var(--mut);font-size:.93rem;margin-top:6px}
+.pub-a{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:14px}
+.pub-a .btn{min-height:44px;padding:0 18px;font-size:.95rem}
+@media (max-width:480px){.okl-pdf{width:78px;padding:8px 8px 8px 13px}.okl-pdf b{font-size:9.5px;-webkit-line-clamp:4}.okl-pdf svg{width:20px;height:20px}.pub-a .btn{padding:0 14px}}
+
+/* kolba: znak dzialu doswiadczen (konik = zabawki i caly sklep) */
+.ik-k{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.26em;margin-right:.42em;flex:none}
+@media (min-width:1101px) and (max-width:1400px){.nav .ik-k{display:none}}
+.k-lock{display:flex;align-items:center;gap:clamp(14px,1.6vw,24px)}
+.k-lock .kz{flex:none;width:clamp(58px,5.4vw,92px);height:clamp(58px,5.4vw,92px);border-radius:50%;box-shadow:0 0 0 4px #fff,0 10px 24px rgba(0,8,30,.35)}
+@media (max-width:760px){.tb .wrap>span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1 1 auto}}@media (max-width:430px){.tb .mk{display:none!important}}
+/* okladka ksiazki z PDF (kwadrat) */
+.okl-img{flex:none;align-self:flex-start;display:block;width:clamp(110px,8.4vw,130px);border-radius:3px 10px 10px 3px;overflow:hidden;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 8px 18px rgba(20,33,63,.16)}
+.okl-img img{width:100%;height:auto}
+.pub h3 a{text-decoration:none}.pub h3 a:hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
+@media (max-width:480px){.okl-img{width:88px}}
+
+/* karty pracy: okladka A4 i lista kart */
+.okl-img.a4{border-radius:3px 8px 8px 3px}
+.kp-h{font-size:1.15rem;margin:clamp(26px,3vw,40px) 0 12px}
+.kp-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:8px 22px}
+.kp-lista li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.kp-nr{flex:none;font-weight:700;color:var(--b);font-size:.86rem;min-width:40px}
+.kp-lista li>a:not(.kp-pdf){flex:1;color:var(--ink);text-decoration:none;font-weight:600;line-height:1.3}
+.kp-lista li>a:not(.kp-pdf):hover{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:3px}
+.kp-pdf{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:36px;border-radius:18px;border:2px solid var(--b);color:var(--b);font-weight:700;font-size:.82rem;text-decoration:none}
+.kp-pdf:hover{background:var(--b);color:#fff}
+
+/* menu z Blogiem */
+@media (min-width:1101px) and (max-width:1220px){.nav ul{gap:5px}.nav a{font-size:.75rem}}
+
+/* pomysl i zrob */
+.pz-kroki{display:flex;flex-wrap:wrap;gap:8px}
+.pz-kroki span{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:19px;background:#fff;color:var(--ink);font-weight:700;font-size:.9rem}
+.pz-kroki span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--y)}
+.pz-top-p{color:#dbe3f3;font-size:.95rem;margin-bottom:12px}
+.pz-karty{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px}
+.pz-karty .btn.nieb{background:#fff;color:var(--b);border-color:#fff}
+.pz-karty .btn.nieb:hover{background:var(--y);border-color:var(--y);color:var(--bn)}.pz-karty .btn{white-space:normal;text-align:center}
+.lista.pz-lista{grid-template-columns:repeat(5,minmax(0,1fr))}
+.pz-lista .pz-wolne{grid-column:span 2}
+@media (max-width:1500px){.lista.pz-lista{grid-template-columns:repeat(4,minmax(0,1fr))}.pz-lista .pz-wolne{grid-column:span 2}}
+@media (max-width:1100px){.lista.pz-lista{grid-template-columns:repeat(3,minmax(0,1fr))}.pz-lista .pz-wolne{grid-column:span 1}}
+@media (max-width:760px){.lista.pz-lista{grid-template-columns:1fr 1fr}.pz-lista .pz-wolne{grid-column:span 1}}
+@media (max-width:480px){.lista.pz-lista{grid-template-columns:1fr}}
+.pz-okl{position:relative;display:flex;flex-direction:column;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit}
+.pz-okl .pz-et{padding:16px 16px 0;font:700 clamp(15px,1.05vw,19px)/1 Brico,Arial,sans-serif;letter-spacing:.06em;color:var(--b);text-align:center}
+.pz-okl .pz-rys{flex:1;display:grid;place-items:center;position:relative;min-height:0}
+.pz-okl .pz-rys::before{content:"";position:absolute;width:auto;height:92%;aspect-ratio:1;border-radius:50%;background:var(--g)}
+.pz-okl .pz-rys::after{content:"";position:absolute;width:7%;aspect-ratio:1;border-radius:50%;background:var(--y);right:20%;top:12%;transition:transform .35s}
+.pz-okl .nurek-svg{position:relative;height:80%;width:auto}
+.pz-okl .pz-img{position:absolute;top:5%;left:50%;transform:translateX(-50%);height:90%;width:auto;max-height:380px}
+.pz-okl .pz-pyt{background:var(--b);color:#fff;padding:14px 16px 16px;text-align:center;font:700 clamp(15px,1vw,18px)/1.25 Brico,Arial,sans-serif}
+.pz-okl .pz-pyt small{display:block;font:600 .78rem/1.3 Manrope,Arial,sans-serif;color:#cfd9ee;margin-top:6px}
+.prod:hover .pz-okl .pz-rys::after{transform:translate(5px,-7px)}
+.pz-zob{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:6px;font-weight:700;color:var(--b);text-decoration:none}
+.pz-zob::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--y);transition:transform .2s}
+.pz-zob:hover::after{transform:translateX(4px)}
+.pz-wolne{display:flex;flex-direction:column;justify-content:center;gap:10px;max-width:none;border:2px dashed var(--line);border-radius:14px;padding:24px;color:var(--mut);background:transparent}
+.pz-wolne b{color:var(--ink);font:700 1.05rem/1.25 Brico,Arial,sans-serif}
+.pz-wolne ul{margin:4px 0 0;padding-left:18px;font-size:.9rem}
+/* strona doswiadczenia */
+.pz-scena{position:relative;border-radius:16px;background:var(--g);padding:clamp(18px,2.4vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,50px);align-items:center;position:sticky;top:calc(var(--hh) + var(--nav) + 16px)}
+.pz-scena .babel{position:absolute;width:22px;height:22px;right:5%;top:6%}
+.pz-scena .nurek-svg{height:min(62vh,520px);width:auto;display:block;cursor:pointer;touch-action:manipulation}
+.pz-scena .nk-but{transform-box:fill-box;transform-origin:50% 60%;transition:transform .45s ease}
+.pz-scena .nk-nur{transition:transform 4s cubic-bezier(.4,0,.3,1)}
+.pz-scena .nk-woda{transform-box:fill-box;transform-origin:50% 100%;transition:transform .8s ease}
+.pz-scena.scisk .nk-but{transform:scaleX(.93)}
+.pz-scena.scisk .nk-nur{transform:translateY(230px);transition-duration:5s}
+.pz-scena.scisk .nk-woda{transform:scaleY(1.7)}
+.nk-kecz,.nk-prob{display:none}
+.pz-scena[data-nurek=keczup] .nk-zak,.pz-scena[data-nurek=probowka] .nk-zak{display:none}
+.pz-scena[data-nurek=keczup] .nk-kecz,.pz-scena[data-nurek=probowka] .nk-prob{display:inline}
+.pz-scena .nk-sasz,.pz-scena .nk-pech{transform-box:fill-box;transform-origin:50% 50%;transition:transform .8s ease}
+.pz-scena.scisk .nk-sasz{transform:scale(.94,.88)}
+.pz-scena.scisk .nk-pech{transform:scale(.45)}
+.nk-wyb{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.nk-wyb button{height:40px;padding:0 14px;border-radius:20px;border:2px solid var(--b);background:#fff;color:var(--b);font:700 .9rem/1 Manrope,Arial,sans-serif;cursor:pointer}
+.nk-wyb button[aria-pressed=true]{background:var(--b);color:#fff}
+@media (max-width:560px){.nk-wyb{justify-content:center}}
+.nk-war{margin-top:28px}
+.nk-war>h3{color:var(--b);margin-bottom:14px}
+.nk-war-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,28px)}
+.nk-war-g article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:clamp(16px,2vw,26px)}
+.nk-war-g h4{font:700 1.08rem/1.25 Brico,Arial,sans-serif;color:var(--ink);margin:0 0 10px}
+.nk-war-g h5{font:700 .95rem/1.3 Manrope,Arial,sans-serif;color:var(--b);margin:14px 0 6px}
+.nk-war-g ul,.nk-war-g ol{margin:0;padding-left:20px}
+.nk-war-g li+li{margin-top:5px}
+.nk-war-g p{margin:12px 0 0;color:var(--mut)}
+@media (max-width:900px){.nk-war-g{grid-template-columns:1fr}}
+.pz-ster h2{font-size:clamp(22px,1.6vw,30px);color:var(--b)}
+.pz-ster p{color:var(--mut);margin-top:10px;max-width:34ch}
+.pz-ster .btn{margin-top:22px}
+.pz-ster .pz-stan{display:block;margin-top:14px;font-weight:700;color:var(--ink);min-height:1.5em}
+@media (max-width:960px){.pz-scena{position:static}.karta>.pz-info{order:-1}}
+@media (max-width:560px){.pz-scena{grid-template-columns:1fr;justify-items:center;text-align:center}.pz-scena .nurek-svg{height:300px}.pz-ster p{margin-inline:auto}.pz-ster .btn{width:100%}}
+.kt-ob{display:flex;align-items:flex-end;gap:clamp(10px,2vw,28px)}
+.kt-ob .pz-img{height:min(56vh,440px);width:auto;display:block}
+.kt-ob .kt-svg{height:min(56vh,440px);width:auto;display:block;overflow:visible}
+.pz-scena.spad .kt-pion{animation:kt-pion .75s cubic-bezier(.5,0,1,1) forwards}
+.pz-scena.spad .kt-plas{animation:kt-plas 3.2s linear forwards}
+@keyframes kt-pion{to{transform:translateY(410px)}}
+@keyframes kt-plas{0%{transform:translate(0,0) rotate(0)}15%{transform:translate(-14px,55px) rotate(-14deg)}32%{transform:translate(10px,125px) rotate(12deg)}50%{transform:translate(-12px,205px) rotate(-12deg)}68%{transform:translate(9px,285px) rotate(10deg)}85%{transform:translate(-6px,365px) rotate(-6deg)}100%{transform:translate(0,434px) rotate(0)}}
+.kt-svg .kt-plas{transform-box:fill-box;transform-origin:50% 50%}
+.pz-dod{margin-top:28px;padding:clamp(16px,2vw,28px);border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,48px);align-items:center}
+.pz-dod img{height:min(50vh,400px);width:auto;display:block}
+.pz-dod h3{color:var(--b);margin-bottom:10px}
+.pz-rys-sek h2{margin-bottom:clamp(14px,2vw,24px)}
+.pz-rysunki{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:clamp(12px,1.6vw,22px)}
+.pz-rysunki figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1}
+.pz-rysunki a{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+.pz-rysunki img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;mix-blend-mode:multiply}
+.pz-dod p{max-width:62ch;margin:0}
+@media (max-width:560px){.pz-dod{grid-template-columns:1fr;justify-items:center}.pz-dod img{height:280px}}
+.pz-wyj{max-width:72ch}
+.pz-wyj p{margin:0 0 1em;line-height:1.65}
+.pz-wyj p:last-child{margin-bottom:0}
+/* rysunki autora w galerii: nie wieksze niz natywnie (tez na ekranach 2x) */
+.pz-gal .zdjecia img{position:absolute;inset:0;margin:auto;width:auto;height:auto;max-width:88%;max-height:min(88%,480px);mix-blend-mode:multiply}
+.pz-okl .pz-img.pz-jpg{mix-blend-mode:multiply}
+.pz-gal .miniatury button img{width:auto;height:100%;max-width:100%}
+@media (max-width:960px){.karta>.pz-gal+.pz-info{order:0}}
+@media (max-width:560px){.kt-ob .pz-img,.kt-ob .kt-svg{height:290px}}
+@media (prefers-reduced-motion:reduce){.pz-scena .nk-nur,.pz-scena .nk-but,.pz-scena .nk-woda{transition-duration:.01s!important}.pz-scena.spad .kt-pion,.pz-scena.spad .kt-plas{animation-duration:.01s!important}}
+.pz-mat{margin-top:26px;background:var(--g);border-radius:14px;padding:20px 22px;position:relative}
+.pz-mat::after{content:"";position:absolute;right:16px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--y)}
+.pz-mat h2{font-size:1.15rem;color:var(--b);margin-bottom:10px}
+.pz-mat ol{margin:0;padding-left:22px}
+.pz-mat li+li{margin-top:6px}
+.pz-info .pz-kroki{margin-top:22px}
+.pz-info .pz-kroki span{background:var(--g)}
+.pz-info .pobierz{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.pz-bez{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.92rem;color:var(--mut)}
+.pz-bez::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--y)}
+.pz-przebieg{margin:0;padding:0;list-style:none;counter-reset:p;max-width:72ch}
+.pz-przebieg li{position:relative;padding-left:46px;font-size:clamp(16px,1.02vw,18px)}
+.pz-przebieg li+li{margin-top:14px}
+.pz-przebieg li::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:-3px;width:32px;height:32px;border-radius:50%;background:var(--b);color:#fff;display:grid;place-items:center;font:700 1rem/1 Brico,Arial,sans-serif}
+.zk-dwa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
+@media (max-width:900px){.zk-dwa{grid-template-columns:1fr}}
+.zk-dwa h3{color:var(--b);margin-bottom:14px}
+.pz-e-sek{padding-top:clamp(30px,4vw,70px)}
+.pz-e{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,4vw,80px);align-items:center}
+.pz-e.szeroki{grid-template-columns:minmax(0,1fr);gap:clamp(18px,2vw,30px)}
+.pz-e-et{display:inline-block;background:var(--y);color:var(--bn);font:700 .82rem/1 Brico,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.pz-e-txt h2{margin:14px 0 12px;color:var(--b)}
+.pz-e-txt p{color:var(--mut);max-width:62ch;margin:0}
+.pz-e-txt ol{margin:16px 0 0;padding-left:22px;max-width:70ch}
+.pz-e-txt li+li{margin-top:6px}
+.pz-e-txt .btn{margin-top:22px}
+.pz-e.szeroki .pz-e-txt{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:6px clamp(20px,3vw,50px);align-items:end}
+.pz-e.szeroki .pz-e-txt>span,.pz-e.szeroki .pz-e-txt>h2{grid-column:1/-1}.pz-e.szeroki .pz-e-txt>span{justify-self:start}
+.pz-e.szeroki .pz-e-txt h2{margin-bottom:4px}
+.pz-e.szeroki .pz-e-txt ol{margin:0}
+.pz-e.szeroki .pz-e-txt .btn{margin:0}
+.pz-e-ram{position:relative;background:var(--g);border-radius:16px;padding:clamp(12px,1.6vw,26px)}
+.pz-e-ram::after{content:"";position:absolute;right:-6px;top:-6px;width:16px;height:16px;border-radius:50%;background:var(--y)}
+.pz-e-ram iframe{display:block;width:100%;border:0;border-radius:12px;background:#fff}
+@media (max-width:1100px){.pz-e.szeroki .pz-e-txt{grid-template-columns:minmax(0,1fr)}.pz-e.szeroki .pz-e-txt .btn{justify-self:start;margin-top:12px}}
+@media (max-width:860px){.pz-e{grid-template-columns:minmax(0,1fr)}.pz-e:not(.szeroki) .pz-e-ram{width:min(100%,420px);justify-self:center}}
+@media (max-width:560px){.pz-e-txt .btn{width:100%}.pz-e.szeroki .pz-e-ram{padding:8px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="znak" viewBox="-51 -51 102 102"><mask id="znak-m" maskUnits="userSpaceOnUse" x="-51" y="-51" width="102" height="102"><circle r="50" fill="#fff"/><path d="M-19.61 -34.23C-19.39 -33.96 -19.39 -33.96 -19.39 -33.41C-19.56 -32.99 -19.79 -32.64 -20.05 -32.28C-20.33 -31.87 -20.33 -31.87 -20.33 -31.65C-19.91 -31.65 -19.65 -31.74 -19.26 -31.88C-17.58 -32.45 -15.38 -32.88 -13.69 -32.14C-13.29 -31.91 -13.14 -31.77 -12.91 -31.37C-12.76 -30.62 -13.09 -30.08 -13.46 -29.45C-14.07 -28.59 -14.8 -27.83 -15.6 -27.14C-15.82 -26.92 -15.82 -26.92 -15.87 -26.64C-15.39 -26.64 -15 -26.73 -14.53 -26.84C-9.81 -27.88 -9.81 -27.88 -8.23 -27.36C-7.9 -27.08 -7.9 -27.08 -7.79 -26.81C-7.84 -26.39 -7.91 -26.22 -8.12 -25.87C-8.29 -25.6 -8.29 -25.6 -8.29 -25.32C-7.86 -25.11 -6.98 -25.39 -6.53 -25.45C-1.61 -26.1 -1.61 -26.1 -0.53 -25.38C-0.2 -24.99 -0.2 -24.99 -0.2 -24.5C-0.68 -23.36 -1.66 -22.57 -2.62 -21.84C-2.95 -21.58 -2.95 -21.58 -3.17 -21.31C-3.15 -21.24 -3.14 -21.16 -3.12 -21.09C-2.71 -20.99 -2.28 -21 -1.87 -20.98C2.66 -20.76 2.66 -20.76 3.87 -19.93C4.03 -19.71 4.03 -19.71 4.09 -19.38C3.65 -18.51 2.7 -18.18 1.85 -17.81C1.44 -17.63 1.03 -17.43 0.63 -17.24C0.4 -17.13 0.4 -17.13 0.24 -17.07C0.22 -16.91 0.2 -16.75 0.18 -16.58C0.43 -16.38 0.43 -16.38 0.73 -16.19C1.36 -15.72 1.72 -15.4 2 -14.65C2 -14.05 1.78 -13.67 1.39 -13.23C0.4 -12.25 -0.96 -11.68 -2.24 -11.19C-2.31 -11.15 -2.31 -11.15 -2.68 -10.97C-2.73 -10.7 -2.73 -10.7 -2.62 -10.48C-2 -10.12 -1.39 -9.92 -0.7 -9.76C0.52 -9.48 0.52 -9.48 0.9 -9.1C0.9 -8.48 0.84 -8.4 0.46 -7.95C0.34 -7.83 0.22 -7.71 0.1 -7.6C-0.46 -7.03 -0.89 -6.49 -0.94 -5.67C-0.9 -4.9 -0.56 -4.38 -0 -3.85C0.39 -3.54 0.48 -3.49 1.01 -3.49C1.8 -3.92 2.33 -4.56 2.88 -5.25C3.49 -6.03 4.14 -6.82 5.08 -7.23C5.57 -7.23 5.57 -7.23 5.85 -7.01C5.99 -6.83 6.14 -6.64 6.28 -6.46C7.53 -5.1 9.19 -4.63 10.96 -4.44C13.57 -4.33 16.15 -4.92 18.66 -5.58C19.19 -5.72 19.72 -5.86 20.25 -5.99C20.38 -6.03 20.51 -6.06 20.65 -6.1C23.07 -6.73 23.07 -6.73 23.94 -6.86C24.04 -6.88 24.14 -6.9 24.25 -6.91C25.46 -7.09 26.86 -7.22 27.89 -6.46C28.54 -5.81 28.72 -5.14 28.74 -4.25C28.77 -3.32 28.94 -2.73 29.6 -2.06C29.83 -1.91 30.06 -1.76 30.29 -1.61C30.92 -1.21 31.49 -0.78 32.02 -0.25C32.24 -0.14 32.24 -0.14 32.57 -0.19C32.74 -0.3 32.9 -0.41 33.06 -0.52C33.14 -0.58 33.22 -0.63 33.3 -0.69C33.82 -1.06 34.32 -1.45 34.82 -1.84C35.06 -2.03 35.3 -2.21 35.54 -2.39C35.6 -2.44 35.6 -2.44 35.9 -2.67C35.95 -2.71 35.95 -2.71 36.25 -2.94C36.31 -2.98 36.31 -2.98 36.58 -3.2C37.23 -3.7 37.23 -3.7 37.54 -3.93C37.63 -4 37.73 -4.07 37.82 -4.15C38.49 -4.65 39.17 -5.12 39.87 -5.58C39.95 -5.64 40.03 -5.69 40.12 -5.75C41.87 -6.92 43.85 -8.01 46.03 -7.73C47.14 -7.46 47.94 -6.82 48.62 -5.91C48.8 -5.62 48.96 -5.33 49.12 -5.03C49.12 -5.07 49.12 -5.1 49.12 -5.14C49.65 -5.23 50.17 -5.29 50.7 -5.35C50.85 -5.36 50.99 -5.38 51.14 -5.4C51.26 -5.4 51.37 -5.41 51.48 -5.42C51.63 -5.13 51.6 -4.67 51.62 -4.37C51.64 -4.2 51.65 -4.03 51.66 -3.85C51.94 -0.16 51.78 3.51 51.32 7.18C50.81 7.14 50.31 7.09 49.8 7.02C49.73 7.01 49.73 7.01 49.39 6.97C47.95 6.71 46.92 5.64 46.04 4.54C45.94 4.41 45.83 4.28 45.72 4.15C45.26 3.57 44.85 2.95 44.45 2.33C44.28 2.12 44.28 2.12 44.01 2.01C43.46 2.56 43.56 3.58 43.53 4.31C43.53 4.48 43.52 4.66 43.51 4.83C43.5 5.19 43.49 5.56 43.48 5.92C43.35 9.23 43.35 9.23 42.63 10.14C42.36 10.31 42.36 10.31 42.08 10.36C40.93 9.98 40.28 8.9 39.61 7.94C39.55 7.87 39.49 7.79 39.44 7.71C39.16 7.32 38.89 6.92 38.62 6.53C38.34 6.13 38.34 6.13 38.07 5.86C37.99 5.86 37.92 5.86 37.85 5.86C37.84 6.28 37.86 6.7 37.9 7.12C37.9 8.5 37.64 9.8 36.69 10.86C36.13 11.42 35.56 11.63 34.77 11.63C34.18 11.48 33.69 11.23 33.17 10.91C32.59 11.01 32.36 11.43 32.03 11.89C31.77 12.23 31.51 12.56 31.25 12.89C31.12 13.06 31 13.22 30.87 13.38C30.62 13.7 30.37 14.02 30.11 14.34C29.79 14.73 29.47 15.13 29.16 15.53C28.84 15.93 28.51 16.31 28.17 16.69C28.11 16.75 28.05 16.82 27.99 16.89C25.8 19.38 23.18 20.81 20.07 21.88C19.97 21.92 19.86 21.96 19.76 21.99C19.33 22.14 18.91 22.29 18.48 22.43C16.99 22.93 15.65 23.55 14.86 24.99C14.71 25.4 14.57 25.81 14.43 26.23C14.27 26.65 14.04 27.02 13.82 27.41C13.65 27.91 13.65 27.91 13.65 28.4C13.87 28.76 14.03 28.87 14.42 29C18.06 29.15 21.87 27.25 25.15 25.87C25.25 25.83 25.36 25.78 25.46 25.74C25.98 25.52 26.48 25.3 26.98 25.07C27.2 24.98 27.42 24.88 27.64 24.78C29.05 24.15 30.44 23.49 31.83 22.82C31.96 22.76 32.08 22.7 32.21 22.63C32.45 22.52 32.68 22.41 32.91 22.29C33.69 21.91 33.69 21.91 34 21.97C34.02 21.98 34.03 22 34.05 22.02C33.86 23.77 32.03 25.42 30.74 26.48C30.62 26.57 30.49 26.66 30.37 26.75C30.24 26.85 30.12 26.96 29.98 27.07C29.14 27.75 28.21 28.32 27.29 28.89C27.17 28.97 27.06 29.04 26.94 29.11C26.44 29.42 25.93 29.71 25.42 29.99C25.33 30.04 25.25 30.09 25.16 30.14C23.61 31.01 21.99 31.78 20.36 32.47C20.22 32.53 20.08 32.59 19.93 32.65C18.93 33.07 17.93 33.45 16.91 33.8C16.51 33.95 16.51 33.95 16.24 34.23C15.99 34.97 16.31 35.95 16.63 36.63C17.12 37.39 17.77 37.83 18.65 38.03C21.92 38.51 25.32 36.94 28.17 35.49C28.3 35.43 28.44 35.36 28.58 35.29C29.65 34.75 30.71 34.18 31.74 33.57C31.91 33.47 32.07 33.38 32.23 33.29C32.73 32.99 33.23 32.67 33.72 32.36C33.82 32.3 33.92 32.24 34.02 32.17C34.74 31.72 35.44 31.25 36.14 30.76C36.24 30.7 36.33 30.63 36.43 30.56C37 30.17 37.57 29.76 38.12 29.33C38.27 29.23 38.41 29.12 38.56 29.01C39.66 28.18 40.72 27.28 41.7 26.31C41.92 26.42 41.92 26.42 42.14 26.64C42.35 26.78 42.57 26.92 42.79 27.05C43.12 27.26 43.46 27.47 43.79 27.69C43.66 27.89 43.53 28.09 43.4 28.29C43.33 28.41 43.25 28.52 43.18 28.64C42.23 30.09 41.19 31.46 40.1 32.8C40.02 32.9 39.94 33 39.85 33.11C39.36 33.7 38.86 34.27 38.34 34.83C38.27 34.91 38.21 34.99 38.14 35.07C37.96 35.27 37.76 35.47 37.57 35.66C37.52 35.72 37.46 35.79 37.4 35.86C37.11 36.19 36.79 36.5 36.48 36.82C36.35 36.94 36.23 37.06 36.1 37.19C35.84 37.44 35.59 37.68 35.32 37.91C35.19 38.04 35.06 38.17 34.93 38.3C34.79 38.43 34.64 38.55 34.49 38.68C34.41 38.76 34.32 38.84 34.23 38.92C33.94 39.18 33.64 39.43 33.34 39.67C33.28 39.72 33.28 39.72 32.99 39.97C32.62 40.28 32.24 40.58 31.85 40.88C31.76 40.96 31.66 41.03 31.56 41.11C31.45 41.19 31.35 41.27 31.24 41.36C31.14 41.43 31.05 41.51 30.95 41.59C30.7 41.76 30.7 41.76 30.48 41.82C30.46 41.85 30.44 41.89 30.42 41.93C30.27 41.71 30.11 41.49 29.96 41.27C29.83 41.08 29.69 40.9 29.56 40.72C29.38 40.48 29.22 40.24 29.05 40C29.09 39.95 29.12 39.89 29.16 39.84C29.07 39.88 28.97 39.93 28.88 39.98C28.46 40.19 28.04 40.4 27.62 40.61C27.47 40.68 27.33 40.76 27.18 40.83C27.04 40.9 26.89 40.97 26.75 41.05C26.62 41.11 26.49 41.18 26.36 41.24C17.6 45.55 6.3 45.9 -2.9 42.81C-3.96 42.43 -5.01 42.01 -6.03 41.54C-6.13 41.5 -6.22 41.46 -6.31 41.41C-8.44 40.43 -10.41 39.11 -12.14 37.53C-12.24 37.43 -12.35 37.33 -12.46 37.23C-12.93 36.8 -13.38 36.36 -13.79 35.88C-13.88 35.77 -13.97 35.66 -14.07 35.55C-15.95 33.28 -18.18 29.79 -18.18 26.75C-18.17 26.73 -18.15 26.71 -18.13 26.7C-17.8 26.7 -17.8 26.7 -17.5 26.97C-17.34 27.15 -17.17 27.32 -17.02 27.51C-16.77 27.78 -16.52 28.04 -16.26 28.3C-16.21 28.35 -16.21 28.35 -15.94 28.62C-15.83 28.73 -15.72 28.84 -15.6 28.95C-15.49 29.06 -15.38 29.17 -15.27 29.29C-15.16 29.39 -15.06 29.5 -14.95 29.61C-14.85 29.7 -14.76 29.8 -14.66 29.9C-14.43 30.12 -14.19 30.34 -13.95 30.54C-13.83 30.66 -13.7 30.78 -13.58 30.9C-13.25 31.19 -12.92 31.48 -12.58 31.75C-12.45 31.86 -12.33 31.97 -12.2 32.08C-9.53 34.35 -6.49 36.29 -3.23 37.58C-3.07 37.65 -2.91 37.71 -2.75 37.78C2.05 39.54 7.51 39.67 12.22 37.53C12.72 37.04 12.76 36.23 12.79 35.55C12.77 35.06 12.68 34.85 12.33 34.5C11.26 34.15 10.24 34.4 9.16 34.63C4.03 35.72 -1.21 35.06 -5.7 32.25C-7.63 30.99 -9.44 29.49 -10.87 27.69C-10.92 27.62 -10.98 27.55 -11.03 27.48C-12.32 25.83 -13.72 23.71 -13.57 21.53C-13.46 21.16 -13.37 20.95 -13.13 20.65C-13.02 20.63 -12.91 20.61 -12.8 20.59C-12.43 20.91 -12.28 21.12 -12.03 21.53C-10.79 23.28 -9.37 24.96 -7.74 26.37C-7.62 26.47 -7.49 26.58 -7.37 26.68C-4.54 29.08 -1.23 30.75 2.55 30.49C3.54 30.36 4.83 30.18 5.57 29.44C5.83 28.6 5.98 27.73 6.12 26.86C6.13 26.79 6.13 26.79 6.19 26.44C6.29 25.44 6.36 24.48 5.79 23.62C4.67 22.65 3.01 22.46 1.61 22.13C-1.33 21.41 -4.17 20.3 -6.75 18.72C-6.84 18.67 -6.93 18.61 -7.03 18.55C-8.39 17.7 -9.69 16.73 -10.87 15.64C-10.94 15.58 -11.01 15.52 -11.08 15.46C-11.3 15.27 -11.51 15.07 -11.71 14.86C-11.79 14.79 -11.86 14.72 -11.94 14.64C-12.01 14.56 -12.09 14.49 -12.17 14.41C-12.24 14.33 -12.32 14.26 -12.4 14.18C-12.47 14.11 -12.54 14.03 -12.62 13.96C-12.69 13.89 -12.75 13.82 -12.82 13.75C-17.53 8.87 -20.37 2.12 -22.2 -4.32C-22.26 -4.53 -22.33 -4.75 -22.39 -4.97C-22.58 -5.61 -22.75 -6.25 -22.92 -6.9C-22.95 -7.03 -22.99 -7.16 -23.02 -7.29C-23.04 -7.35 -23.04 -7.35 -23.13 -7.68C-23.24 -8 -23.24 -8 -23.52 -8.22C-24.35 -8.22 -25.05 -7.83 -25.79 -7.47C-25.94 -7.39 -26.1 -7.31 -26.27 -7.23C-26.41 -7.16 -26.56 -7.09 -26.71 -7.01C-26.81 -6.96 -26.92 -6.91 -27.03 -6.85C-27.46 -6.64 -27.89 -6.42 -28.31 -6.2C-28.85 -5.91 -29.4 -5.64 -29.95 -5.36C-30.21 -5.23 -30.46 -5.1 -30.72 -4.97C-34.77 -2.98 -39.7 -0.9 -44.25 -2.23C-46.03 -2.84 -47.43 -3.99 -48.43 -5.58C-48.48 -5.74 -48.54 -5.9 -48.6 -6.07C-48.87 -6.46 -48.87 -6.46 -49.17 -6.55C-49.53 -6.59 -49.88 -6.61 -50.24 -6.63C-51.1 -6.73 -51.1 -6.73 -51.29 -6.79C-50.93 -9.82 -50.21 -12.79 -49.31 -15.7C-49.05 -15.62 -48.8 -15.54 -48.55 -15.47C-48.41 -15.42 -48.27 -15.38 -48.13 -15.33C-47.77 -15.22 -47.41 -15.11 -47.05 -14.98C-47.05 -14.91 -47.05 -14.84 -47.05 -14.76C-47.01 -14.83 -46.97 -14.89 -46.92 -14.96C-46.5 -15.59 -46.06 -16.17 -45.57 -16.74C-45.47 -16.86 -45.37 -16.98 -45.27 -17.1C-44.53 -17.96 -43.74 -18.82 -42.87 -19.55C-42.76 -19.65 -42.64 -19.75 -42.52 -19.85C-40.95 -21.18 -39.26 -22.31 -37.48 -23.34C-35.92 -24.27 -35.57 -25.31 -35.12 -27.01C-34.63 -28.96 -34.19 -30.93 -33.91 -32.93C-33.86 -33.19 -33.86 -33.19 -33.69 -33.46C-33.58 -33.52 -33.58 -33.52 -33.14 -33.52C-31.99 -32.96 -31.28 -31.89 -30.56 -30.88C-30.2 -30.4 -30.2 -30.4 -29.95 -30.27C-29.44 -30.34 -29.21 -30.57 -28.8 -30.88C-21.56 -35.4 -21.56 -35.4 -19.61 -34.23ZM-32.26 -31.26C-32.57 -30.87 -32.58 -30.47 -32.65 -30C-32.67 -29.85 -32.69 -29.71 -32.71 -29.56C-32.81 -28.88 -32.9 -28.19 -33 -27.51C-33.02 -27.34 -33.05 -27.17 -33.07 -27C-33.09 -26.84 -33.11 -26.69 -33.14 -26.53C-33.2 -26.15 -33.2 -26.15 -33.31 -25.71C-33.31 -25.54 -33.31 -25.38 -33.31 -25.21C-33.14 -25.1 -33.14 -25.1 -32.76 -25.16C-32 -25.48 -31.47 -25.96 -31.11 -26.7C-30.97 -27.28 -31.03 -27.71 -31.16 -28.29C-31.19 -28.41 -31.21 -28.52 -31.23 -28.64C-31.68 -30.72 -31.68 -30.72 -32.04 -31.26C-32.11 -31.26 -32.19 -31.26 -32.26 -31.26ZM-19.83 -30.82C-20.03 -30.71 -20.22 -30.59 -20.41 -30.48C-20.52 -30.42 -20.62 -30.35 -20.73 -30.29C-21.22 -30 -21.71 -29.73 -22.2 -29.45C-22.3 -29.39 -22.4 -29.33 -22.5 -29.27C-23.05 -28.96 -23.6 -28.65 -24.15 -28.35C-25.25 -27.73 -26.34 -27.11 -27.42 -26.48C-27.65 -26.34 -27.88 -26.21 -28.11 -26.07C-28.6 -25.79 -29.08 -25.5 -29.57 -25.21C-29.68 -25.14 -29.79 -25.07 -29.91 -25C-31.13 -24.27 -32.34 -23.52 -33.53 -22.74C-33.63 -22.67 -33.73 -22.61 -33.83 -22.54C-35.96 -21.16 -35.96 -21.16 -36.93 -20.43C-37.1 -20.31 -37.26 -20.2 -37.42 -20.08C-37.85 -19.77 -38.27 -19.45 -38.68 -19.12C-38.88 -18.97 -39.09 -18.81 -39.29 -18.66C-39.65 -18.38 -40 -18.08 -40.34 -17.79C-40.43 -17.72 -40.52 -17.65 -40.62 -17.57C-41.12 -17.17 -41.59 -16.76 -42.05 -16.3C-42.2 -16.18 -42.34 -16.05 -42.49 -15.92C-42.62 -15.79 -42.74 -15.67 -42.87 -15.53C-42.91 -15.51 -42.91 -15.51 -43.08 -15.36C-43.38 -15.09 -43.65 -14.79 -43.92 -14.49C-44.02 -14.38 -44.12 -14.28 -44.22 -14.17C-45.61 -12.62 -46.89 -10.8 -47.03 -8.67C-46.95 -7.51 -46.5 -6.68 -45.64 -5.91C-44.18 -4.79 -42.7 -4.55 -40.9 -4.68C-37.58 -5.2 -34.47 -6.49 -31.49 -8C-31.36 -8.07 -31.23 -8.13 -31.09 -8.2C-30.02 -8.74 -28.96 -9.29 -27.92 -9.87C-27.8 -9.94 -27.68 -10 -27.56 -10.07C-26.85 -10.46 -26.14 -10.86 -25.44 -11.27C-24.99 -11.54 -24.53 -11.79 -24.08 -12.05C-23.74 -12.23 -23.4 -12.42 -23.07 -12.61C-22.96 -12.67 -22.86 -12.73 -22.76 -12.79C-22.51 -12.93 -22.27 -13.07 -22.03 -13.2C-21.61 -13.44 -21.37 -13.56 -20.88 -13.56C-20.49 -13.25 -20.5 -13.1 -20.44 -12.61C-20.42 -12.41 -20.4 -12.22 -20.38 -12.02C-19.71 -5.82 -18.04 0.6 -14.67 5.91C-14.64 5.96 -14.64 5.96 -14.49 6.19C-13.54 7.7 -12.46 9.1 -11.26 10.42C-11.17 10.52 -11.08 10.62 -10.99 10.72C-10.41 11.34 -9.81 11.95 -9.17 12.51C-9.05 12.61 -8.93 12.72 -8.8 12.82C-4.31 16.63 1.22 18.77 7.05 19.27C7.11 19.28 7.11 19.28 7.41 19.3C13.17 19.62 19.54 18.56 24.27 15.04C24.41 14.93 24.56 14.82 24.71 14.71C25.07 14.44 25.41 14.14 25.75 13.83C25.82 13.77 25.89 13.71 25.96 13.65C27.8 11.98 29.03 9.72 29.21 7.23C29.3 4.89 28.31 2.77 26.91 0.96C26.74 0.85 26.74 0.85 26.36 0.85C26.11 1.09 26.11 1.09 25.86 1.4C25.54 1.8 25.21 2.18 24.87 2.56C24.81 2.62 24.75 2.69 24.69 2.76C21.91 5.93 18.23 8.54 13.93 8.88C10.36 9.04 7.19 7.38 4.58 5.09C4.41 4.92 4.25 4.76 4.09 4.59C4.01 4.53 3.94 4.47 3.87 4.4C2.76 3.42 1.9 2.14 1.01 0.96C0.07 -0.27 0.07 -0.27 -0.31 -0.52C-0.64 -0.52 -0.64 -0.52 -1.03 -0.19C-1.12 -0.1 -1.21 -0.01 -1.3 0.08C-1.81 0.39 -2.3 0.35 -2.87 0.22C-4.57 -0.43 -6.01 -1.93 -7.13 -3.33C-7.24 -3.45 -7.34 -3.56 -7.44 -3.68C-9.49 -6.12 -12.52 -10.17 -12.52 -13.45C-12.51 -13.5 -12.51 -13.5 -12.43 -13.75C-12.36 -14.05 -12.36 -14.05 -12.41 -14.43C-12.86 -15.11 -13.52 -15.26 -14.28 -15.42C-15.11 -15.54 -15.95 -15.6 -16.79 -15.67C-19.08 -15.85 -21.37 -16.08 -23.08 -17.79C-23.84 -18.8 -24.05 -19.9 -23.92 -21.15C-23.82 -21.69 -23.67 -22.02 -23.35 -22.46C-22.89 -22.78 -22.5 -22.84 -21.94 -22.9C-20.8 -23.03 -19.92 -23.39 -19.12 -24.22C-18 -25.78 -17.92 -27.57 -18.18 -29.41C-18.29 -30.01 -18.41 -30.6 -18.68 -31.15C-19.09 -31.43 -19.46 -31.04 -19.83 -30.82ZM-21.59 -20.87C-21.74 -20.58 -21.72 -20.37 -21.7 -20.04C-21.04 -18.72 -19.56 -18.2 -18.23 -17.75C-16.62 -17.25 -14.36 -16.6 -12.69 -17.07C-12.39 -17.44 -12.41 -17.76 -12.36 -18.23C-12.03 -18.96 -11.66 -19.43 -11.09 -19.99C-11.07 -20.06 -11.05 -20.13 -11.04 -20.21C-11.76 -20.93 -13.31 -20.88 -14.28 -20.98C-14.38 -20.99 -14.48 -21 -14.58 -21.01C-16.07 -21.16 -17.56 -21.22 -19.07 -21.22C-19.23 -21.22 -19.39 -21.22 -19.55 -21.22C-21.17 -21.21 -21.17 -21.21 -21.59 -20.87ZM-10.49 -19.33C-10.99 -18.83 -11.25 -18.31 -11.42 -17.62C-11.42 -17.13 -11.42 -17.13 -11.26 -16.69C-10.98 -16.41 -10.98 -16.41 -10.82 -16.36C-10.33 -16.36 -10.21 -16.41 -9.83 -16.69C-9.27 -17.27 -8.99 -17.97 -9 -18.78C-9.17 -19.27 -9.17 -19.27 -9.44 -19.55C-9.96 -19.61 -10.06 -19.59 -10.49 -19.33ZM21.02 -2.45C20.88 -2.32 20.73 -2.19 20.58 -2.06C20.46 -1.96 20.34 -1.85 20.22 -1.74C18.35 -0.18 15.86 0.56 13.43 0.47C10.43 0.17 7.93 -1.55 6.01 -3.82C5.93 -3.93 5.84 -4.03 5.76 -4.14C5.52 -4.43 5.52 -4.43 5.24 -4.59C4.97 -4.54 4.97 -4.54 4.75 -4.26C4.2 -2.95 4.18 -1.79 4.69 -0.45C5.55 1.54 7.4 2.99 9.35 3.82C12.71 5.16 16.32 4.73 19.62 3.37C22.29 2.19 24.64 0.43 25.81 -2.34C26.05 -3.08 26.19 -3.57 25.92 -4.32C25.63 -4.61 25.49 -4.7 25.09 -4.81C23.47 -4.81 22.14 -3.47 21.02 -2.45ZM-19.94 -29.17C-19.5 -28.73 -19.45 -28.39 -19.42 -27.77C-19.46 -26.93 -19.67 -26.25 -20.27 -25.65C-20.71 -25.44 -20.85 -25.39 -21.32 -25.43C-21.96 -25.67 -22.34 -26.12 -22.69 -26.7C-22.75 -26.97 -22.75 -26.97 -22.58 -27.25C-22.29 -27.36 -22 -27.47 -21.7 -27.58C-21.14 -28 -20.81 -28.42 -20.44 -29.01C-20.22 -29.17 -20.22 -29.17 -19.94 -29.17ZM-26.98 -22.52C-26.5 -22.16 -26.27 -21.77 -26.1 -21.2C-26.07 -20.47 -26.19 -19.96 -26.65 -19.38C-27.1 -19.03 -27.51 -18.89 -28.08 -18.89C-28.72 -19.09 -29.11 -19.36 -29.46 -19.93C-29.69 -20.53 -29.69 -21.1 -29.46 -21.69C-28.89 -22.68 -28.04 -22.99 -26.98 -22.52Z"/></mask><circle r="50" fill="currentColor" mask="url(#znak-m)"/></symbol>
+  <symbol id="kolba" viewBox="0 0 484 484"><clipPath id="kolba-k"><circle cx="242" cy="242" r="241"/></clipPath><circle cx="242" cy="242" r="241" fill="#1d4283"/><g clip-path="url(#kolba-k)" fill="#fff"><circle cx="334" cy="44" r="61"/><circle cx="254" cy="114" r="21"/><path d="M219 164V232C219 252 213 262 207.9 270L136.8 400Q118.7 433 150 433H334Q365.3 433 347.2 400L276.1 270C271 262 265 252 265 232V164" fill="none" stroke="#fff" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+  <symbol id="lupa" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="wozek" viewBox="0 0 20 20"><path d="M1.5 2.5h3l2.2 10h9.3l2-7.2H5.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="16.6" r="1.7" fill="currentColor"/><circle cx="14.6" cy="16.6" r="1.7" fill="currentColor"/></symbol>
+  <symbol id="lewo" viewBox="0 0 20 20"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="prawo" viewBox="0 0 20 20"><path d="m7.5 4 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ksiega" viewBox="0 0 20 20"><path d="M10 4.5C8 3.2 5 3 2 3.6v12c3-.6 6-.4 8 .9 2-1.3 5-1.5 8-.9v-12c-3-.6-6-.4-8 .9zm0 0v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="sklep" viewBox="0 0 20 20"><path d="M3 7h14l-1.2 9.5H4.2z M7 7V5.5a3 3 0 0 1 6 0V7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="pobierz" viewBox="0 0 20 20"><path d="M10 3v10m-4-4 4 4 4-4M4 17h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<div class="tb"><div class="wrap"><span><b>Darmowa wysyłka od 50 zł</b><span class="dl"> przy płatności przelewem - za pobraniem od 100 zł</span><span class="mk"> przy przelewie</span></span><a class="tel" href="tel:+48885176045">tel. 885 176 045</a></div></div>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="zabawkifizyczne.com.pl - strona główna"><svg aria-hidden="true"><use href="#znak"/></svg><span class="lt"><b>zabawkifizyczne</b><i>.com.pl</i></span></a>
+    <form class="szuk" role="search" onsubmit="return false"><input type="search" placeholder="Szukaj: kulki Newtona, żyroskop, klepsydra..." aria-label="Szukaj w sklepie"><button type="submit" aria-label="Szukaj"><svg width="20" height="20" aria-hidden="true"><use href="#lupa"/></svg><span>Szukaj</span></button></form>
+    <button class="ik m-szuk" type="button" id="mszuk" aria-label="Szukaj"><svg aria-hidden="true"><use href="#lupa"/></svg></button>
+    <button class="kosz" type="button" data-kosz aria-label="Koszyk: 0 produktów"><span class="ik"><svg aria-hidden="true"><use href="#wozek"/></svg><i id="licz">0</i></span><span>Koszyk</span></button>
+    <button class="burger" id="burger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+  <nav class="nav" id="nav" aria-label="Kategorie">
+    <ul>
+      <li class="mszuk"><form class="szuk" role="search" onsubmit="return false" style="width:100%"><input type="search" id="mszuk-in" placeholder="Szukaj w sklepie..." aria-label="Szukaj w sklepie"><button type="submit" aria-label="Szukaj"><svg width="20" height="20" aria-hidden="true"><use href="#lupa"/></svg></button></form></li>
+      <li><a href="zabawki-fizyczne.html"><svg class="ik-k" aria-hidden="true"><use href="#kolba"/></svg>Fizyka i eksperymenty</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje</a></li><li><a href="pomysl-i-zrob.html" class="on" aria-current="page">Pomyśl i zrób</a></li><li><a href="blog.html">Blog</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kieszonkowe">Doświadczenia za grosze</a></li><li><a href="index.html#doswiadczenie">Dla nauczycieli</a></li><li class="n-wk"><a href="index.html#kategorie">Wszystkie kategorie</a></li><li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+<div class="wrap">
+<nav class="okr" aria-label="Jesteś tutaj"><ol><li><a href="index.html">Sklep</a></li><li><a href="pomysl-i-zrob.html">Pomyśl i zrób</a></li><li><span aria-current="page">Jak zrobić nieważkość w klasie? Z butelką i miską</span></li></ol></nav>
+</div>
+<div class="wrap karta">
+  <div class="gal pz-gal" data-grupa><div class="miniatury"><button type="button" data-i="0" aria-label="Rysunek 1" aria-current="true"><img src="img/pomysl/niewazkosc-miska-1-900.webp" width="818" height="900" alt="" loading="lazy"></button><button type="button" data-i="1" aria-label="Rysunek 2"><img src="img/pomysl/niewazkosc-miska-2-900.webp" width="900" height="847" alt="" loading="lazy"></button><button type="button" data-i="2" aria-label="Rysunek 3"><img src="img/pomysl/niewazkosc-miska-3-900.webp" width="769" height="900" alt="" loading="lazy"></button><button type="button" data-i="3" aria-label="Rysunek 4"><img src="img/pomysl/niewazkosc-miska-4-900.webp" width="809" height="900" alt="" loading="lazy"></button><button type="button" data-i="4" aria-label="Rysunek 5"><img src="img/pomysl/niewazkosc-butelka-1-900.webp" width="865" height="894" alt="" loading="lazy"></button><button type="button" data-i="5" aria-label="Rysunek 6"><img src="img/pomysl/niewazkosc-butelka-2-900.webp" width="867" height="861" alt="" loading="lazy"></button><button type="button" data-i="6" aria-label="Rysunek 7"><img src="img/pomysl/niewazkosc-butelka-3-900.webp" width="809" height="813" alt="" loading="lazy"></button><button type="button" data-i="7" aria-label="Rysunek 8"><img src="img/pomysl/niewazkosc-butelka-4-900.webp" width="516" height="900" alt="" loading="lazy"></button></div><div><div class="scena-zd"><div class="zdjecia" id="zdjecia"><figure data-i="0" data-lb="img/pomysl/niewazkosc-miska-1-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka przy stole z dzbankiem, butelką i miską"><img src="img/pomysl/niewazkosc-miska-1-900.webp" srcset="img/pomysl/niewazkosc-miska-1-900.webp 818w, img/pomysl/niewazkosc-miska-1-full.webp 1302w" sizes="(max-width:960px) 60vw, 30vw" width="818" height="900" alt="Dziewczynka przy stole z dzbankiem, butelką i miską" data-duze="img/pomysl/niewazkosc-miska-1-full.webp" fetchpriority="high" draggable="false"></figure><figure data-i="1" data-lb="img/pomysl/niewazkosc-miska-2-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka napełnia butelkę wodą"><img src="img/pomysl/niewazkosc-miska-2-900.webp" srcset="img/pomysl/niewazkosc-miska-2-900.webp 900w, img/pomysl/niewazkosc-miska-2-full.webp 1601w" sizes="(max-width:960px) 60vw, 30vw" width="900" height="847" alt="Dziewczynka napełnia butelkę wodą" data-duze="img/pomysl/niewazkosc-miska-2-full.webp" loading="lazy" draggable="false"></figure><figure data-i="2" data-lb="img/pomysl/niewazkosc-miska-3-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka trzyma butelkę z wodą nad miską"><img src="img/pomysl/niewazkosc-miska-3-900.webp" srcset="img/pomysl/niewazkosc-miska-3-900.webp 769w, img/pomysl/niewazkosc-miska-3-full.webp 1259w" sizes="(max-width:960px) 60vw, 30vw" width="769" height="900" alt="Dziewczynka trzyma butelkę z wodą nad miską" data-duze="img/pomysl/niewazkosc-miska-3-full.webp" loading="lazy" draggable="false"></figure><figure data-i="3" data-lb="img/pomysl/niewazkosc-miska-4-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka puszcza butelkę nad miską"><img src="img/pomysl/niewazkosc-miska-4-900.webp" srcset="img/pomysl/niewazkosc-miska-4-900.webp 809w, img/pomysl/niewazkosc-miska-4-full.webp 1320w" sizes="(max-width:960px) 60vw, 30vw" width="809" height="900" alt="Dziewczynka puszcza butelkę nad miską" data-duze="img/pomysl/niewazkosc-miska-4-full.webp" loading="lazy" draggable="false"></figure><figure data-i="4" data-lb="img/pomysl/niewazkosc-butelka-1-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka przy stole z butelką PET i dzbankiem"><img src="img/pomysl/niewazkosc-butelka-1-900.webp" srcset="img/pomysl/niewazkosc-butelka-1-900.webp 865w, img/pomysl/niewazkosc-butelka-1-full.webp 865w" sizes="(max-width:960px) 60vw, 30vw" width="865" height="894" alt="Dziewczynka przy stole z butelką PET i dzbankiem" data-duze="img/pomysl/niewazkosc-butelka-1-full.webp" loading="lazy" draggable="false"></figure><figure data-i="5" data-lb="img/pomysl/niewazkosc-butelka-2-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka przygotowuje butelkę PET z wodą"><img src="img/pomysl/niewazkosc-butelka-2-900.webp" srcset="img/pomysl/niewazkosc-butelka-2-900.webp 867w, img/pomysl/niewazkosc-butelka-2-full.webp 867w" sizes="(max-width:960px) 60vw, 30vw" width="867" height="861" alt="Dziewczynka przygotowuje butelkę PET z wodą" data-duze="img/pomysl/niewazkosc-butelka-2-full.webp" loading="lazy" draggable="false"></figure><figure data-i="6" data-lb="img/pomysl/niewazkosc-butelka-3-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka trzyma butelkę z wodą"><img src="img/pomysl/niewazkosc-butelka-3-900.webp" srcset="img/pomysl/niewazkosc-butelka-3-900.webp 809w, img/pomysl/niewazkosc-butelka-3-full.webp 809w" sizes="(max-width:960px) 60vw, 30vw" width="809" height="813" alt="Dziewczynka trzyma butelkę z wodą" data-duze="img/pomysl/niewazkosc-butelka-3-full.webp" loading="lazy" draggable="false"></figure><figure data-i="7" data-lb="img/pomysl/niewazkosc-butelka-4-full.webp" data-t="Jak zrobić nieważkość w klasie? Z butelką i miską" aria-label="Powiększ: Dziewczynka upuszcza butelkę z wysoko uniesionej ręki"><img src="img/pomysl/niewazkosc-butelka-4-900.webp" srcset="img/pomysl/niewazkosc-butelka-4-900.webp 516w, img/pomysl/niewazkosc-butelka-4-full.webp 633w" sizes="(max-width:960px) 60vw, 30vw" width="516" height="900" alt="Dziewczynka upuszcza butelkę z wysoko uniesionej ręki" data-duze="img/pomysl/niewazkosc-butelka-4-full.webp" loading="lazy" draggable="false"></figure></div><span class="babel"></span><button class="zd-lupa" type="button" id="powieksz"><svg aria-hidden="true"><use href="#lupa"/></svg><span>Powiększ</span></button></div><div class="kropki"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+  <div class="pz-info info-p">
+    <a class="dz" href="pomysl-i-zrob.html">Pomyśl i zrób &middot; Fizyka</a>
+    <h1>Jak zrobić nieważkość w klasie? Z butelką i miską</h1>
+    
+    
+    <div class="pz-kroki"><span>pytanie badawcze</span><span>hipoteza</span><span>doświadczenie</span><span>wnioski</span></div>
+    <div class="pobierz"><a class="btn nieb" href="karty/niewazkosc-w-klasie-butelka-i-miska.pdf" target="_blank" rel="noopener">Karta pracy PDF</a><a class="btn nieb" href="pomysl-i-zrob.html">Wszystkie doświadczenia</a></div>
+    <p class="pz-bez">Doświadczenie bez ceny i koszyka.</p>
+    <p class="przypis">* Doświadczenie i rysunki autora.</p>
+  </div>
+</div>
+
+<div style="height:clamp(30px,4vw,70px)"></div>
+</main>
+<footer class="stopka">
+  <div class="wrap">
+    <div class="st-g">
+      <div>
+        <a class="logo" href="index.html" aria-label="zabawkifizyczne.com.pl - strona główna"><svg aria-hidden="true"><use href="index.html#znak"/></svg><span class="lt"><b>zabawkifizyczne</b><i>.com.pl</i></span></a>
+        <address>Zabawki Fizyczne<br>Majdan Sieniawski 378, 37-534 Majdan Sieniawski<br><a href="tel:+48885176045">+48 885 176 045</a></address>
+      </div>
+      <div><h3>Kategorie</h3><ul><li><a href="zabawki-fizyczne.html"><svg class="ik-k" aria-hidden="true"><use href="#kolba"/></svg>Fizyka i eksperymenty</a></li><li><a href="index.html#kategorie">Odkrywanie</a></li><li><a href="index.html#ponadczasowe">Ponadczasowe i gry</a></li><li><a href="index.html#kategorie">Gniotki i masy plastyczne</a></li><li><a href="index.html#kieszonkowe">Doświadczenia za grosze</a></li></ul></div>
+      <div><h3>Zakupy</h3><ul><li><a href="index.html#dostawa">Wysyłka</a></li><li><a href="index.html#dostawa">Zwroty towarów</a></li><li><a href="index.html#dostawa">Regulamin</a></li><li><a href="index.html#dostawa">Polityka prywatności</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
+      <div><h3>Dla nauczycieli</h3><ul><li><a href="index.html#doswiadczenie">Metoda naukowa</a></li><li><a href="index.html#doswiadczenie">Eksperymenty</a></li><li><a href="index.html#doswiadczenie">Metoda projektów</a></li><li><a href="blog.html">Blog</a></li><li><a href="wideo.html">Wideo</a></li><li><a href="publikacje.html">Publikacje PDF</a></li><li><a href="pomysl-i-zrob.html">Pomyśl i zrób</a></li></ul></div>
+    </div>
+    <div class="st-d">
+      <p>© 2026 Zabawki Fizyczne. Sprzedawca: Zabawki Progresywne „Beata i Adam Rzeźnik” Adam Rzeźnik, NIP 794-162-86-16.</p>
+      <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=zabawkifizyczne.com.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Powiększenie zdjęcia">
+  <button class="x" type="button" aria-label="Zamknij"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4l12 12M16 4 4 16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+  <button class="p" type="button" aria-label="Poprzednie zdjęcie"><svg aria-hidden="true"><use href="#lewo"/></svg></button>
+  <img alt="">
+  <p></p>
+  <button class="n" type="button" aria-label="Następne zdjęcie"><svg aria-hidden="true"><use href="#prawo"/></svg></button>
+</div>
+<script src="app.js" defer></script>
+<script src="strona.js" defer></script>
+<script>
+(function(){
+  var s=document.getElementById('pz-scena');if(!s)return;
+  var b=document.getElementById('pz-scisk'),st=document.getElementById('pz-stan'),r=s.querySelector('.nurek-svg');
+  var TXT={zakraplacz:'Woda wchodzi do zakraplacza, pęcherzyk powietrza się zmniejsza i nurek tonie.',keczup:'Woda ściska pęcherzyk powietrza w saszetce, saszetka zajmuje mniej miejsca i tonie.',probowka:'Woda wchodzi do probówki, powietrze zajmuje mniej miejsca i probówka tonie.'};
+  function ustaw(on,cicho){s.classList.toggle('scisk',on);b.setAttribute('aria-pressed',on?'true':'false');
+    b.lastChild.textContent=on?'Puść butelkę':'Ściśnij butelkę';
+    st.textContent=cicho?'':(on?TXT[s.dataset.nurek||'zakraplacz']:'Powietrze znów się rozpręża i nurek wypływa.')}
+  b.addEventListener('click',function(){ustaw(!s.classList.contains('scisk'))});
+  r.addEventListener('click',function(){ustaw(!s.classList.contains('scisk'))});
+  [].forEach.call(s.querySelectorAll('.nk-wyb button'),function(x,i,all){x.addEventListener('click',function(){
+    [].forEach.call(all,function(y){y.setAttribute('aria-pressed',y===x?'true':'false')});
+    s.dataset.nurek=x.getAttribute('data-n');ustaw(false,true)})});
+})();
+(function(){
+  var s=document.getElementById('kt-scena');if(!s)return;
+  var b=document.getElementById('kt-pusc'),st=document.getElementById('kt-stan'),t;
+  b.addEventListener('click',function(){clearTimeout(t);s.classList.remove('spad');void s.offsetWidth;s.classList.add('spad');
+    b.lastChild.textContent='Puść jeszcze raz';st.textContent='Kartka pionowa spada pierwsza...';
+    t=setTimeout(function(){st.textContent='Kartka pionowa przecina powietrze krawędzią i spada szybko. Płaska napiera na powietrze całą powierzchnią, więc kołysze się i spada później.'},3300)});
+})();
+(function(){
+  /* e-doswiadczenie w ramce: wczytanie dopiero po zaladowaniu strony, gdy ramka zbliza sie do ekranu */
+  var fr=[].slice.call(document.querySelectorAll('.pz-e-ram iframe[data-src]'));if(!fr.length)return;
+  function wczytaj(f){if(!f.src)f.src=f.getAttribute('data-src')}
+  window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d.h!=='number')return;
+    fr.forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.max(200,d.h)+'px'})});
+  function start(){if(!('IntersectionObserver' in window)){fr.forEach(wczytaj);return}
+    var io=new IntersectionObserver(function(w){w.forEach(function(x){if(x.isIntersecting){wczytaj(x.target);io.unobserve(x.target)}})},{rootMargin:'300px 0px'});
+    fr.forEach(function(f){io.observe(f)})}
+  if(document.readyState==='complete')setTimeout(start,300);else window.addEventListener('load',function(){setTimeout(start,300)});
+  if(location.hash==='#e-dosw')fr.forEach(wczytaj);
+})();
+</script>
+</body>
+</html>
